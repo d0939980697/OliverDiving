@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小琉球潛水教練 Oliver | 李聖傑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans TC', sans-serif; background: #0a1628; color: #e0e8f0; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Nav */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(10,22,40,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+nav .container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+nav .logo { font-size: 22px; font-weight: 900; color: #4fc3f7; }
+nav .logo span { color: #fff; }
+nav .nav-links { display: flex; gap: 28px; font-size: 14px; }
+nav .nav-links a { color: #aab4c0; transition: color 0.3s; }
+nav .nav-links a:hover { color: #4fc3f7; }
+.menu-toggle { display: none; font-size: 24px; cursor: pointer; color: #fff; }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #0a1628 0%, #0d2b4a 50%, #0a1628 100%); }
+.hero::before { content: ''; position: absolute; inset: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><circle cx="400" cy="300" r="250" fill="none" stroke="%234fc3f7" stroke-width="0.5" opacity="0.08"/><circle cx="400" cy="300" r="180" fill="none" stroke="%234fc3f7" stroke-width="0.5" opacity="0.06"/><circle cx="400" cy="300" r="400" fill="none" stroke="%234fc3f7" stroke-width="0.3" opacity="0.04"/></svg>') center/cover; pointer-events: none; }
+.hero .container { position: relative; z-index: 1; text-align: center; }
+.hero h1 { font-size: 52px; font-weight: 900; margin-bottom: 10px; }
+.hero h1 span { color: #4fc3f7; }
+.hero .subtitle { font-size: 20px; color: #88b0d0; font-weight: 300; margin-bottom: 8px; }
+.hero .tagline { font-size: 18px; color: #4fc3f7; margin-bottom: 30px; }
+.hero .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 14px 36px; border-radius: 50px; font-size: 16px; font-weight: 700; transition: all 0.3s; }
+.btn-primary { background: #4fc3f7; color: #0a1628; }
+.btn-primary:hover { background: #81d4fa; transform: translateY(-2px); }
+.btn-outline { border: 2px solid #4fc3f7; color: #4fc3f7; }
+.btn-outline:hover { background: #4fc3f7; color: #0a1628; }
+.hero .scroll { margin-top: 60px; color: #4fc3f7; font-size: 14px; animation: bounce 2s infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+/* Sections */
+section { padding: 90px 0; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 32px; font-weight: 900; margin-bottom: 8px; }
+.section-title p { color: #88b0d0; font-size: 16px; }
+
+/* About */
+.about { background: #0c1e34; }
+.about .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.about .photo { width: 100%; aspect-ratio: 1; border-radius: 20px; background: linear-gradient(135deg, #1a3a5c, #0d2b4a); display: flex; align-items: center; justify-content: center; color: #4fc3f7; font-size: 60px; overflow: hidden; }
+.about .photo img { width: 100%; height: 100%; object-fit: cover; }
+.about h3 { font-size: 24px; margin-bottom: 15px; }
+.about p { line-height: 1.8; color: #aab4c0; margin-bottom: 15px; }
+.about .creds { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+.about .creds span { background: rgba(79,195,247,0.1); border: 1px solid rgba(79,195,247,0.2); border-radius: 8px; padding: 8px 16px; font-size: 13px; color: #4fc3f7; }
+
+/* Courses */
+.courses .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+.courses .card { background: #0c1e34; border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.06); transition: all 0.3s; }
+.courses .card:hover { border-color: #4fc3f7; transform: translateY(-4px); }
+.courses .card .icon { font-size: 36px; margin-bottom: 12px; }
+.courses .card h3 { font-size: 18px; margin-bottom: 8px; }
+.courses .card p { font-size: 14px; color: #88b0d0; line-height: 1.6; }
+
+/* Gallery */
+.gallery { background: #0c1e34; }
+.gallery .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gallery .item { aspect-ratio: 1; border-radius: 12px; background: linear-gradient(135deg, #1a3a5c, #0d2b4a); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.gallery .item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gallery .item:hover img { transform: scale(1.05); }
+
+/* Contact */
+.contact { text-align: center; }
+.contact .links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
+.contact .links a { display: flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; font-size: 15px; }
+.contact .links a:hover { background: #4fc3f7; color: #0a1628; border-color: #4fc3f7; }
+.contact .ig { display: inline-block; margin-top: 10px; color: #88b0d0; }
+
+/* Footer */
+footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.06); color: #556; font-size: 13px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background: #0a1628; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: block; }
+  .hero h1 { font-size: 32px; }
+  .about .grid { grid-template-columns: 1fr; }
+  .gallery .grid { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 60px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">OLIVER<span>潛水</span></div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">關於</a>
+      <a href="#courses">課程</a>
+      <a href="#gallery">作品</a>
+      <a href="#contact">預約</a>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="subtitle">🤿 小琉球 · 潛水教練</div>
+    <h1>李聖傑 <span>Oliver</span></h1>
+    <div class="tagline">「為了讓你零意外，我有點貴」</div>
+    <div class="btn-group">
+      <a href="#courses" class="btn btn-primary">探索課程</a>
+      <a href="https://lin.ee/xxx" class="btn btn-outline">LINE 諮詢</a>
+    </div>
+    <div class="scroll">▼ 往下探索</div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>關於 Oliver</h2>
+      <p>小琉球潛水教練 · SDI/TDI 教練</p>
+    </div>
+    <div class="grid">
+      <div class="photo">
+        <span>🤿</span>
+      </div>
+      <div>
+        <h3>你好，我是 Oliver 😊</h3>
+        <p>我是小琉球的潛水教練，熱愛水下的一切。從水肺潛水到 DPV 水底推進器，從休閒潛水到技術潛水，我希望每一位學生都能安全、開心地探索內太空。</p>
+        <p>我的教學理念很簡單：<strong>「紮實訓練，安全第一」</strong>。也許我嚴格了點，但那是為了讓你在水下零意外。</p>
+        <div class="creds">
+          <span>🏅 SDI 教練</span>
+          <span>🤿 水底推進器專長</span>
+          <span>🌊 小琉球在地</span>
+          <span>📸 水下攝影</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <div class="container">
+    <div class="section-title">
+      <h2>課程介紹</h2>
+      <p>從初學到進階，找到適合你的潛水課</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🌊</div>
+        <h3>OW 開放水域</h3>
+        <p>從零開始學潛水，取得國際認證潛水員證照。紮實的基本功訓練。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>AOW 進階開放水域</h3>
+        <p>深化潛水技巧，學習夜潛、深潛、導航等專長項目。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>DPV 水底推進器</h3>
+        <p>我的招牌課程！學會用推進器輕鬆探索更大範圍的海底世界。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3>Sidemount 側掛</h3>
+        <p>側掛氣瓶配置，更靈活的水下活動，適合進階潛水員。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📸</div>
+        <h3>水下攝影</h3>
+        <p>教你用手機或相機拍出漂亮的水下照片和影片。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>體驗潛水</h3>
+        <p>沒有證照也沒關係！專業教練一對一帶你安全體驗潛水樂趣。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-title">
+      <h2>水下作品</h2>
+      <p>小琉球海底日常</p>
+    </div>
+    <div class="grid">
+      <div class="item"><span>🤿</span></div>
+      <div class="item"><span>🦈</span></div>
+      <div class="item"><span>🐢</span></div>
+      <div class="item"><span>🫧</span></div>
+      <div class="item"><span>🐠</span></div>
+      <div class="item"><span>🌊</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>預約諮詢</h2>
+      <p>有興趣潛水課程嗎？來聊聊吧！</p>
+    </div>
+    <div class="links">
+      <a href="#">💬 LINE 諮詢</a>
+      <a href="#">📸 Instagram</a>
+      <a href="#">📞 電話預約</a>
+    </div>
+    <div class="ig">📱 IG @d0939980697</div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 小琉球潛水教練 Oliver 李聖傑 | 🤿 Dive with Oliver
+  </div>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active')));
+</script>
+</body>
+</html>
