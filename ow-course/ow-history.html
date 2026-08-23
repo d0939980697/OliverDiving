@@ -19,6 +19,8 @@
   .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
   .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
   .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
   .quiz p { font-weight:600; margin-bottom:8px; }
@@ -35,6 +37,7 @@
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
 </style>
 </head>
 <body>
@@ -47,9 +50,13 @@
 
   <div class="card">
     <h2><span class="icon">🕰️</span>潛水不是近代才有的</h2>
-    <p>人類想潛水的念頭，<strong>比你想的早幾千年</strong>。</p>
-    <p>古時候沒有氣瓶，但人們已經在採珍珠、撈海產、打仗搞偷襲——靠的是<strong>憋一口氣</strong>。</p>
+    <p>人類想潛水的念頭，<strong>比你想的早幾千年</strong>。古時候沒有氣瓶，但人們已經在採珍珠、撈海產、打仗搞偷襲——靠的是<strong>憋一口氣</strong>。</p>
     <div class="emoji-box">🗿 古代採珍珠 → 🪣 撈海綿 → ⚔️ 水下偷襲</div>
+    <div class="pro">
+      <span class="pro-tag">📖 專業補充</span><br>
+      <strong>自由潛水（Freediving）：</strong>不帶氣瓶、單靠閉氣下潛的技術，是人類最早的潛水方式。<br>
+      <strong>商業潛水（Commercial Diving）：</strong>19 世紀起用銅盔潛水衣進行水下工程，是現代潛水的職業前身。
+    </div>
   </div>
   <div class="card">
     <h2><span class="icon">🎈</span>關鍵發明：空氣從哪來</h2>
@@ -58,9 +65,14 @@
       <tr><td>1535</td><td>潛水鐘</td><td>倒扣的桶，裡面有空氣能呼吸</td></tr>
       <tr><td>1690</td><td>潛水桶</td><td>桶子套頭，從水面送氣下來</td></tr>
       <tr><td>1800s</td><td>銅盔潛水衣</td><td>「重裝潛水員」登場，海底工作</td></tr>
-      <tr><td>1943</td><td>水肺（Aqua-Lung）</td><td>🎉 現代潛水的開始！</td></tr>
+      <tr><td>1943</td><td>水肺（Aqua-Lung）</td><td>🎉 現代休閒潛水的開始！</td></tr>
     </table>
-    <div class="analogy">🤿 <strong>Aqua-Lung（水肺）= 雅克·庫斯托和工程師發明的</strong>——把氣瓶背在背上，想潛就潛。從此潛水從「工作」變成「運動」。</div>
+    <div class="analogy">🤿 <strong>Aqua-Lung（水肺）= 雅克·庫斯托（Jacques Cousteau）和工程師 Émile Gagnan 發明</strong>——把氣瓶背在背上，想潛就潛。從此潛水從「工作」變成「運動」。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 認識機構</span><br>
+      <strong>Scuba Diving International（SDI）：</strong>成立於 1990 年代的潛水教育機構，強調「務實、以潛水員為中心」的教學。<br>
+      <strong>SDI 姊妹機構：</strong>TDI（技術潛水）、ERDI（公共安全潛水）、PFI（自由潛水）——都是 International Training 旗下。
+    </div>
   </div>
   <div class="card">
     <h2><span class="icon">🌊</span>現代潛水怎麼來的</h2>
@@ -68,41 +80,53 @@
       <li><strong>1950s</strong>：潛水成為休閒運動，開始有人教學</li>
       <li><strong>1960s</strong>：潛水機構成立（NAUI、PADI、SSI...）</li>
       <li><strong>1970s-80s</strong>：設備進步（BCD、殘壓錶、電腦錶）</li>
-      <li><strong>現在</strong>：SDI 等機構制定完整標準，潛水更安全</li>
+      <li><strong>1990s</strong>：SDI 成立，技術潛水觀念普及</li>
+      <li><strong>現在</strong>：電腦錶普及、標準更嚴、潛水更安全</li>
     </ul>
-    <p style="margin-top:10px;">你現在學的 OW，就是這 80 年來「安全性經驗」的總和——<strong>每一步標準背後都有人用生命換過教訓</strong>。</p>
+    <div class="pro">
+      <span class="pro-tag">📖 為什麼標準重要</span><br>
+      SDI 的每一條課程標準（深度限制、師生比、技能要求）都是<strong>風險管理的產物</strong>——來自真實事故的教訓。學科不是「考試用」，是保命用。
+    </div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（2 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
     <div class="quiz">
-      <p>1️⃣ 現代休閒潛水的開始是哪一年左右？</p>
+      <p>1️⃣ 現代休閒潛水的開始是哪一年？</p>
       <label><input type="radio" name="h1"> 1535</label>
       <label><input type="radio" name="h1"> 1943</label>
-      <label><input type="radio" name="h1"> 2000</label>
+      <label><input type="radio" name="h1"> 1990</label>
       <button class="btn" onclick="showAns('h1a')">看答案</button>
       <div class="answer" id="h1a">✅ 1943 年 Aqua-Lung（水肺）發明</div>
     </div>
     <div class="quiz">
-      <p>2️⃣ 為什麼現在的潛水課程標準很重要？</p>
-      <label><input type="radio" name="h2"> 讓機構賺錢</label>
-      <label><input type="radio" name="h2"> 每一條都是安全經驗的累積</label>
-      <label><input type="radio" name="h2"> 考試要用的</label>
+      <p>2️⃣ SDI 的姊妹機構不包含哪個？</p>
+      <label><input type="radio" name="h2"> TDI（技術潛水）</label>
+      <label><input type="radio" name="h2"> PFI（自由潛水）</label>
+      <label><input type="radio" name="h2"> PADI（休閒潛水）</label>
       <button class="btn" onclick="showAns('h2a')">看答案</button>
-      <div class="answer" id="h2a">✅ 每一條標準背後都有真實的教訓，是保護你的</div>
+      <div class="answer" id="h2a">✅ PADI 是另一個機構，不是 SDI 姊妹</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 為什麼課程標準每一條都很重要？</p>
+      <label><input type="radio" name="h3"> 讓機構賺錢</label>
+      <label><input type="radio" name="h3"> 都是風險管理的教訓</label>
+      <label><input type="radio" name="h3"> 考試要用的</label>
+      <button class="btn" onclick="showAns('h3a')">看答案</button>
+      <div class="answer" id="h3a">✅ 每一條標準背後都有真實教訓，是保護你的</div>
     </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li><strong>潛水有幾千年歷史</strong>，但現代潛水 1943 年才開始</li>
-      <li>你學的每一條規則，<strong>都有人用命換過</strong></li>
-      <li>尊重標準 = 尊重生命</li>
-</ol>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-environment.html">下一章 →</a>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
