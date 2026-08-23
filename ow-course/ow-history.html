@@ -144,6 +144,42 @@
     document.getElementById('progressBar').style.width = pct + '%';
   });
   function showAns(id) { document.getElementById(id).classList.add('show'); }
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+    checkAll();
+  }
+  function checkAll() {
+    var quizzes = document.querySelectorAll('.quiz');
+    var allOk = true;
+    quizzes.forEach(function(q) {
+      var ok = q.querySelector('label.correct');
+      if (!ok) allOk = false;
+    });
+    var btn = document.getElementById('nextBtn');
+    if (btn) {
+      if (allOk) {
+        btn.classList.remove('locked');
+        btn.textContent = '下一章 →';
+      } else {
+        btn.classList.add('locked');
+        btn.textContent = '🔒 下一章（先通過測驗）';
+      }
+    }
+  }
+
 </script>
 </body>
 </html>
