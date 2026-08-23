@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潛水歷史</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 1 章</span>
+  <h1>潛水歷史</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🕰️</span>潛水不是近代才有的</h2>
+    <p>人類想潛水的念頭，<strong>比你想的早幾千年</strong>。</p>
+    <p>古時候沒有氣瓶，但人們已經在採珍珠、撈海產、打仗搞偷襲——靠的是<strong>憋一口氣</strong>。</p>
+    <div class="emoji-box">🗿 古代採珍珠 → 🪣 撈海綿 → ⚔️ 水下偷襲</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🎈</span>關鍵發明：空氣從哪來</h2>
+    <table>
+      <tr><th>年代</th><th>發明</th><th>意義</th></tr>
+      <tr><td>1535</td><td>潛水鐘</td><td>倒扣的桶，裡面有空氣能呼吸</td></tr>
+      <tr><td>1690</td><td>潛水桶</td><td>桶子套頭，從水面送氣下來</td></tr>
+      <tr><td>1800s</td><td>銅盔潛水衣</td><td>「重裝潛水員」登場，海底工作</td></tr>
+      <tr><td>1943</td><td>水肺（Aqua-Lung）</td><td>🎉 現代潛水的開始！</td></tr>
+    </table>
+    <div class="analogy">🤿 <strong>Aqua-Lung（水肺）= 雅克·庫斯托和工程師發明的</strong>——把氣瓶背在背上，想潛就潛。從此潛水從「工作」變成「運動」。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🌊</span>現代潛水怎麼來的</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>1950s</strong>：潛水成為休閒運動，開始有人教學</li>
+      <li><strong>1960s</strong>：潛水機構成立（NAUI、PADI、SSI...）</li>
+      <li><strong>1970s-80s</strong>：設備進步（BCD、殘壓錶、電腦錶）</li>
+      <li><strong>現在</strong>：SDI 等機構制定完整標準，潛水更安全</li>
+    </ul>
+    <p style="margin-top:10px;">你現在學的 OW，就是這 80 年來「安全性經驗」的總和——<strong>每一步標準背後都有人用生命換過教訓</strong>。</p>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（2 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 現代休閒潛水的開始是哪一年左右？</p>
+      <label><input type="radio" name="h1"> 1535</label>
+      <label><input type="radio" name="h1"> 1943</label>
+      <label><input type="radio" name="h1"> 2000</label>
+      <button class="btn" onclick="showAns('h1a')">看答案</button>
+      <div class="answer" id="h1a">✅ 1943 年 Aqua-Lung（水肺）發明</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 為什麼現在的潛水課程標準很重要？</p>
+      <label><input type="radio" name="h2"> 讓機構賺錢</label>
+      <label><input type="radio" name="h2"> 每一條都是安全經驗的累積</label>
+      <label><input type="radio" name="h2"> 考試要用的</label>
+      <button class="btn" onclick="showAns('h2a')">看答案</button>
+      <div class="answer" id="h2a">✅ 每一條標準背後都有真實的教訓，是保護你的</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>潛水有幾千年歷史</strong>，但現代潛水 1943 年才開始</li>
+      <li>你學的每一條規則，<strong>都有人用命換過</strong></li>
+      <li>尊重標準 = 尊重生命</li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
