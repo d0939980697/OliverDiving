@@ -95,7 +95,7 @@
     </div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
     <div class="quiz">
       <p>1️⃣ 現代休閒潛水的開始是哪一年？</p>
       <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h1"> 1535</label>
@@ -123,7 +123,26 @@
       <button class="btn" onclick="showAns('h3a')">看答案</button>
       <div class="answer" id="h3a">✅ 每一條標準背後都有真實教訓，是保護你的</div>
     </div>
-  </div>
+  
+
+    <div class="quiz">
+      <p>4️⃣ 潛水鐘的原理是什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h4"> 裡面有燈泡</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="h4"> 倒扣的桶，裡面有空氣能呼吸</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h4"> 可以潛到 100 公尺</label>
+      <div class="fb" id="fbh4"></div>
+      <button class="btn" onclick="showAns('h4a')">看答案</button>
+      <div class="answer" id="h4a">✅ 倒扣的桶，靠裡面困住的空氣呼吸（1535 年）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 誰被稱為「現代潛水之父」之一？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h5"> 愛因斯坦</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h5"> 牛頓</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="h5"> 雅克·庫斯托（Jacques Cousteau）</label>
+      <div class="fb" id="fbh5"></div>
+      <button class="btn" onclick="showAns('h5a')">看答案</button>
+      <div class="answer" id="h5a">✅ 庫斯托發明 Aqua-Lung，開啟現代休閒潛水</div>
+    </div></div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
@@ -133,7 +152,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next locked" id="nextBtn" href="ow-environment.html">🔒 下一章（先通過測驗）</a>
+    <a class="btn-next" href="ow-environment.html">下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
@@ -158,25 +177,6 @@
       el.classList.add('wrong');
       fb.textContent = '❌ 答錯了，再看看上面內容再試';
       fb.className = 'fb no';
-    }
-    checkAll();
-  }
-  function checkAll() {
-    var quizzes = document.querySelectorAll('.quiz');
-    var allOk = true;
-    quizzes.forEach(function(q) {
-      var ok = q.querySelector('label.correct');
-      if (!ok) allOk = false;
-    });
-    var btn = document.getElementById('nextBtn');
-    if (btn) {
-      if (allOk) {
-        btn.classList.remove('locked');
-        btn.textContent = '下一章 →';
-      } else {
-        btn.classList.add('locked');
-        btn.textContent = '🔒 下一章（先通過測驗）';
-      }
     }
   }
 
