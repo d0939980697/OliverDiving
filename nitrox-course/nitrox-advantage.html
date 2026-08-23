@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>優缺點 · MOD · EAD</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">高氧電腦錶課程 · 第 3 章</span>
+  <h1>優缺點 · MOD · EAD</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">⚖️</span>高氧的優缺點（一次看）</h2>
+    <table>
+      <tr><th>優點 ✅</th><th>缺點/限制 ⚠️</th></tr>
+      <tr><td>免減壓時間更長</td><td>有最大操作深度（MOD）限制</td></tr>
+      <tr><td>水面間隔更短</td><td>氣瓶要分析、要標籤</td></tr>
+      <tr><td>氮醉風險較低</td><td>電腦錶要設定高氧模式</td></tr>
+      <tr><td>減壓病風險較低</td><td>設備/充氣站要「高氧專用」</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 迷思破除</span><br>
+      ❌ 「高氧讓你潛更深」→ <strong>錯！高氧反而限制深度</strong>（氧中毒）<br>
+      ❌ 「高氧氣瓶特別危險」→ 一般裝備只要「O₂ 潔淨」即可<br>
+      ❌ 「高氧 = 純氧」→ 錯，課程最高 40%<br>
+      ✅ 「高氧讓同一深度能待更久」→ <strong>對！</strong>
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">📏</span>MOD：最大操作深度（重點！）</h2>
+    <p><strong>MOD = 這個氧濃度，最多能下多深。</strong>超過就氧中毒。</p>
+    <div class="formula">MOD = (PO₂ 限制 ÷ 氧濃度) − 1 bar → 換算深度</div>
+    <div class="analogy">🚦 想像氧氣濃度是「限速」：氧濃度越高 → 深度「限速」越低 → 不能下太深。<br>就像機車不能上國道——不是車不好，是規則不同！</div>
+    <div class="pro">
+      <span class="pro-tag">📖 常見 MOD（PO₂=1.4 bar）</span><br>
+      <strong>EANx32（32%）：</strong>MOD ≈ <strong>33.75 公尺</strong><br>
+      <strong>EANx36（36%）：</strong>MOD ≈ <strong>28.9 公尺</strong><br>
+      <strong>EANx40（40%）：</strong>MOD ≈ <strong>25 公尺</strong><br><br>
+      記法：<strong>氧越多、MOD 越淺</strong>！
+    </div>
+    <div class="tip">💡 電腦錶會自動算 MOD 並警告你——但你要「自己也會算」才專業（考試要考！）</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🧮</span>EAD：等效空氣深度</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 概念</span><br>
+      <strong>EAD（Equivalent Air Depth）：</strong>把「高氧潛水」換算成「空氣潛水」的等效深度——方便用舊的潛水錶/表格算氮氣吸收。<br>
+      <strong>重點：</strong>本課程<strong>只需要「了解概念」</strong>（SDI §10.10 只要求演示），現代電腦錶自己會算，不用手算。
+    </div>
+    <div class="analogy">🧭 想像 EAD 是「翻譯機」：高氧的深度 → 翻譯成「如果用空氣，這個深度相當於多深」→ 查表就有答案。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 「高氧讓你潛更深」這句話？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a1"> 對，氧多體力好</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="a1"> 錯！高氧反而限制深度（MOD）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a1"> 看情況</label>
+      <div class="fb" id="fba1"></div>
+      <button class="btn" onclick="showAns('a1a')">看答案</button>
+      <div class="answer" id="a1a">✅ 錯！高氧氮少→能待更久，但氧多→深度受限</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ EANx32 的 MOD（PO₂=1.4）約是多少？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a2"> 50 公尺</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="a2"> 約 33.75 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a2"> 20 公尺</label>
+      <div class="fb" id="fba2"></div>
+      <button class="btn" onclick="showAns('a2a')">看答案</button>
+      <div class="answer" id="a2a">✅ EANx32 MOD ≈ 33.75m（氧越多 MOD 越淺）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 氧濃度越高，MOD 會？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="a3"> 越淺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a3"> 越深</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a3"> 不變</label>
+      <div class="fb" id="fba3"></div>
+      <button class="btn" onclick="showAns('a3a')">看答案</button>
+      <div class="answer" id="a3a">✅ 氧越多 MOD 越淺（40% 只有 25m，32% 有 33.75m）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ EAD（等效空氣深度）的用途是？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="a4"> 把高氧換算成空氣的等效深度（查表用）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a4"> 讓氣瓶更輕</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a4"> 算氣瓶剩餘氣量</label>
+      <div class="fb" id="fba4"></div>
+      <button class="btn" onclick="showAns('a4a')">看答案</button>
+      <div class="answer" id="a4a">✅ EAD 把高氧深度「翻譯」成空氣等效深度，方便查表</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 高氧氣瓶需要什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a5"> 什麼都不用</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="a5"> 氧氣潔淨（O₂ clean）+ 分析 + 標籤</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="a5"> 換成鋼瓶</label>
+      <div class="fb" id="fba5"></div>
+      <button class="btn" onclick="showAns('a5a')">看答案</button>
+      <div class="answer" id="a5a">✅ 高氧氣瓶要 O₂ clean、充完要分析、要貼標籤</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>高氧不是「更猛的氣」，是「氮更少的氣」</strong></li>
+      <li><strong>氧氣會中毒</strong>——高氧有深度限制（MOD）</li>
+      <li>用高氧前<strong>一定要分析氣瓶 + 設定電腦錶</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="nitrox-computer.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Computer Nitrox Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+
+
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
