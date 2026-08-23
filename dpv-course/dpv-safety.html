@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>安全考量</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">水底推進器課程 · 第 3 章</span>
+  <h1>安全考量</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">⚠️</span>水推的三大風險</h2>
+    <table>
+      <tr><th>風險</th><th>白話</th></tr>
+      <tr><td>螺旋槳纏繞</td><td>頭髮、繫繩、管線、海洋生物被捲進去——很危險！</td></tr>
+      <tr><td>車輛故障</td><td>半路沒電/卡住/漏水——你要能應變</td></tr>
+      <tr><td>失散</td><td>速度快→很容易跟潛伴/隊伍脫離</td></tr>
+    </table>
+    <div class="warn">⚠️ DPV 讓你移動更快 = 出狀況時「瞬間離很遠」。<strong>所以潛伴距離、隊伍紀律比一般潛水更重要！</strong></div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🌀</span>螺旋槳安全（超重要）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 SDI §12.9 防纏繞</span><br>
+      • 長髮<strong>一定要綁好</strong>收進帽子<br>
+      • 身體繫繩、管線<strong>不要垂在螺旋槳附近</strong><br>
+      • 開機前<strong>確認螺旋槳護罩</strong>完整<br>
+      • 不靠近海草/繩索/網具（容易纏）<br>
+      • 不把手伸進螺旋槳區域（即使關機）
+    </div>
+    <div class="analogy">🌀 螺旋槳像果汁機——<strong>什麼東西進去都會被絞爛</strong>。保持距離，安全第一！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🛠️</span>車輛故障應變</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>保持冷靜</strong>（水推壞了不代表你有危險）</li>
+      <li>通知潛伴/教練（打手勢）</li>
+      <li>判斷距離：離岸/船多遠？能自己踢回去嗎？</li>
+      <li><strong>決定：</strong>繼續潛（不依賴水推）或結束潛水</li>
+      <li>上升/回程<strong>照正常程序</strong>（安全停留不能省）</li>
+    </ol>
+    <div class="tip">💡 記住：<strong>水推是「輔助」，不是「必需品」</strong>——沒它你還是個合格的潛水員，照樣踢回去！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🤝</span>潛伴系統（水推版）</h2>
+    <ul style="margin-left:20px;">
+      <li>水推速度快——<strong>潛伴距離要更近</strong>（隨時看得到）</li>
+      <li>編隊行進：<strong>誰帶頭、誰殿後</strong>要講好</li>
+      <li>失散程序：找 1 分鐘 → 上升 → 水面集合（同一般）</li>
+      <li><strong>雙載（Tandem）</strong>：兩人一機，課程會教</li>
+    </ul>
+    <div class="pro">
+      <span class="pro-tag">📖 水推編隊原則</span><br>
+      • 帶頭者控制速度（<strong>要讓大家都跟得上</strong>）<br>
+      • 轉彎/停車<strong>提前打手勢</strong><br>
+      • 不要並排貼太近（碰撞風險）<br>
+      • 每 1-2 分鐘回頭看隊友
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 螺旋槳纏繞最有效的預防是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s1"> 開快一點甩開</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s1"> 長髮綁好、管線收好、遠離海草</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s1"> 穿防寒衣就安全</label>
+      <div class="fb" id="fbs1"></div>
+      <button class="btn" onclick="showAns('s1a')">看答案</button>
+      <div class="answer" id="s1a">✅ 綁好頭髮、管線收好、遠離纏繞物</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ DPV 半路故障，第一步？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s2"> 拆開修理</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s2"> 保持冷靜、通知潛伴、判斷距離</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s2"> 馬上衝上水面</label>
+      <div class="fb" id="fbs2"></div>
+      <button class="btn" onclick="showAns('s2a')">看答案</button>
+      <div class="answer" id="s2a">✅ 冷靜→通知→判斷→決定（水推只是輔助）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 水推潛伴距離要比一般潛水？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s3"> 更遠（自由）</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s3"> 更近（速度快的關係）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s3"> 一樣就好</label>
+      <div class="fb" id="fbs3"></div>
+      <button class="btn" onclick="showAns('s3a')">看答案</button>
+      <div class="answer" id="s3a">✅ 更近！速度快，失散瞬間離很遠</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 水推編隊誰控制速度？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s4"> 最後面的人</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s4"> 帶頭者（要讓大家都跟得上）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s4"> 各管各的</label>
+      <div class="fb" id="fbs4"></div>
+      <button class="btn" onclick="showAns('s4a')">看答案</button>
+      <div class="answer" id="s4a">✅ 帶頭者控速，轉彎提前打手勢</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 水推故障時的正確心態？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s5"> 完蛋了</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s5"> 它只是輔助——我還是潛水員，踢回去就好</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s5"> 丟掉它</label>
+      <div class="fb" id="fbs5"></div>
+      <button class="btn" onclick="showAns('s5a')">看答案</button>
+      <div class="answer" id="s5a">✅ 水推是輔助不是必需品，照樣能安全回來</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>水推是「交通工具」，不是「玩具」</strong>——安全第一</li>
+      <li><strong>電池續航 = 你的回程票</strong>——記得折返點</li>
+      <li>水推風險：<strong>螺旋槳、故障、失散</strong>——靠訓練與潛伴</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="dpv-operation.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI DPV Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
