@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深潛是什麼</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">深潛專長課程 · 第 1 章</span>
+  <h1>深潛是什麼</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🏊</span>什麼是「深潛」？</h2>
+    <p>OW 課程教你潛到 <strong>18 公尺</strong>。深潛專長 = 帶你往更深的 <strong>18-40 公尺</strong>挑戰。</p>
+    <table>
+      <tr><th>範圍</th><th>說明</th></tr>
+      <tr><td>0-18m</td><td>OW 課程範圍（你學過的）</td></tr>
+      <tr><td>18-40m</td><td>✅ 深潛專長範圍（本課程）</td></tr>
+      <tr><td>40m+</td><td>技術潛水範圍（要更進階訓練）</td></tr>
+    </table>
+    <div class="analogy">⛰️ 深潛就像「爬高山」——不是走得更遠，是<strong>環境完全不同</strong>：氣壓更高、光線更暗、風險更大。<br>所以不能「憑勇氣」往下衝，要有<strong>系統訓練</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⚠️</span>深處有什麼不一樣？</h2>
+    <table>
+      <tr><th>深度影響</th><th>白話</th></tr>
+      <tr><td>氮醉更明顯</td><td>30m 以下像喝醉，判斷力下降</td></tr>
+      <tr><td>耗氣更快</td><td>壓力大→氣體密度高→同樣一口氣吸更多</td></tr>
+      <tr><td>免減壓時間更短</td><td>30m 只能待約 20 分鐘（vs 18m 約 56 分鐘）</td></tr>
+      <tr><td>光線暗、顏色消失</td><td>深處只剩藍黑，要帶燈</td></tr>
+      <tr><td>氧中毒風險</td><td>一般空氣在 40m 氧分壓達 1.4 bar（邊緣）</td></tr>
+    </table>
+    <div class="warn">⚠️ 深潛不是「爽」——是「謹慎」。每一步都要照計畫、看電腦錶。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">📋</span>SDI 深潛課程規定（先知道）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 課程標準</span><br>
+      <strong>先決條件：</strong>SDI OW 或同等級；最低 18 歲（10 歲需家長同意）<br>
+      <strong>師生比：</strong>開放水域最多 <strong>4:1</strong>（+助理可到 8）<br>
+      <strong>潛水：</strong>2 次開放水域（第 1 次 ≤30m、第 2 次 ≤40m + 模擬緊急）<br>
+      <strong>青少年限制：</strong>10-14 歲不能超過 <strong>21 公尺</strong><br>
+      <strong>合併：</strong>可與「電腦錶專長」合併上
+    </div>
+    <div class="tip">💡 注意：這門課<strong>要下水 2 次</strong>（不像高氧純學科）——但學科部分你先在家讀完，現場時間省一半！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 深潛專長的深度範圍是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d1"> 0-18 公尺</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d1"> 18-40 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d1"> 40-60 公尺</label>
+      <div class="fb" id="fbd1"></div>
+      <button class="btn" onclick="showAns('d1a')">看答案</button>
+      <div class="answer" id="d1a">✅ 18-40m（40m 以上是技術潛水範圍）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 深處氮醉會？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d2"> 消失</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d2"> 更明顯（像喝醉）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d2"> 沒感覺</label>
+      <div class="fb" id="fbd2"></div>
+      <button class="btn" onclick="showAns('d2a')">看答案</button>
+      <div class="answer" id="d2a">✅ 30m 以下氮醉更明顯，判斷力下降</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 深潛課程第 2 次潛水深度上限？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d3"> 30 公尺</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d3"> 40 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d3"> 60 公尺</label>
+      <div class="fb" id="fbd3"></div>
+      <button class="btn" onclick="showAns('d3a')">看答案</button>
+      <div class="answer" id="d3a">✅ 第 2 次 ≤40m（第 1 次 ≤30m）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 10-14 歲青少年深潛限制？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d4"> 不能超過 21 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d4"> 不能超過 40 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d4"> 不能超過 18 公尺</label>
+      <div class="fb" id="fbd4"></div>
+      <button class="btn" onclick="showAns('d4a')">看答案</button>
+      <div class="answer" id="d4a">✅ 10-14 歲限 21m（SDI §11.5）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 深潛開放水域師生比最多？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d5"> 8:1</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d5"> 4:1（+助理最多 8）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d5"> 2:1</label>
+      <div class="fb" id="fbd5"></div>
+      <button class="btn" onclick="showAns('d5a')">看答案</button>
+      <div class="answer" id="d5a">✅ 4:1（深潛風險高，配比嚴）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>深潛 = 18-40 公尺</strong>，不是「敢下」就好</li>
+      <li><strong>深處三大風險：氮醉、耗氣快、減壓病</strong></li>
+      <li>深潛鐵律：<strong>照計畫、看電腦錶、慢慢上</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="deep-physiology.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Deep Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
