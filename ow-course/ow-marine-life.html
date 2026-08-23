@@ -19,6 +19,8 @@
   .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
   .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
   .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
   .quiz p { font-weight:600; margin-bottom:8px; }
@@ -35,6 +37,7 @@
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
 </style>
 </head>
 <body>
@@ -53,7 +56,11 @@
       <li>你摸牠（獅子魚、水母、火珊瑚）</li>
       <li>牠以為你要搶食物（魚咬一口就跑）</li>
     </ul>
-    <div class="tip">💡 黃金守則：<strong>「只看不摸」</strong>。潛水是去「參觀」，不是去「動手」。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 生態概念</span><br>
+      <strong>「只看不摸」不只是一條規則，更是生態保護：</strong><br>
+      珊瑚很脆弱，碰一下可能死亡；魚類被追趕會消耗能量。尊重牠們的空間，是潛水員的基本倫理。
+    </div>
   </div>
   <div class="card">
     <h2><span class="icon">🦂</span>常見的「不要碰」清單</h2>
@@ -66,6 +73,12 @@
       <tr><td>火珊瑚</td><td>像火燒的刺痛</td><td>不碰珊瑚（也能保護珊瑚）</td></tr>
       <tr><td>章魚/海鰻</td><td>被咬會見血</td><td>別把手伸進洞裡！</td></tr>
     </table>
+    <div class="pro">
+      <span class="pro-tag">📖 小琉球常見</span><br>
+      <strong>海龜：</strong>保育類，<strong>絕對不能碰、不能騎</strong>（違反野生動物保育法，最高罰 30 萬）。<br>
+      <strong>魔鬼海膽：</strong>小琉球很多，棘刺有毒——下水留意腳邊。<br>
+      <strong>獅子魚：</strong>外來種，小琉球海域可見，別伸手。
+    </div>
     <div class="warn">⚠️ <strong>最危險的動作：把手伸進礁石縫</strong>——裡面住著海鰻、章魚、石頭魚，你看不到牠，牠看得到你。</div>
   </div>
   <div class="card">
@@ -77,17 +90,23 @@
       <li>棘刺斷在肉裡：不要硬拔，上岸找醫護</li>
       <li>嚴重（呼吸困難、暈眩）→ 立即上岸叫救護車</li>
     </ol>
+    <div class="pro">
+      <span class="pro-tag">📖 急救原則</span><br>
+      <strong>水母螫傷：</strong>海水沖洗 → 用卡片刮除殘留觸鬚 → 熱水浸泡（40-45°C）可減痛。<br>
+      <strong>棘刺傷：</strong>熱水浸泡有助分解毒素（部分魚毒怕熱）。<br>
+      <strong>過敏反應：</strong>呼吸困難、嘴唇腫、全身起疹 → 立即送醫（可能過敏性休克）。
+    </div>
     <div class="analogy">🚑 記住：<strong>「上岸處理」優先於「水裡處理」</strong>。水裡亂搞只會更危險。</div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
-      <p>1️⃣ 潛水時遇到海龜/魚，正確做法是？</p>
+      <p>1️⃣ 潛水時遇到海龜，正確做法是？</p>
       <label><input type="radio" name="m1"> 追上去摸</label>
       <label><input type="radio" name="m1"> 保持距離、只看不摸</label>
       <label><input type="radio" name="m1"> 抓回來拍照</label>
       <button class="btn" onclick="showAns('m1a')">看答案</button>
-      <div class="answer" id="m1a">✅ 保持距離、只看不摸（尊重牠們也保護自己）</div>
+      <div class="answer" id="m1a">✅ 保持距離（碰海龜還可能違法！）</div>
     </div>
     <div class="quiz">
       <p>2️⃣ 為什麼不能把手伸進礁石縫？</p>
@@ -105,19 +124,27 @@
       <button class="btn" onclick="showAns('m3a')">看答案</button>
       <div class="answer" id="m3a">✅ 用海水沖（淡水會讓毒囊釋放更多毒）</div>
     </div>
+    <div class="quiz">
+      <p>4️⃣ 小琉球的海龜是？</p>
+      <label><input type="radio" name="m4"> 可以騎著玩</label>
+      <label><input type="radio" name="m4"> 保育類，絕對不能碰</label>
+      <label><input type="radio" name="m4"> 只有拍照才能碰</label>
+      <button class="btn" onclick="showAns('m4a')">看答案</button>
+      <div class="answer" id="m4a">✅ 保育類，碰觸違法（最高罰 30 萬）</div>
+    </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li><strong>只看不摸</strong>，海洋生物不會主動攻擊你</li>
-      <li><strong>手不伸進洞裡</strong>，腳不踩海底（螃蟹步）</li>
-      <li>被螫/被刺：冷靜、告訴潛伴、<strong>上岸處理</strong></li>
-</ol>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-physics-boyle.html">下一章 →</a>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
