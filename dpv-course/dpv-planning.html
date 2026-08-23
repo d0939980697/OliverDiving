@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潛水計畫與畢業</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">水底推進器課程 · 第 5 章</span>
+  <h1>潛水計畫與畢業</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🗺️</span>DPV 潛水計畫</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 SDI §12.5 計畫要素</span><br>
+      1. <strong>水面休息</strong>（兩次潛水間隔）<br>
+      2. <strong>最大免減壓時間</strong>（電腦錶）<br>
+      3. <strong>電池續航</strong>（來回夠不夠）<br>
+      4. <strong>氣量</strong>（去回 + 安全停留）<br>
+      5. <strong>折返點</strong>（電/氣/距離）<br>
+      6. 潛伴/隊伍編制
+    </div>
+    <div class="analogy">🧮 DPV 潛水計畫 = 一般潛水計畫 + <strong>「電池數學」</strong>。<br>把電池當第二顆「氣瓶」——來回都要留夠！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🧼</span>潛後保養（SDI §12.9）</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>淡水沖洗</strong>：鹽分會腐蝕，用完立刻沖</li>
+      <li><strong>電池</strong>：按說明充電/存放（不要過放）</li>
+      <li><strong>螺旋槳/軸</strong>：檢查纏繞物、清潔</li>
+      <li><strong>存放</strong>：陰涼乾燥、避免陽光直射</li>
+      <li><strong>運輸</strong>：固定好，避免碰撞</li>
+    </ul>
+    <div class="tip">💡 好好保養 = 下次出遊不故障！水推是高價裝備，值得照顧。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🤿</span>課程 2 次潛水（你會經歷的）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 第 1 次潛水</span><br>
+      潛水計畫 → 正確入水 → 水面使用 DPV → 帶 DPV 下潛 → 監測 DPV 和耗氣 → 上升出水 → 記錄潛水
+    </div>
+    <div class="pro">
+      <span class="pro-tag">📖 第 2 次潛水</span><br>
+      潛水計畫 → 入水下潛 → <strong>水下巡遊（tour）</strong> → 上升出水 → 記錄潛水
+    </div>
+    <div class="emoji-box">🎯 學完：你就能安全騎水推探索更廣的水下世界！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ DPV 潛水計畫多了什麼要素？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f1"> 沒有多</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f1"> 電池續航 + 折返點（電池數學）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f1"> 多帶食物</label>
+      <div class="fb" id="fbf1"></div>
+      <button class="btn" onclick="showAns('f1a')">看答案</button>
+      <div class="answer" id="f1a">✅ 電池續航、折返點——把電池當第二顆氣瓶</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 潛完 DPV 第一件事？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f2"> 放著明天再弄</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f2"> 淡水沖洗（鹽分會腐蝕）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f2"> 拆開來研究</label>
+      <div class="fb" id="fbf2"></div>
+      <button class="btn" onclick="showAns('f2a')">看答案</button>
+      <div class="answer" id="f2a">✅ 立刻淡水沖洗，防鹽分腐蝕</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 電池存放原則？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f3"> 避免過放、陰涼乾燥存放</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f3"> 放到完全沒電再充</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f3"> 放車廂曬太陽</label>
+      <div class="fb" id="fbf3"></div>
+      <button class="btn" onclick="showAns('f3a')">看答案</button>
+      <div class="answer" id="f3a">✅ 避免過放、陰涼乾燥（電池健康關鍵）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 課程第 2 次潛水主要內容？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f4"> 只在池子練習</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f4"> 水下巡遊（tour）+ 上升出水</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f4"> 不用下水</label>
+      <div class="fb" id="fbf4"></div>
+      <button class="btn" onclick="showAns('f4a')">看答案</button>
+      <div class="answer" id="f4a">✅ 第 2 次：水下巡遊（實際騎乘探索）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ DPV 課程師生比（開放水域）？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f5"> 2:1（SDI 最嚴格）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f5"> 6:1</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f5"> 8:1</label>
+      <div class="fb" id="fbf5"></div>
+      <button class="btn" onclick="showAns('f5a')">看答案</button>
+      <div class="answer" id="f5a">✅ 2:1！水推風險高，配比最嚴</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>水推是「交通工具」，不是「玩具」</strong>——安全第一</li>
+      <li><strong>電池續航 = 你的回程票</strong>——記得折返點</li>
+      <li>水推風險：<strong>螺旋槳、故障、失散</strong>——靠訓練與潛伴</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="index.html">回到課程總覽 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI DPV Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
