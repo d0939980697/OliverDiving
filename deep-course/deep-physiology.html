@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深潛物理生理</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">深潛專長課程 · 第 2 章</span>
+  <h1>深潛物理生理</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">⚖️</span>深處的壓力（3 ATA 以上）</h2>
+    <p>18m = 2.8 ATA、30m = 4 ATA、40m = 5 ATA。<strong>超過 3 ATA（20m）就是「深潛」的生理分界線</strong>。</p>
+    <div class="analogy">🎈 還記得波義耳定律？壓力越大，氣體密度越高。<br>40m（5 ATA）的空氣密度是水面的 5 倍——<strong>你每吸一口氣，吸入的氣體分子是水面的 5 倍！</strong></div>
+    <div class="pro">
+      <span class="pro-tag">📖 連鎖效應</span><br>
+      <strong>氣體密度高 → 呼吸阻力變大 → 耗氣更快 → CO₂ 累積 → 更喘 → 更緊張 → 耗氣更快</strong><br>
+      這是深潛的「惡性循環」——所以深潛要<strong>放慢、放鬆、控制呼吸</strong>。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">😵</span>氮醉（深潛最大的敵人）</h2>
+    <div class="analogy">🍺 30 公尺 = 微醺、40 公尺 = 更醉。而且<strong>你「不知道自己醉了」</strong>——這是氮醉最危險的地方！</div>
+    <div class="pro">
+      <span class="pro-tag">📖 馬丁尼定律</span><br>
+      <strong>每下潛 30 公尺 ≈ 喝一杯馬丁尼的影響。</strong><br>
+      <strong>症狀：</strong>嗨、放鬆、專注力下降、反應變慢、莫名自信。<br>
+      <strong>測試方法：</strong>課程中教練會要你做簡單測試（如數手指、認寫字板）確認你有沒有「醉」。<br>
+      <strong>解除：</strong>上升就清醒（可逆）。
+    </div>
+    <div class="warn">⚠️ 氮醉嚴重時會「著迷」——覺得深處好棒不想上去！這就是為什麼<strong>一定要有潛伴/教練盯</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🫧</span>免減壓時間 & 減壓病（深處更短）</h2>
+    <table>
+      <tr><th>深度</th><th>免減壓時間（約）</th></tr>
+      <tr><td>18m</td><td>約 56 分鐘</td></tr>
+      <tr><td>30m</td><td>約 20 分鐘</td></tr>
+      <tr><td>40m</td><td>約 9 分鐘</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 意義</span><br>
+      40m 只能待 <strong>9 分鐘</strong>（免減壓）——時間很寶貴！<br>
+      <strong>深潛計畫</strong> = 算好「下去、看一下、就上」的時間。<br>
+      超過免減壓 → 要減壓停留 → OW/深潛課程都<strong>不做減壓潛水</strong>。
+    </div>
+    <div class="tip">💡 電腦錶會倒數你的免減壓時間——深潛時<strong>每 1-2 分鐘看一次</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">💨</span>氧中毒 & CO₂（深處邊緣）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 一般空氣 40m 的氧分壓</span><br>
+      <strong>40m（5 ATA）× 21% 氧 = 1.05 ATA 氧分壓</strong>——還在安全範圍。<br>
+      但加上運動、緊張、CO₂ 累積 → 風險上升。<br>
+      <strong>CO₂（二氧化碳）：</strong>呼吸阻力大→CO₂ 累積→頭痛、喘、噁心——深潛要<strong>慢而深地呼吸</strong>。
+    </div>
+    <div class="warn">⚠️ 深潛 + 劇烈運動 + 緊張 = 氧中毒/CO₂ 風險疊加。深潛的原則：<strong>慢慢來，不逞強</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 40 公尺的壓力是水面的幾倍？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p1"> 3 倍（3 ATA）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p1"> 4 倍（4 ATA）</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p1"> 5 倍（5 ATA）</label>
+      <div class="fb" id="fbp1"></div>
+      <button class="btn" onclick="showAns('p1a')">看答案</button>
+      <div class="answer" id="p1a">✅ 40m = 5 ATA（水面 1 + 每 10m 加 1）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 氮醉最危險的地方是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p2"> 會痛</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p2"> 你「不知道自己醉了」</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p2"> 無法回復</label>
+      <div class="fb" id="fbp2"></div>
+      <button class="btn" onclick="showAns('p2a')">看答案</button>
+      <div class="answer" id="p2a">✅ 氮醉會讓你覺得「自己很正常」——所以需要潛伴/教練盯</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 30 公尺的免減壓時間約？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p3"> 56 分鐘</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p3"> 約 20 分鐘</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p3"> 約 9 分鐘</label>
+      <div class="fb" id="fbp3"></div>
+      <button class="btn" onclick="showAns('p3a')">看答案</button>
+      <div class="answer" id="p3a">✅ 30m 約 20 分鐘（40m 只有約 9 分鐘）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 深潛為什麼耗氣特別快？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p4"> 氣體密度高，每口吸入更多分子</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p4"> 氣瓶會漏氣</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p4"> 深處氧氣比較少</label>
+      <div class="fb" id="fbp4"></div>
+      <button class="btn" onclick="showAns('p4a')">看答案</button>
+      <div class="answer" id="p4a">✅ 高壓下氣體密度高，同樣一口氣消耗更多氣</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 深潛遇到氮醉怎麼處理？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p5"> 繼續潛更刺激</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p5"> 上升幾公尺就清醒，告訴潛伴</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p5"> 閉眼深呼吸就好</label>
+      <div class="fb" id="fbp5"></div>
+      <button class="btn" onclick="showAns('p5a')">看答案</button>
+      <div class="answer" id="p5a">✅ 氮醉可逆——上升就清醒，並通知潛伴/教練</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>深潛 = 18-40 公尺</strong>，不是「敢下」就好</li>
+      <li><strong>深處三大風險：氮醉、耗氣快、減壓病</strong></li>
+      <li>深潛鐵律：<strong>照計畫、看電腦錶、慢慢上</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="deep-equipment.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Deep Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
