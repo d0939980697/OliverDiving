@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浮力與中性浮力</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 4 章（補）</span>
+  <h1>浮力與中性浮力</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🎈</span>浮力：潛水員的「超能力」</h2>
+    <p>魚為什麼能停在水中不動？因為牠有<strong>魚鰾</strong>——調整浮力。你的「魚鰾」就是<strong>BCD + 肺部 + 配重</strong>的組合。</p>
+    <div class="analogy">🎈 想像自己是氣球：<br>氣太多 → 一直往上飄（浮力太大）<br>氣太少 → 一直往下沉（浮力不夠）<br><strong>「中性浮力」= 剛好停住，不飄不沉</strong>——這是潛水最重要的技巧。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⚖️</span>浮力的三個狀態</h2>
+    <table>
+      <tr><th>狀態</th><th>說明</th><th>例子</th></tr>
+      <tr><td>正浮力（Positive）</td><td>浮力 > 重力 → 往上浮</td><td>水面休息、BC 充氣</td></tr>
+      <tr><td>負浮力（Negative）</td><td>浮力 < 重力 → 往下沉</td><td>下潛、戴配重</td></tr>
+      <tr><td>中性浮力（Neutral）</td><td>浮力 = 重力 → 停在水中</td><td>懸浮、看珊瑚、拍照</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 阿基米德原理</span><br>
+      <strong>物體受到的浮力 = 排開液體的重量。</strong><br>
+      穿防寒衣 → 體積變大 → 浮力變大（所以配重要增加）。<br>
+      氣瓶用掉 → 氣瓶變輕 → 浮力變大（潛越久越容易飄）。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🛠️</span>怎麼控制浮力</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>配重（Weights）：</strong>先配到「水面眼睛平水面」的程度（教練會幫你調）</li>
+      <li><strong>BCD 充氣/洩氣：</strong>大範圍調整——下潛放氣、上浮充氣</li>
+      <li><strong>肺部微調：</strong>深呼吸=稍微上浮、淺呼吸=稍微下沉（<strong>不是憋氣！</strong>）</li>
+    </ol>
+    <div class="pro">
+      <span class="pro-tag">📖 配重原則</span><br>
+      <strong>正確配重測試：</strong>水面、BCD 洩氣、正常呼吸——水面應該在<strong>眼睛高度</strong>。<br>
+      <strong>配太少：</strong>下潛費力、一直往上飄。<br>
+      <strong>配太多：</strong>要一直游、耗氣快、容易累。<br>
+      <strong>快卸設計：</strong>配重帶/整合配重要有快卸扣——水面緊急時能一秒脫掉。
+    </div>
+    <div class="warn">⚠️ 緊急情況（BCD 故障）：配重快卸是你的救命繩——水面漂浮時脫掉配重立刻變正浮力。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🫁</span>肺部 vs 憋氣（重要！）</h2>
+    <div class="warn">
+      <strong>「用肺控制浮力」≠「憋氣」！</strong><br>
+      肺部微調是「呼吸深淺」的變化——<strong>永遠保持呼吸流通</strong>。<br>
+      憋氣 = 氣體困在肺裡 → 上升膨脹 → 肺破裂風險（波義耳章節！）
+    </div>
+    <div class="analogy">🫁 想像肺部是「氣囊」：吸飽 → 體積大 → 浮力大；吐光 → 體積小 → 浮力小。<br>但氣囊的門（氣管）<strong>永遠開著</strong>——只是呼吸深淺不同。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 「中性浮力」是什麼？</p>
+      <label><input type="radio" name="bu1"> 一直往上飄</label>
+      <label><input type="radio" name="bu1"> 停在水中不動、不飄不沉</label>
+      <label><input type="radio" name="bu1"> 一直往下沉</label>
+      <button class="btn" onclick="showAns('bu1a')">看答案</button>
+      <div class="answer" id="bu1a">✅ 停在水中不動（浮力=重力）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 潛水越久，氣瓶變輕，浮力會？</p>
+      <label><input type="radio" name="bu2"> 變小（更容易沉）</label>
+      <label><input type="radio" name="bu2"> 變大（更容易飄）</label>
+      <label><input type="radio" name="bu2"> 不變</label>
+      <button class="btn" onclick="showAns('bu2a')">看答案</button>
+      <div class="answer" id="bu2a">✅ 變大（氣瓶變輕 → 浮力變大 → 越潛越容易飄）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 配重正確的測試標準是？</p>
+      <label><input type="radio" name="bu3"> 水面時眼睛平水面</label>
+      <label><input type="radio" name="bu3"> 沉到海底</label>
+      <label><input type="radio" name="bu3"> 站在水底剛好</label>
+      <button class="btn" onclick="showAns('bu3a')">看答案</button>
+      <div class="answer" id="bu3a">✅ 水面、BCD 洩氣、正常呼吸時眼睛平水面</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 用肺部控制浮力時要注意？</p>
+      <label><input type="radio" name="bu4"> 憋氣效果最好</label>
+      <label><input type="radio" name="bu4"> 保持呼吸流通，只是深淺變化</label>
+      <label><input type="radio" name="bu4"> 完全不呼吸</label>
+      <button class="btn" onclick="showAns('bu4a')">看答案</button>
+      <div class="answer" id="bu4a">✅ 保持呼吸流通（憋氣 = 肺破裂風險）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="ow-equipment.html">下一章 →</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
