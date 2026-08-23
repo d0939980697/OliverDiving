@@ -27,6 +27,12 @@
   .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
   .quiz input { margin-right:8px; }
   .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .locked { opacity:0.4; pointer-events:none; }
   .answer.show { display:block; }
   .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
   .btn-coral { background:var(--coral); }
@@ -102,33 +108,37 @@
     <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 潛水時遇到海龜，正確做法是？</p>
-      <label><input type="radio" name="m1"> 追上去摸</label>
-      <label><input type="radio" name="m1"> 保持距離、只看不摸</label>
-      <label><input type="radio" name="m1"> 抓回來拍照</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m1"> 追上去摸</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="m1"> 保持距離、只看不摸</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m1"> 抓回來拍照</label>
+      <div class="fb" id="fbm1"></div>
       <button class="btn" onclick="showAns('m1a')">看答案</button>
       <div class="answer" id="m1a">✅ 保持距離（碰海龜還可能違法！）</div>
     </div>
     <div class="quiz">
       <p>2️⃣ 為什麼不能把手伸進礁石縫？</p>
-      <label><input type="radio" name="m2"> 會刮傷手</label>
-      <label><input type="radio" name="m2"> 裡面可能有海鰻/章魚/石頭魚</label>
-      <label><input type="radio" name="m2"> 沒為什麼，就是規定</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m2"> 會刮傷手</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="m2"> 裡面可能有海鰻/章魚/石頭魚</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m2"> 沒為什麼，就是規定</label>
+      <div class="fb" id="fbm2"></div>
       <button class="btn" onclick="showAns('m2a')">看答案</button>
       <div class="answer" id="m2a">✅ 裡面躲著你看不到的生物，牠會自衛攻擊</div>
     </div>
     <div class="quiz">
       <p>3️⃣ 被水母螫到，現場第一步？</p>
-      <label><input type="radio" name="m3"> 用淡水沖</label>
-      <label><input type="radio" name="m3"> 用海水沖，慢慢離開</label>
-      <label><input type="radio" name="m3"> 用力搓揉</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m3"> 用淡水沖</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="m3"> 用海水沖，慢慢離開</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m3"> 用力搓揉</label>
+      <div class="fb" id="fbm3"></div>
       <button class="btn" onclick="showAns('m3a')">看答案</button>
       <div class="answer" id="m3a">✅ 用海水沖（淡水會讓毒囊釋放更多毒）</div>
     </div>
     <div class="quiz">
       <p>4️⃣ 小琉球的海龜是？</p>
-      <label><input type="radio" name="m4"> 可以騎著玩</label>
-      <label><input type="radio" name="m4"> 保育類，絕對不能碰</label>
-      <label><input type="radio" name="m4"> 只有拍照才能碰</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m4"> 可以騎著玩</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="m4"> 保育類，絕對不能碰</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="m4"> 只有拍照才能碰</label>
+      <div class="fb" id="fbm4"></div>
       <button class="btn" onclick="showAns('m4a')">看答案</button>
       <div class="answer" id="m4a">✅ 保育類，碰觸違法（最高罰 30 萬）</div>
     </div>
@@ -142,7 +152,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next" href="ow-physics-boyle.html">下一章 →</a>
+    <a class="btn-next locked" id="nextBtn" href="ow-physics-boyle.html">🔒 下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
