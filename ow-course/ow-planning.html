@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潛水計畫與潛伴</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 6 章</span>
+  <h1>潛水計畫與潛伴</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🗺️</span>潛水前先計畫，計畫完才下水</h2>
+    <p>潛水不是「跳下去再說」——<strong>每一次潛水都應該有計畫</strong>。</p>
+    <div class="analogy">✈️ 飛行員起飛前有 checklist，潛水員下水前也有——<br>不是因為怕，是因為<strong>意外總發生在沒準備的人身上</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🤝</span>潛伴系統（Buddy System）</h2>
+    <p style="font-weight:600;">永遠不要一個人潛水。潛伴 = 你的第二條命。</p>
+    <ul style="margin-left:20px;">
+      <li>下水前跟潛伴<strong>討論計畫</strong>（深度、時間、路線、失散怎麼辦）</li>
+      <li>下水後<strong>保持在彼此看得到的距離</strong></li>
+      <li>失散 SOP：<strong>找 1 分鐘 → 水面找 1 分鐘 → 上升水面集合</strong></li>
+      <li>Buddy Check：下水前互相檢查裝備（你檢查我、我檢查你）</li>
+    </ul>
+    <div class="tip">💡 潛伴檢查口訣（BWRAF / 或台灣常用「潛伴互檢」）：<br>氣源開沒開、BCD 好不好、配重、殘壓、緊急計畫——<strong>互相檢查一次，省一條命</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🚤</span>船潛 vs 岸潛</h2>
+    <table>
+      <tr><th></th><th>船潛</th><th>岸潛</th></tr>
+      <tr><td>進出</td><td>背滾式/跨步入水，梯子上船</td><td>自己走下水</td></tr>
+      <tr><td>注意</td><td>聽船長/教練簡報、別離船</td><td>看浪、看潮汐、別走太遠</td></tr>
+      <tr><td>暈船</td><td>可能（先吃藥）</td><td>較少</td></tr>
+    </table>
+    <div class="warn">⚠️ 船潛鐵律：<strong>聽簡報！</strong>船長會說集合時間、緊急程序、水流資訊——別滑手機。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">💪</span>體能與過度勞累</h2>
+    <ul style="margin-left:20px;">
+      <li>潛水需要體力：<strong>前一天睡飽、當天吃飽</strong>（但別吃太撐）</li>
+      <li>扛裝備、逆流游 → 很累 → 累了容易慌、容易出錯</li>
+      <li>感覺喘不過氣 → <strong>停下來、抓穩、深呼吸</strong>，不要硬撐</li>
+    </ul>
+    <div class="analogy">🏊 潛水不是比賽！<br>「慢慢來」才是專業——快不是英雄，<strong>穩才是</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⛑️</span>急救常識（先知道有這些）</h2>
+    <ul style="margin-left:20px;">
+      <li>潛水意外 → 判斷呼吸心跳 → 叫救護 + CPR</li>
+      <li>氧氣急救：潛水意外現場<strong>給純氧</strong>是標準處置（O2 課程會教）</li>
+      <li>減壓病 → 高壓艙治療（小琉球最近在哪要問教練）</li>
+      <li>EMT 急救證照課程：建議學（教練會推薦）</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 潛伴失散了，第一步是？</p>
+      <label><input type="radio" name="p1"> 自己繼續潛</label>
+      <label><input type="radio" name="p1"> 原地找 1 分鐘</label>
+      <label><input type="radio" name="p1"> 馬上衝上水面</label>
+      <button class="btn" onclick="showAns('p1a')">看答案</button>
+      <div class="answer" id="p1a">✅ 原地找 1 分鐘 → 水面找 1 分鐘 → 上升集合</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 為什麼要潛伴互檢？</p>
+      <label><input type="radio" name="p2"> 互相聊天</label>
+      <label><input type="radio" name="p2"> 檢查對方裝備（氣源/BCD/配重）</label>
+      <label><input type="radio" name="p2"> 拍照留念</label>
+      <button class="btn" onclick="showAns('p2a')">看答案</button>
+      <div class="answer" id="p2a">✅ 檢查裝備——你的命可能在潛伴手上</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 潛水時覺得喘不過氣？</p>
+      <label><input type="radio" name="p3"> 用力游快一點</label>
+      <label><input type="radio" name="p3"> 停下來、抓穩、深呼吸</label>
+      <label><input type="radio" name="p3"> 憋氣忍一下</label>
+      <button class="btn" onclick="showAns('p3a')">看答案</button>
+      <div class="answer" id="p3a">✅ 停下來、抓穩、深呼吸（累了就休息，別硬撐）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>永遠不單獨潛水</strong>，潛伴是第二條命</li>
+      <li>下水前 <strong>計畫 + 互檢</strong>（氣源/BCD/配重/殘壓）</li>
+      <li>累就休息、慌就停——<strong>穩才是專業</strong></li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
