@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高氧電腦錶</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">高氧電腦錶課程 · 第 4 章</span>
+  <h1>高氧電腦錶</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">⌚</span>為什麼「電腦錶」配「高氧」？</h2>
+    <p>高氧潛水要算「氧分壓累積」——這不是心算能搞定的，<strong>交給電腦錶最可靠</strong>。</p>
+    <div class="analogy">📱 就像導航：你可以用紙本地圖（潛水錶），但有 GPS（電腦錶）誰還用紙本？<br>電腦錶 = 你的「潛水導航」——深度、時間、免減壓、氧分壓一次算好。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🖥️</span>電腦錶類型（SDI §10.10）</h2>
+    <table>
+      <tr><th>類型</th><th>白話</th></tr>
+      <tr><td>可調混合（Mix adjustable）</td><td>可以設定你用的氣體比例（22-40%）</td></tr>
+      <tr><td>氣體整合（Air integrated）</td><td>無線連殘壓錶，看氣量+算時間</td></tr>
+      <tr><td>高氧可編程（Nitrox programmable）</td><td>本課程要求的：能輸入氧濃度</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 設定重點</span><br>
+      <strong>每次換氣瓶都要重新設定氧濃度！</strong><br>
+      電腦錶會用你設定的濃度算：MOD、免減壓時間、氧分壓累積。<br>
+      <strong>設錯 = 算錯 = 危險</strong>（例如實際 32% 設成 21%，深度限制就算錯）。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⚠️</span>電腦錶使用鐵律</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>潛水前設定正確氣體</strong>（分析完就設定）</li>
+      <li><strong>全程戴著</strong>（它要追蹤你的氮氣/氧氣累積）</li>
+      <li><strong>尊重它</strong>（顯示免減壓歸零就該上升）</li>
+      <li><strong>潛完不亂借人</strong>（它記錄的是「你的」身體資料）</li>
+      <li><strong>電池/電量</strong>：下水前確認夠用</li>
+    </ol>
+    <div class="warn">⚠️ 電腦錶是「工具」不是「保命符」——它算得再準，你潛水計畫爛一樣出事。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 高氧電腦錶最重要的設定是？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="c1"> 氣瓶的氧濃度（22-40%）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c1"> 水溫</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c1"> 自己的體重</label>
+      <div class="fb" id="fbc1"></div>
+      <button class="btn" onclick="showAns('c1a')">看答案</button>
+      <div class="answer" id="c1a">✅ 氧濃度——電腦錶靠它算 MOD 和免減壓時間</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 「氣體整合」電腦錶的特點是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c2"> 會唱歌</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="c2"> 無線連殘壓錶，整合氣量資訊</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c2"> 可以打電話</label>
+      <div class="fb" id="fbc2"></div>
+      <button class="btn" onclick="showAns('c2a')">看答案</button>
+      <div class="answer" id="c2a">✅ 氣體整合 = 無線連殘壓，氣量+時間一起算</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 換了一瓶高氧，電腦錶要？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c3"> 不用動，它自己知道</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="c3"> 重新設定氧濃度</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c3"> 重開機就好</label>
+      <div class="fb" id="fbc3"></div>
+      <button class="btn" onclick="showAns('c3a')">看答案</button>
+      <div class="answer" id="c3a">✅ 每次換氣瓶都要重新設定（設錯=算錯=危險）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 電腦錶顯示免減壓時間歸零，表示？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c4"> 可以再待一下</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="c4"> 該上升了（做安全停留）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c4"> 電腦壞了</label>
+      <div class="fb" id="fbc4"></div>
+      <button class="btn" onclick="showAns('c4a')">看答案</button>
+      <div class="answer" id="c4a">✅ 尊重電腦錶：歸零=該上升，別硬撐</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 為什麼電腦錶不要亂借人？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c5"> 會弄丟</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="c5"> 它記錄的是「你的」氮氧累積資料</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="c5"> 借人會沒電</label>
+      <div class="fb" id="fbc5"></div>
+      <button class="btn" onclick="showAns('c5a')">看答案</button>
+      <div class="answer" id="c5a">✅ 電腦錶追蹤個人的氮氣/氧氣累積，借人=資料錯亂</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>高氧不是「更猛的氣」，是「氮更少的氣」</strong></li>
+      <li><strong>氧氣會中毒</strong>——高氧有深度限制（MOD）</li>
+      <li>用高氧前<strong>一定要分析氣瓶 + 設定電腦錶</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="nitrox-practice.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Computer Nitrox Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+
+
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
