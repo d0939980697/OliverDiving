@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>壓力與平衡</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 4 章</span>
+  <h1>壓力與平衡</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">👂</span>為什麼耳朵會痛？</h2>
+    <p>下潛時，水壓增加，把你耳內的氣腔「壓扁」。如果不平衡，耳朵就會痛，像坐飛機下降時那樣——但水裡更明顯。</p>
+    <div class="analogy">
+      🍿 耳朵裡有一個氣腔（中耳），連接鼻子的「通氣管」（耳咽管）。<br>
+      下潛時外面壓力大 → 氣腔被壓小 → 耳朵痛。<br>
+      就像捏扁的寶特瓶——<strong>要打開蓋子讓空氣跑進去</strong>。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🤧</span>平衡（Equalization）怎麼做</h2>
+    <p style="font-weight:600;">最常用：瓦薩爾瓦動作（捏鼻鼓氣）</p>
+    <ol style="margin-left:20px;">
+      <li>捏住鼻子</li>
+      <li>閉嘴，輕輕「鼓氣」到耳朵</li>
+      <li>聽到「啵」一聲 → 平衡成功</li>
+    </ol>
+    <div class="tip">💡 其他方法：吞口水、左右搖下巴、張嘴打哈欠</div>
+    <div class="warn">⚠️ 重要：<strong>耳朵痛 = 立刻停止下潛</strong>，上升一點點、重新平衡，再繼續。<br>絕對不要硬撐！硬撐 = 耳膜破裂風險。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🫁</span>肺部與面鏡的空腔</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>肺</strong>：上升時氣體膨脹 → 一定要正常呼吸（上一章講過）</li>
+      <li><strong>面鏡</strong>：下潛時面鏡會被「吸住」→ 鼻子呼一點氣進去就平衡了</li>
+      <li><strong>牙齒/鼻竇</strong>：感冒、鼻塞時空腔不通 → <strong>不要潛水！</strong></li>
+    </ul>
+    <div class="analogy">😷 感冒鼻塞就像「氣腔的蓋子卡住了」——下潛會痛、上升會痛，嚴重會受傷。<br><strong>感冒就取消潛水，沒有第二句話。</strong></div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 下潛時耳朵痛，正確做法是？</p>
+      <label><input type="radio" name="b1"> 硬撐繼續下</label>
+      <label><input type="radio" name="b1"> 停止下潛、上升一點、重新平衡</label>
+      <label><input type="radio" name="b1"> 用力捏鼻子憋氣</label>
+      <button class="btn" onclick="showAns('b1a')">看答案</button>
+      <div class="answer" id="b1a">✅ 停止下潛、上升一點、重新平衡（硬撐會傷耳膜）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 最常用的平衡方法是？</p>
+      <label><input type="radio" name="b2"> 捏鼻鼓氣（瓦薩爾瓦）</label>
+      <label><input type="radio" name="b2"> 用力咳嗽</label>
+      <label><input type="radio" name="b2"> 閉眼睛</label>
+      <button class="btn" onclick="showAns('b2a')">看答案</button>
+      <div class="answer" id="b2a">✅ 捏鼻鼓氣（或吞口水、搖下巴）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 感冒鼻塞可以潛水嗎？</p>
+      <label><input type="radio" name="b3"> 可以，忍一下就好</label>
+      <label><input type="radio" name="b3"> 不可以，空腔不通會受傷</label>
+      <label><input type="radio" name="b3"> 吃藥就好</label>
+      <button class="btn" onclick="showAns('b3a')">看答案</button>
+      <div class="answer" id="b3a">✅ 不可以！感冒/鼻塞 = 取消潛水</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>耳朵痛 = 停、上、平衡</strong>，別硬撐</li>
+      <li>平衡方法：捏鼻鼓氣、吞口水、搖下巴</li>
+      <li><strong>感冒鼻塞不潛水</strong>（空腔不通會受傷）</li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
