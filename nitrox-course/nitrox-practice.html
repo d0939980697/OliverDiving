@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>氧氣分析與實務</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">高氧電腦錶課程 · 第 5 章</span>
+  <h1>氧氣分析與實務</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🔬</span>氧氣分析儀：高氧的「驗貨工具」</h2>
+    <p>高氧氣瓶充完，<strong>一定要自己測氧濃度</strong>——不能只聽充氣站說「這是 32%」。</p>
+    <div class="analogy">🧪 就像買牛奶要看保存期限——<strong>高氧要「驗貨」</strong>。分析儀就是你的試紙，確認這瓶真的是你要的濃度。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 分析程序</span><br>
+      1. 校準分析儀（用一般空氣 21% 校正）<br>
+      2. 讓氣體流過感應器（用氣瓶壓力微開）<br>
+      3. 讀取穩定數值 → 記錄<br>
+      4. <strong>貼標籤</strong>：寫上氧濃度、MOD、日期、分析者<br>
+      5. 設定電腦錶的氧濃度 = 分析值
+    </div>
+    <div class="warn">⚠️ <strong>絕對不要吸「沒分析」的高氧！</strong>萬一實際是 50% 你當 32% 用，深度一深就氧中毒。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">📝</span>填氣站的 EAN 記錄（實務）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 記錄內容</span><br>
+      <strong>每支高氧氣瓶要記錄：</strong><br>
+      • 氧濃度（例如 32.1%）<br>
+      • MOD（最大操作深度）<br>
+      • 日期、氣瓶編號、分析者簽名<br><br>
+      <strong>填氣站記錄表（EAN fill log）</strong>：這是品質管理——出問題能追蹤。
+    </div>
+    <div class="tip">💡 SDI 畢業要求：分析 2 支氣瓶 + 記錄 1 支（含 MOD 和氧濃度）——你課堂上會實際做！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🎓</span>課程畢業要求（SDI §10.11）</h2>
+    <ul style="margin-left:20px;">
+      <li>✅ 知識測驗 <strong>80 分以上</strong>（100% 複習制）</li>
+      <li>✅ 分析至少 <strong>2 支</strong>高氧氣瓶 + 標籤</li>
+      <li>✅ 記錄 <strong>1 支</strong>氣瓶分析（MOD + 氧濃度）</li>
+      <li>✅ 編程高氧電腦錶（22-40%）</li>
+    </ul>
+    <div class="emoji-box">🎯 學完你就是「會用高氧的潛水員」！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 為什麼高氧氣瓶一定要自己分析？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o1"> 好玩</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o1"> 確認實際氧濃度（不能只聽充氣站說）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o1"> 充氣站要求的</label>
+      <div class="fb" id="fbo1"></div>
+      <button class="btn" onclick="showAns('o1a')">看答案</button>
+      <div class="answer" id="o1a">✅ 濃度算錯=深度算錯=氧中毒風險，一定要驗</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 分析儀校準用什麼氣體？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o2"> 純氧</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o2"> 一般空氣（21%）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o2"> 氮氣</label>
+      <div class="fb" id="fbo2"></div>
+      <button class="btn" onclick="showAns('o2a')">看答案</button>
+      <div class="answer" id="o2a">✅ 用一般空氣（21% 氧）校準</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 高氧氣瓶標籤要寫什麼？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o3"> 氧濃度 + MOD + 日期 + 分析者</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o3"> 只有自己的名字</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o3"> 氣瓶顏色</label>
+      <div class="fb" id="fbo3"></div>
+      <button class="btn" onclick="showAns('o3a')">看答案</button>
+      <div class="answer" id="o3a">✅ 濃度/MOD/日期/分析者——完整追蹤</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 設定電腦錶的氧濃度要用哪個值？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o4"> 充氣站說的</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o4"> 自己分析出來的數值</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o4"> 隨便填</label>
+      <div class="fb" id="fbo4"></div>
+      <button class="btn" onclick="showAns('o4a')">看答案</button>
+      <div class="answer" id="o4a">✅ 用自己分析的數值（最準）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ SDI 高氧電腦錶課程的知識測驗門檻？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o5"> 60 分</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o5"> 80 分（100% 複習制）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o5"> 100 分</label>
+      <div class="fb" id="fbo5"></div>
+      <button class="btn" onclick="showAns('o5a')">看答案</button>
+      <div class="answer" id="o5a">✅ 80 分以上（錯的題目要複習到會）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>高氧不是「更猛的氣」，是「氮更少的氣」</strong></li>
+      <li><strong>氧氣會中毒</strong>——高氧有深度限制（MOD）</li>
+      <li>用高氧前<strong>一定要分析氣瓶 + 設定電腦錶</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="index.html">回到課程總覽 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Computer Nitrox Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+
+
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
