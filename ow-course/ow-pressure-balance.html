@@ -19,6 +19,8 @@
   .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
   .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
   .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
   .quiz p { font-weight:600; margin-bottom:8px; }
@@ -35,6 +37,7 @@
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
 </style>
 </head>
 <body>
@@ -48,10 +51,12 @@
   <div class="card">
     <h2><span class="icon">👂</span>為什麼耳朵會痛？</h2>
     <p>下潛時，水壓增加，把你耳內的氣腔「壓扁」。如果不平衡，耳朵就會痛，像坐飛機下降時那樣——但水裡更明顯。</p>
-    <div class="analogy">
-      🍿 耳朵裡有一個氣腔（中耳），連接鼻子的「通氣管」（耳咽管）。<br>
-      下潛時外面壓力大 → 氣腔被壓小 → 耳朵痛。<br>
-      就像捏扁的寶特瓶——<strong>要打開蓋子讓空氣跑進去</strong>。
+    <div class="analogy">🍿 耳朵裡有一個氣腔（中耳），連接鼻子的「通氣管」（耳咽管）。下潛時外面壓力大 → 氣腔被壓小 → 耳朵痛。就像捏扁的寶特瓶——<strong>要打開蓋子讓空氣跑進去</strong>。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 解剖小教室</span><br>
+      <strong>中耳（Middle Ear）：</strong>含空氣的腔室，靠<strong>耳咽管（Eustachian Tube）</strong>連到鼻咽。<br>
+      下潛時外壓增加 → 中耳氣壓相對變低 → 耳膜被往內推 → 疼痛。<br>
+      <strong>平衡（Equalization）</strong>就是把空氣「送」進中耳，讓內外壓力一致。
     </div>
   </div>
   <div class="card">
@@ -62,20 +67,31 @@
       <li>閉嘴，輕輕「鼓氣」到耳朵</li>
       <li>聽到「啵」一聲 → 平衡成功</li>
     </ol>
-    <div class="tip">💡 其他方法：吞口水、左右搖下巴、張嘴打哈欠</div>
-    <div class="warn">⚠️ 重要：<strong>耳朵痛 = 立刻停止下潛</strong>，上升一點點、重新平衡，再繼續。<br>絕對不要硬撐！硬撐 = 耳膜破裂風險。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 其他方法</span><br>
+      <strong>吞口水 / 搖下巴（Toynbee）：</strong>吞嚥動作張開耳咽管。<br>
+      <strong>打哈欠：</strong>張嘴大幅移動下巴。<br>
+      <strong>重點：</strong>下潛要<strong>「早平衡、常平衡」</strong>——不要等痛了才做，每下 1-2 公尺就平衡一次。
+    </div>
+    <div class="warn">⚠️ 重要：<strong>耳朵痛 = 立刻停止下潛</strong>，上升一點點、重新平衡，再繼續。<strong>絕對不要硬撐！</strong>硬撐 = 耳膜破裂風險。</div>
   </div>
   <div class="card">
     <h2><span class="icon">🫁</span>肺部與面鏡的空腔</h2>
     <ul style="margin-left:20px;">
-      <li><strong>肺</strong>：上升時氣體膨脹 → 一定要正常呼吸（上一章講過）</li>
+      <li><strong>肺</strong>：上升時氣體膨脹 → 一定要正常呼吸（波義耳章節講過）</li>
       <li><strong>面鏡</strong>：下潛時面鏡會被「吸住」→ 鼻子呼一點氣進去就平衡了</li>
       <li><strong>牙齒/鼻竇</strong>：感冒、鼻塞時空腔不通 → <strong>不要潛水！</strong></li>
     </ul>
-    <div class="analogy">😷 感冒鼻塞就像「氣腔的蓋子卡住了」——下潛會痛、上升會痛，嚴重會受傷。<br><strong>感冒就取消潛水，沒有第二句話。</strong></div>
+    <div class="pro">
+      <span class="pro-tag">📖 面鏡平衡技巧</span><br>
+      面鏡空間小，下潛時外壓變大 → 面鏡像「吸盤」貼臉（擠壓傷）。<br>
+      解決：<strong>從鼻子呼一點氣</strong>進面鏡 → 內外壓力平衡 → 面鏡恢復。<br>
+      <strong>鼻竇擠壓：</strong>額頭/牙齒痛 = 鼻竇空腔被壓 → 無法平衡 → 上升一點，仍痛就取消潛水。
+    </div>
+    <div class="analogy">😷 感冒鼻塞就像「氣腔的蓋子卡住了」——下潛會痛、上升會痛，嚴重會受傷。<strong>感冒就取消潛水，沒有第二句話。</strong></div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 下潛時耳朵痛，正確做法是？</p>
       <label><input type="radio" name="b1"> 硬撐繼續下</label>
@@ -93,26 +109,34 @@
       <div class="answer" id="b2a">✅ 捏鼻鼓氣（或吞口水、搖下巴）</div>
     </div>
     <div class="quiz">
-      <p>3️⃣ 感冒鼻塞可以潛水嗎？</p>
-      <label><input type="radio" name="b3"> 可以，忍一下就好</label>
-      <label><input type="radio" name="b3"> 不可以，空腔不通會受傷</label>
-      <label><input type="radio" name="b3"> 吃藥就好</label>
+      <p>3️⃣ 面鏡被吸住怎麼解？</p>
+      <label><input type="radio" name="b3"> 用手拉開</label>
+      <label><input type="radio" name="b3"> 從鼻子呼一點氣進去</label>
+      <label><input type="radio" name="b3"> 不管它繼續潛</label>
       <button class="btn" onclick="showAns('b3a')">看答案</button>
-      <div class="answer" id="b3a">✅ 不可以！感冒/鼻塞 = 取消潛水</div>
+      <div class="answer" id="b3a">✅ 鼻子呼一點氣進去就平衡了</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 感冒鼻塞可以潛水嗎？</p>
+      <label><input type="radio" name="b4"> 可以，忍一下就好</label>
+      <label><input type="radio" name="b4"> 不可以，空腔不通會受傷</label>
+      <label><input type="radio" name="b4"> 吃藥就好</label>
+      <button class="btn" onclick="showAns('b4a')">看答案</button>
+      <div class="answer" id="b4a">✅ 不可以！感冒/鼻塞 = 取消潛水</div>
     </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li><strong>耳朵痛 = 停、上、平衡</strong>，別硬撐</li>
-      <li>平衡方法：捏鼻鼓氣、吞口水、搖下巴</li>
-      <li><strong>感冒鼻塞不潛水</strong>（空腔不通會受傷）</li>
-</ol>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-dcs-narcosis.html">下一章 →</a>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
