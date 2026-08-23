@@ -19,6 +19,8 @@
   .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
   .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
   .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
   .quiz p { font-weight:600; margin-bottom:8px; }
@@ -35,6 +37,7 @@
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
 </style>
 </head>
 <body>
@@ -48,7 +51,11 @@
   <div class="card">
     <h2><span class="icon">🗺️</span>潛水前先計畫，計畫完才下水</h2>
     <p>潛水不是「跳下去再說」——<strong>每一次潛水都應該有計畫</strong>。</p>
-    <div class="analogy">✈️ 飛行員起飛前有 checklist，潛水員下水前也有——<br>不是因為怕，是因為<strong>意外總發生在沒準備的人身上</strong>。</div>
+    <div class="analogy">✈️ 飛行員起飛前有 checklist，潛水員下水前也有——不是因為怕，是因為<strong>意外總發生在沒準備的人身上</strong>。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 潛水計畫要素</span><br>
+      <strong>每次下水前要確認：</strong>最大深度、預估時間、氣源需求、進出點、水流方向、緊急計畫（失散/減壓病/裝備故障）、潛伴分工。
+    </div>
   </div>
   <div class="card">
     <h2><span class="icon">🤝</span>潛伴系統（Buddy System）</h2>
@@ -59,7 +66,16 @@
       <li>失散 SOP：<strong>找 1 分鐘 → 水面找 1 分鐘 → 上升水面集合</strong></li>
       <li>Buddy Check：下水前互相檢查裝備（你檢查我、我檢查你）</li>
     </ul>
-    <div class="tip">💡 潛伴檢查口訣（BWRAF / 或台灣常用「潛伴互檢」）：<br>氣源開沒開、BCD 好不好、配重、殘壓、緊急計畫——<strong>互相檢查一次，省一條命</strong>。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 潛伴互檢口訣</span><br>
+      <strong>BWRAF（國際通用）：</strong><br>
+      <strong>B</strong> - BCD（充洩氣正常）<br>
+      <strong>W</strong> - Weights（配重固定、快卸可用）<br>
+      <strong>R</strong> - Releases（快卸扣是否鬆開狀態）<br>
+      <strong>A</strong> - Air（氣源開啟、殘壓充足）<br>
+      <strong>F</strong> - Final（最後確認：電腦錶、緊急計畫）
+    </div>
+    <div class="tip">💡 潛伴檢查是「互相」的——你檢查我、我檢查你，<strong>省一條命</strong>。</div>
   </div>
   <div class="card">
     <h2><span class="icon">🚤</span>船潛 vs 岸潛</h2>
@@ -69,6 +85,11 @@
       <tr><td>注意</td><td>聽船長/教練簡報、別離船</td><td>看浪、看潮汐、別走太遠</td></tr>
       <tr><td>暈船</td><td>可能（先吃藥）</td><td>較少</td></tr>
     </table>
+    <div class="pro">
+      <span class="pro-tag">📖 船潛簡報重點</span><br>
+      船長/潛導會說明：<strong>潛點地形、水流、集合時間、緊急程序、水面浮具位置</strong>。<br>
+      小琉球船潛常見：流強時要「負浮力入水」、出水時抓繩梯。
+    </div>
     <div class="warn">⚠️ 船潛鐵律：<strong>聽簡報！</strong>船長會說集合時間、緊急程序、水流資訊——別滑手機。</div>
   </div>
   <div class="card">
@@ -78,7 +99,12 @@
       <li>扛裝備、逆流游 → 很累 → 累了容易慌、容易出錯</li>
       <li>感覺喘不過氣 → <strong>停下來、抓穩、深呼吸</strong>，不要硬撐</li>
     </ul>
-    <div class="analogy">🏊 潛水不是比賽！<br>「慢慢來」才是專業——快不是英雄，<strong>穩才是</strong>。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 過度換氣風險</span><br>
+      喘不過氣時<strong>不要猛呼吸</strong>（過度換氣 → 二氧化碳過低 → 頭暈甚至暈厥）。<br>
+      正確：<strong>抓住東西、靜止、用調節器慢而深地呼吸</strong>，等心跳回復。
+    </div>
+    <div class="analogy">🏊 潛水不是比賽！「慢慢來」才是專業——快不是英雄，<strong>穩才是</strong>。</div>
   </div>
   <div class="card">
     <h2><span class="icon">⛑️</span>急救常識（先知道有這些）</h2>
@@ -88,9 +114,15 @@
       <li>減壓病 → 高壓艙治療（小琉球最近在哪要問教練）</li>
       <li>EMT 急救證照課程：建議學（教練會推薦）</li>
     </ul>
+    <div class="pro">
+      <span class="pro-tag">📖 潛水意外處置原則</span><br>
+      <strong>ABC：</strong>Airway（呼吸道）→ Breathing（呼吸）→ Circulation（循環）。<br>
+      <strong>給純氧：</strong>疑似減壓病/栓塞時，<strong>100% 氧氣</strong>是現場最重要的處置。<br>
+      <strong>不要：</strong>給患者喝水/咖啡、讓患者自己走、拖延送醫。
+    </div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 潛伴失散了，第一步是？</p>
       <label><input type="radio" name="p1"> 自己繼續潛</label>
@@ -100,12 +132,12 @@
       <div class="answer" id="p1a">✅ 原地找 1 分鐘 → 水面找 1 分鐘 → 上升集合</div>
     </div>
     <div class="quiz">
-      <p>2️⃣ 為什麼要潛伴互檢？</p>
-      <label><input type="radio" name="p2"> 互相聊天</label>
-      <label><input type="radio" name="p2"> 檢查對方裝備（氣源/BCD/配重）</label>
-      <label><input type="radio" name="p2"> 拍照留念</label>
+      <p>2️⃣ BWRAF 的 B 代表？</p>
+      <label><input type="radio" name="p2"> BCD（浮力背心）</label>
+      <label><input type="radio" name="p2"> Ball（球）</label>
+      <label><input type="radio" name="p2"> Boat（船）</label>
       <button class="btn" onclick="showAns('p2a')">看答案</button>
-      <div class="answer" id="p2a">✅ 檢查裝備——你的命可能在潛伴手上</div>
+      <div class="answer" id="p2a">✅ BCD 檢查（充洩氣正常）</div>
     </div>
     <div class="quiz">
       <p>3️⃣ 潛水時覺得喘不過氣？</p>
@@ -115,19 +147,27 @@
       <button class="btn" onclick="showAns('p3a')">看答案</button>
       <div class="answer" id="p3a">✅ 停下來、抓穩、深呼吸（累了就休息，別硬撐）</div>
     </div>
+    <div class="quiz">
+      <p>4️⃣ 疑似減壓病，現場最重要的處置？</p>
+      <label><input type="radio" name="p4"> 給患者喝水</label>
+      <label><input type="radio" name="p4"> 給 100% 純氧 + 送醫</label>
+      <label><input type="radio" name="p4"> 讓他休息一下</label>
+      <button class="btn" onclick="showAns('p4a')">看答案</button>
+      <div class="answer" id="p4a">✅ 給 100% 純氧（標準處置）+ 盡速送醫</div>
+    </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li><strong>永遠不單獨潛水</strong>，潛伴是第二條命</li>
-      <li>下水前 <strong>計畫 + 互檢</strong>（氣源/BCD/配重/殘壓）</li>
-      <li>累就休息、慌就停——<strong>穩才是專業</strong></li>
-</ol>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-navigation.html">下一章 →</a>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
