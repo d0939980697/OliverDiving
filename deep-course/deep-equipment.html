@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深潛裝備</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">深潛專長課程 · 第 3 章</span>
+  <h1>深潛裝備</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🎒</span>深潛裝備：跟淺潛哪裡不同？</h2>
+    <p>深潛不是「把淺潛裝備帶下去」就好——<strong>有些裝備是深潛專用或特別重要</strong>。</p>
+    <table>
+      <tr><th>裝備</th><th>深潛考量</th></tr>
+      <tr><td>氣瓶</td><td>深處耗氣快→可選大容量/雙瓶；要確認氣量夠回程+安全停留</td></tr>
+      <tr><td>調節器</td><td>高壓環境呼吸阻力大→挑「深潛適合」的調節器</td></tr>
+      <tr><td>BCD</td><td>浮力控制更重要（深處氣體壓縮，浮力變化大）</td></tr>
+      <tr><td>浮力袋（Lift bag）</td><td>緊急浮升、打撈用（深潛常用）</td></tr>
+      <tr><td>捲軸（Reel）</td><td>放浮力袋、導航用</td></tr>
+      <tr><td>備援氣源</td><td>深處離水面遠→備援氣源很重要</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 深潛必備</span><br>
+      <strong>殘壓錶/電腦錶：</strong>深處耗氣快，要「隨時」知道剩多少氣。<br>
+      <strong>潛水燈：</strong>30m 以下光線暗，要帶燈。<br>
+      <strong>寫字板（Slate）：</strong>記時間、深度、耗氣——氮醉時寫字也是測試。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🛟</span>浮力袋（Lift Bag）是什麼？</h2>
+    <div class="analogy">🎈 浮力袋 = 一個「可以充氣的大袋子」——<br>充氣後產生大浮力，可以：<br>① 緊急時把你帶上水面（比 BCD 更快）<br>② 打撈重物（綁在東西上充氣浮起）<br>③ 水面做浮標（告訴船你在哪）</div>
+    <div class="pro">
+      <span class="pro-tag">📖 用法重點</span><br>
+      浮力袋要<strong>接捲軸（Reel）</strong>控制——不然它會「瞬間飛上去」！<br>
+      充氣要慢慢來，控制上升速度。<br>
+      <strong>課程會教你實作。</strong>
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🫁</span>備援氣源（安全氣瓶）</h2>
+    <div class="warn">⚠️ 深處離水面遠——主氣瓶沒氣時，你不能「直接衝上去」！<br><strong>備援氣源</strong>就是你的第二條命。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 選項</span><br>
+      <strong>小氣瓶（Pony bottle）：</strong>掛在旁邊的小氣瓶，緊急用。<br>
+      <strong>雙瓶（Twins）：</strong>兩個主氣瓶，氣量加倍。<br>
+      <strong>原則：</strong>備援氣源要<strong>獨立</strong>（自己的調節器），不是共用主調節器。
+    </div>
+    <div class="tip">💡 緊急程序：發現氣不夠 → 通知潛伴 → 用備援/共享 → 慢慢上升 + 安全停留。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 為什麼深潛要特別注意氣量？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e1"> 氣瓶會漏</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="e1"> 深處耗氣快 + 回程遠，氣量要算好</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e1"> 沒差</label>
+      <div class="fb" id="fbe1"></div>
+      <button class="btn" onclick="showAns('e1a')">看答案</button>
+      <div class="answer" id="e1a">✅ 深處耗氣快，且離水面遠，氣量計畫很重要</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 浮力袋的用途是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e2"> 裝魚</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="e2"> 緊急浮升/打撈/水面浮標</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e2"> 儲備空氣</label>
+      <div class="fb" id="fbe2"></div>
+      <button class="btn" onclick="showAns('e2a')">看答案</button>
+      <div class="answer" id="e2a">✅ 緊急浮升、打撈、做水面浮標</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 浮力袋為什麼要接捲軸？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e3"> 比較帥</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="e3"> 控制它不要瞬間飛上去</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e3"> 固定位置用</label>
+      <div class="fb" id="fbe3"></div>
+      <button class="btn" onclick="showAns('e3a')">看答案</button>
+      <div class="answer" id="e3a">✅ 捲軸控制充氣/上升速度，避免失控飛升</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 備援氣源的核心原則是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e4"> 跟主氣瓶共用調節器</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="e4"> 獨立氣瓶 + 獨立調節器</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e4"> 越大越好</label>
+      <div class="fb" id="fbe4"></div>
+      <button class="btn" onclick="showAns('e4a')">看答案</button>
+      <div class="answer" id="e4a">✅ 備援氣源要獨立（自己的調節器），才是真正的備援</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 深潛為什麼要帶潛水燈？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e5"> 拍照好看</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="e5"> 30m 以下光線暗，看不到</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="e5"> 嚇魚</label>
+      <div class="fb" id="fbe5"></div>
+      <button class="btn" onclick="showAns('e5a')">看答案</button>
+      <div class="answer" id="e5a">✅ 深處光線暗（紅光早就被吸收），要帶燈</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>深潛 = 18-40 公尺</strong>，不是「敢下」就好</li>
+      <li><strong>深處三大風險：氮醉、耗氣快、減壓病</strong></li>
+      <li>深潛鐵律：<strong>照計畫、看電腦錶、慢慢上</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="deep-planning.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Deep Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
