@@ -27,6 +27,12 @@
   .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
   .quiz input { margin-right:8px; }
   .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .locked { opacity:0.4; pointer-events:none; }
   .answer.show { display:block; }
   .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
   .btn-coral { background:var(--coral); }
@@ -99,33 +105,37 @@
     <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 去程朝 90°，回程要朝？</p>
-      <label><input type="radio" name="n1"> 90°</label>
-      <label><input type="radio" name="n1"> 180°</label>
-      <label><input type="radio" name="n1"> 270°</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n1"> 90°</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n1"> 180°</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n1"> 270°</label>
+      <div class="fb" id="fbn1"></div>
       <button class="btn" onclick="showAns('n1a')">看答案</button>
       <div class="answer" id="n1a">✅ 270°（回程 = 去程 + 180°，90+180=270）</div>
     </div>
     <div class="quiz">
       <p>2️⃣ 自然導航可以靠什麼？</p>
-      <label><input type="radio" name="n2"> 地形特徵、光線、水流</label>
-      <label><input type="radio" name="n2"> 隨緣亂飄</label>
-      <label><input type="radio" name="n2"> 跟著魚走</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n2"> 地形特徵、光線、水流</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n2"> 隨緣亂飄</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n2"> 跟著魚走</label>
+      <div class="fb" id="fbn2"></div>
       <button class="btn" onclick="showAns('n2a')">看答案</button>
       <div class="answer" id="n2a">✅ 地形、光線、水流、深度（跟著魚走是迷路最快的方法 😂）</div>
     </div>
     <div class="quiz">
       <p>3️⃣ 讀指北針要小心什麼？</p>
-      <label><input type="radio" name="n3"> 太暗看不見</label>
-      <label><input type="radio" name="n3"> 金屬/磁場會干擾</label>
-      <label><input type="radio" name="n3"> 指北針會進水</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n3"> 太暗看不見</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n3"> 金屬/磁場會干擾</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n3"> 指北針會進水</label>
+      <div class="fb" id="fbn3"></div>
       <button class="btn" onclick="showAns('n3a')">看答案</button>
       <div class="answer" id="n3a">✅ 金屬氣瓶、手錶磁場會干擾讀數</div>
     </div>
     <div class="quiz">
       <p>4️⃣ 潛水旗代表什麼？</p>
-      <label><input type="radio" name="n4"> 有人在釣魚</label>
-      <label><input type="radio" name="n4"> 下面有潛水員，船要避開</label>
-      <label><input type="radio" name="n4"> 海底有寶藏</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n4"> 有人在釣魚</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n4"> 下面有潛水員，船要避開</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n4"> 海底有寶藏</label>
+      <div class="fb" id="fbn4"></div>
       <button class="btn" onclick="showAns('n4a')">看答案</button>
       <div class="answer" id="n4a">✅ 下面有潛水員，船隻必須避開</div>
     </div>
@@ -139,7 +149,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next" href="index.html">回到課程總覽 →</a>
+    <a class="btn-next locked" id="nextBtn" href="index.html">🔒 回到課程總覽（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
