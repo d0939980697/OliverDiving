@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物理複習與電池</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">水底推進器課程 · 第 2 章</span>
+  <h1>物理複習與電池</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🔋</span>電池 = 你的「油量」</h2>
+    <p>DPV 靠電池跑——<strong>電池沒電 = 你變成「人力推進」</strong>（踢蛙鞋游回去）！</p>
+    <div class="analogy">🛵 騎機車要盯油表，騎 DPV 要盯電池。<br>沒油/沒電 → 只能自己推車/自己踢回去——<strong>很累而且可能很遠！</strong></div>
+    <div class="pro">
+      <span class="pro-tag">📖 電池續航（SDI §12.9）</span><br>
+      <strong>電池耐力受影響：</strong>速度越快耗電越快、逆流耗電快、低溫耗電快、電池老化。<br>
+      <strong>技巧：</strong>巡航速度（別全速）、順流、避開極端低溫。<br>
+      <strong>電池安全：</strong>用原廠充電器、避免過放、損壞電池不碰（可能起火）。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⏱️</span>折返點（Turn-around Point）</h2>
+    <div class="warn">⚠️ <strong>最重要的一課：</strong>去程用多少電/氣，<strong>回程一定要留同樣的</strong>（甚至更多）。</div>
+    <div class="analogy">🔋 想像電池 100%：<br>去程用掉 30% → <strong>到 30% 就是折返點</strong>（留 30% 回程 + 備用）<br>不是「沒電才回頭」——是「到預定點就回頭」！</div>
+    <div class="pro">
+      <span class="pro-tag">📖 判斷方法</span><br>
+      1. 出發前算好：來回距離 vs 電池續航<br>
+      2. 設定「折返點」（距離/時間/電池量）<br>
+      3. 到點就回頭，<strong>不貪心</strong><br>
+      4. 氣量也要留：去程用多少氣，回程留多少
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🎈</span>物理複習（水推相關）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 SDI §12.9 要求複習</span><br>
+      • <strong>壓力</strong>：深度增加→壓力增加（複習波義耳）<br>
+      • <strong>升降</strong>：上升要慢、要正常呼吸（複習）<br>
+      • <strong>免減壓</strong>：看電腦錶（複習）<br>
+      • <strong>DPV 特殊考量：</strong>速度快→耗氣快！<br>
+      → 用 DPV 時<strong>氣量消耗比踢蛙鞋快</strong>（移動快、呼吸節奏可能變）
+    </div>
+    <div class="tip">💡 用 DPV 時很多人會「興奮」→ 呼吸急促 → 耗氣更快。<strong>放鬆、巡航速度、正常呼吸</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ DPV 電池沒電會怎樣？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b1"> 沒差，繼續潛</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b1"> 要自己踢蛙鞋回去（可能很遠）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b1"> 自動漂浮</label>
+      <div class="fb" id="fbb1"></div>
+      <button class="btn" onclick="showAns('b1a')">看答案</button>
+      <div class="answer" id="b1a">✅ 電池=油量，沒電=人力推進（踢回去）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 「折返點」是什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b2"> 沒電才回頭</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b2"> 預定好「留夠回程電/氣」的點，到點就回頭</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b2"> 看到魚才回頭</label>
+      <div class="fb" id="fbb2"></div>
+      <button class="btn" onclick="showAns('b2a')">看答案</button>
+      <div class="answer" id="b2a">✅ 預定折返點，留夠回程資源，不貪心</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 用 DPV 時氣量消耗？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b3"> 跟踢蛙鞋一樣</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b3"> 更快（移動快+興奮呼吸急促）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b3"> 更慢</label>
+      <div class="fb" id="fbb3"></div>
+      <button class="btn" onclick="showAns('b3a')">看答案</button>
+      <div class="answer" id="b3a">✅ 耗氣更快！要放鬆、巡航速度</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 什麼會讓電池耗電特別快？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b4"> 全速 + 逆流 + 低溫</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b4"> 慢慢巡航</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b4"> 順流慢慢開</label>
+      <div class="fb" id="fbb4"></div>
+      <button class="btn" onclick="showAns('b4a')">看答案</button>
+      <div class="answer" id="b4a">✅ 全速/逆流/低溫都耗電快</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 電池安全注意事項？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b5"> 隨便充電器都行</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b5"> 用原廠充電器、避免過放、損壞電池不碰</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b5"> 電池壞了繼續用</label>
+      <div class="fb" id="fbb5"></div>
+      <button class="btn" onclick="showAns('b5a')">看答案</button>
+      <div class="answer" id="b5a">✅ 電池安全很重要（損壞電池可能起火）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>水推是「交通工具」，不是「玩具」</strong>——安全第一</li>
+      <li><strong>電池續航 = 你的回程票</strong>——記得折返點</li>
+      <li>水推風險：<strong>螺旋槳、故障、失散</strong>——靠訓練與潛伴</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="dpv-safety.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI DPV Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
