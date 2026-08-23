@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>氧氣 vs 氮氣（生理）</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">高氧電腦錶課程 · 第 2 章</span>
+  <h1>氧氣 vs 氮氣（生理）</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🧬</span>氧氣 vs 氮氣（誰是朋友誰是敵人）</h2>
+    <table>
+      <tr><th></th><th>氧氣 O₂</th><th>氮氣 N₂</th></tr>
+      <tr><td>角色</td><td>身體要用的</td><td>湊熱鬧的（不參與代謝）</td></tr>
+      <tr><td>高壓下</td><td>⚠️ 太多會中毒</td><td>⚠️ 太多會醉（氮醉）</td></tr>
+      <tr><td>潛水問題</td><td>氧中毒（CNS）</td><td>減壓病、氮醉</td></tr>
+    </table>
+    <div class="analogy">🍔 氧氣 = 食物（身體需要）；氮氣 = 填充物（不營養但佔空間）。<br>高氧 = 換成「更營養、更少填充物」的套餐！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⚠️</span>氧中毒（Oxygen Toxicity）</h2>
+    <p style="font-weight:600;">高氧的「黑暗面」——氧氣在高壓下會變成毒。</p>
+    <div class="pro">
+      <span class="pro-tag">📖 專業說明</span><br>
+      <strong>CNS 氧中毒（中樞神經型）：</strong>症狀包括嘴唇顫抖、視力模糊、耳鳴、噁心、抽搐——<strong>水中抽搐 = 溺水風險</strong>。<br>
+      <strong>誘發因素：</strong>深度太深（氧分壓太高）、潛水時間過長、運動/緊張、二氧化碳累積、冷水。<br>
+      <strong>關鍵參數：</strong>氧分壓（PO₂）——潛水員通常限制在 <strong>1.4 bar 以內</strong>（保守 1.6 bar 極限）。
+    </div>
+    <div class="warn">⚠️ 這不是嚇你——是為什麼高氧「不能無限加深」的原因！<strong>深度限制 = MOD（最大操作深度）</strong>，下章教你算。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">💡</span>那氮氣少了有什麼好處？</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>氮醉風險降低</strong>（氮少→醉得慢）</li>
+      <li><strong>免減壓時間延長</strong>（氮溶得慢→能待更久）</li>
+      <li><strong>水面間隔縮短</strong>（殘留氮少→休息更短）</li>
+    </ul>
+    <div class="tip">💡 用高氧不是「更猛」，是「更從容」——同樣深度，你有更多時間、更低風險。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 氮氣在身體裡主要造成什麼問題？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p1"> 讓身體更有力</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p1"> 減壓病 + 氮醉</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p1"> 幫助呼吸</label>
+      <div class="fb" id="fbp1"></div>
+      <button class="btn" onclick="showAns('p1a')">看答案</button>
+      <div class="answer" id="p1a">✅ 氮氣不參與代謝，高壓下會造成減壓病和氮醉</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 氧中毒的典型症狀是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p2"> 肚子餓</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p2"> 嘴唇顫抖、視力模糊、抽搐</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p2"> 全身發癢</label>
+      <div class="fb" id="fbp2"></div>
+      <button class="btn" onclick="showAns('p2a')">看答案</button>
+      <div class="answer" id="p2a">✅ CNS 氧中毒：嘴唇顫抖→視力模糊→抽搐（水中抽搐=危險）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 潛水員通常把氧分壓（PO₂）限制在？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p3"> 2.0 bar</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p3"> 1.4 bar（保守 1.6 極限）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p3"> 0.5 bar</label>
+      <div class="fb" id="fbp3"></div>
+      <button class="btn" onclick="showAns('p3a')">看答案</button>
+      <div class="answer" id="p3a">✅ 通常限 1.4 bar，絕對不超過 1.6 bar</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 高氧能「延長免減壓時間」的原因是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p4"> 氧氣比較輕</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p4"> 氮氣少→身體溶氮慢</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p4"> 氣瓶比較大</label>
+      <div class="fb" id="fbp4"></div>
+      <button class="btn" onclick="showAns('p4a')">看答案</button>
+      <div class="answer" id="p4a">✅ 氮氣少，溶進身體的氮就少，免減壓時間自然變長</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 下列哪個會增加氧中毒風險？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p5"> 潛水前喝咖啡</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p5"> 深潛（氧分壓升高）+ 劇烈運動</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p5"> 穿太多防寒衣</label>
+      <div class="fb" id="fbp5"></div>
+      <button class="btn" onclick="showAns('p5a')">看答案</button>
+      <div class="answer" id="p5a">✅ 深度、運動、緊張、二氧化碳累積都會增加風險</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>高氧不是「更猛的氣」，是「氮更少的氣」</strong></li>
+      <li><strong>氧氣會中毒</strong>——高氧有深度限制（MOD）</li>
+      <li>用高氧前<strong>一定要分析氣瓶 + 設定電腦錶</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="nitrox-advantage.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Computer Nitrox Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+
+
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
