@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水中環境</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 2 章</span>
+  <h1>水中環境</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">👀</span>水裡的世界不一樣（視覺）</h2>
+    <p>水會<strong>折射光線、吃掉顏色、放大物體</strong>。</p>
+    <div class="analogy">
+      🥽 面鏡裡看到東西比實際 <strong>大 1/3</strong>、近 1/4<br>
+      在水下伸手「好像」摸到了，其實還差一點！
+    </div>
+    <p><strong>顏色也會消失：</strong>紅色最先不見（10m 就幾乎看不到），再來橘、黃…深處只剩藍綠。</p>
+    <div class="emoji-box">🔴(0m) → 🟠(5m) → 🟡(10m) → 🟢(15m) → 🔵(20m+)</div>
+    <div class="tip">💡 所以拍照要開燈、或靠近拍——顏色才回得來</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">👂</span>水裡的聲音與熱</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>聲音</strong>：水裡傳得比空氣快 4 倍，但<strong>聽不出方向</strong>（聲音好像從四面八方來）</li>
+      <li><strong>熱</strong>：水吸熱速度是空氣的 <strong>25 倍</strong>！不穿防寒衣，半小時就發抖</li>
+    </ul>
+    <div class="analogy">🧊 泡在 28°C 的水裡，比站在 28°C 的空氣裡冷很多——因為水一直在「偷」你的體溫。</div>
+    <div class="warn">⚠️ 失溫不是鬧著玩的：會手抖、判斷力下降、最後無法自救。所以<strong>防寒衣是裝備不是選配</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🌊</span>潮汐、海流、波浪、湧浪</h2>
+    <table>
+      <tr><th>名詞</th><th>白話</th><th>對潛水員的影響</th></tr>
+      <tr><td>潮汐</td><td>月亮引力造成的水位升降</td><td>滿潮/乾潮時海流最強</td></tr>
+      <tr><td>海流</td><td>水往一個方向流動</td><td>會帶你走，逆流很累</td></tr>
+      <tr><td>波浪</td><td>風吹水面，能量傳遞</td><td>進出水面比較費力</td></tr>
+      <tr><td>湧浪</td><td>深處的上下晃動</td><td>像坐海盜船，會暈、會喘</td></tr>
+    </table>
+    <div class="tip">💡 潛水前一定要看海況！風浪大 → 浪大、流強 → 風險高。<br>「不潛」永遠是最安全的決定。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 水裡什麼顏色最先消失？</p>
+      <label><input type="radio" name="e1"> 藍色</label>
+      <label><input type="radio" name="e1"> 紅色</label>
+      <label><input type="radio" name="e1"> 綠色</label>
+      <button class="btn" onclick="showAns('e1a')">看答案</button>
+      <div class="answer" id="e1a">✅ 紅色（10m 左右就幾乎看不到了）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 水吸熱的速度是空氣的幾倍？</p>
+      <label><input type="radio" name="e2"> 5 倍</label>
+      <label><input type="radio" name="e2"> 10 倍</label>
+      <label><input type="radio" name="e2"> 25 倍</label>
+      <button class="btn" onclick="showAns('e2a')">看答案</button>
+      <div class="answer" id="e2a">✅ 25 倍！所以防寒衣很重要</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 滿潮/乾潮時海流通常會？</p>
+      <label><input type="radio" name="e3"> 變弱</label>
+      <label><input type="radio" name="e3"> 變強</label>
+      <label><input type="radio" name="e3"> 消失</label>
+      <button class="btn" onclick="showAns('e3a')">看答案</button>
+      <div class="answer" id="e3a">✅ 變強（潮汐轉換時水流最急）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li>水裡：<strong>視覺騙你、顏色消失、冷得快</strong></li>
+      <li>下水前先看海況：<strong>浪大流強 = 風險高</strong></li>
+      <li>不潛永遠是最安全的選擇</li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
