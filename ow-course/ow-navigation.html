@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水中導航</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 7 章</span>
+  <h1>水中導航</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🧭</span>水中導航：為什麼要學</h2>
+    <p>水下看不到遠方，沒有「路標」——不學導航，<strong>你回不到岸/船</strong>。</p>
+    <div class="analogy">🚗 開車需要看路，潛水也要「看路」——<br>只是路是<strong>指北針 + 自然景觀</strong>，不是柏油路。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🧭</span>指北針導航（最可靠）</h2>
+    <ol style="margin-left:20px;">
+      <li>下水前<strong>先決定方向</strong>（去程朝哪、回程朝哪）</li>
+      <li>潛水時<strong>定期看指北針</strong>，確認沒偏離</li>
+      <li>回程：<strong>反向 180°</strong>（去的方向 + 180 = 回來方向）</li>
+      <li>用<strong>距離估算</strong>：踢幾下蛙鞋 = 多遠（練習過就有感覺）</li>
+    </ol>
+    <div class="tip">💡 指北針會騙人：身上有金屬、鋼瓶、手錶磁場都會影響——<strong>離遠一點看</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🌿</span>自然導航（看環境）</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>地形</strong>：沙地、礁石、斷層、海草——記住特徵</li>
+      <li><strong>光線</strong>：太陽方向（淺水時）</li>
+      <li><strong>水流</strong>：流的方向固定 → 順流去、逆流回</li>
+      <li><strong>深度</strong>：保持固定深度 = 沿著岸線走</li>
+    </ul>
+    <div class="analogy">🏔️ 就像爬山認「地標」——<br>那顆大礁石、那片海草、那個斷層——<strong>回程認得它們就回得來</strong>。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🚩</span>潛水旗的意義</h2>
+    <div class="emoji-box">🚩 紅底白斜條 = 「下面有潛水員，船別過來！」</div>
+    <p>水面有人持旗/綁旗——<strong>船看到要避開</strong>。你潛水時也要留意旗在哪，別離太遠。</p>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 去程朝 90°，回程要朝？</p>
+      <label><input type="radio" name="n1"> 90°</label>
+      <label><input type="radio" name="n1"> 180°</label>
+      <label><input type="radio" name="n1"> 270°</label>
+      <button class="btn" onclick="showAns('n1a')">看答案</button>
+      <div class="answer" id="n1a">✅ 270°（回程 = 去程 + 180°，90+180=270）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 自然導航可以靠什麼？</p>
+      <label><input type="radio" name="n2"> 地形特徵、光線、水流</label>
+      <label><input type="radio" name="n2"> 隨緣亂飄</label>
+      <label><input type="radio" name="n2"> 跟著魚走</label>
+      <button class="btn" onclick="showAns('n2a')">看答案</button>
+      <div class="answer" id="n2a">✅ 地形、光線、水流、深度（跟著魚走是迷路最快的方法 😂）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 潛水旗代表什麼？</p>
+      <label><input type="radio" name="n3"> 有人在釣魚</label>
+      <label><input type="radio" name="n3"> 下面有潛水員，船要避開</label>
+      <label><input type="radio" name="n3"> 海底有寶藏</label>
+      <button class="btn" onclick="showAns('n3a')">看答案</button>
+      <div class="answer" id="n3a">✅ 下面有潛水員，船隻必須避開</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li>導航 = <strong>指北針（可靠）+ 自然景觀（輔助）</strong></li>
+      <li>回程方向 = 去程 + 180°</li>
+      <li>記住地標、留意潛水旗——<strong>回得來才是好潛水員</strong></li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
