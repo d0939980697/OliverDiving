@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高氧電腦錶課程 · 線上教材</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:50px 20px 40px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.9rem; margin-bottom:8px; }
+  header p { opacity:0.9; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .intro { background:white; border-radius:16px; padding:20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .intro h2 { color:var(--ocean); margin-bottom:8px; }
+  .chapter { display:flex; align-items:center; background:white; border-radius:14px; padding:16px; margin-bottom:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); text-decoration:none; color:var(--ink); transition:transform 0.1s; }
+  .chapter:active { transform:scale(0.98); }
+  .chapter .num { background:var(--ocean); color:white; min-width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem; margin-right:14px; }
+  .chapter .num.coral { background:var(--coral); }
+  .chapter .info h3 { font-size:1.05rem; color:var(--ocean-dark); }
+  .chapter .info p { font-size:0.85rem; color:#5a6a75; }
+  .chapter .arrow { margin-left:auto; color:var(--ocean); font-size:1.3rem; }
+  .note { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:16px 0; }
+  .link-back { display:block; text-align:center; background:white; border-radius:14px; padding:14px; margin-bottom:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); text-decoration:none; color:var(--ocean-dark); font-weight:600; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Team Oliver 潛水教學</span>
+  <h1>高氧電腦錶課程<br>線上學科教材</h1>
+  <p>小琉球 · 白話易懂版</p>
+</header>
+<div class="container">
+  <div class="intro">
+    <h2>👋 歡迎！這是高氧（Nitrox）學科</h2>
+    <p>本課程教你用<strong>高氧可編程電腦錶</strong>潛高氧（最高 40%）。<strong>純學科，不用下水</strong>——讀完 5 章、通過測驗，現場跟教練做實作（分析氣瓶、設定電腦錶）就完成！</p>
+    <div class="note">📖 <strong>建議：</strong>一天讀 1-2 章。每章有 5 題測驗（答對會變綠、答錯會提示）——讀完帶著問題找教練！</div>
+  </div>
+
+  <a class="chapter" href="nitrox-what.html">
+    <div class="num">1</div>
+    <div class="info"><h3>高氧是什麼</h3><p>EAN 基本概念 · 高氧的好處與代價</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="nitrox-physiology.html">
+    <div class="num">2</div>
+    <div class="info"><h3>氧氣 vs 氮氣（生理）</h3><p>氧中毒 · 氮醉 · 減壓病原理</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="nitrox-advantage.html">
+    <div class="num coral">3</div>
+    <div class="info"><h3>優缺點 · MOD · EAD</h3><p>最大操作深度 · 等效空氣深度 · 迷思破除</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="nitrox-computer.html">
+    <div class="num coral">4</div>
+    <div class="info"><h3>高氧電腦錶</h3><p>類型 · 設定重點 · 使用鐵律</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="nitrox-practice.html">
+    <div class="num coral">5</div>
+    <div class="info"><h3>氧氣分析與實務</h3><p>分析儀使用 · 標籤記錄 · 畢業要求</p></div>
+    <div class="arrow">›</div>
+  </a>
+
+  <a class="link-back" href="https://d0939980697.github.io/OliverDiving/ow-course/index.html">🐠 回到 OW 學科教材</a>
+
+  <div class="note">✅ <strong>5 章都讀完了？</strong>恭喜！下一站：跟教練約時間，現場實作氣瓶分析 + 電腦錶設定！</div>
+
+  <footer>
+    Team Oliver 潛水教學 · 小琉球<br>
+    依據 SDI Computer Nitrox Diver 標準（2026）編寫<br>
+    教練：趙立維 Oliver
+  </footer>
+</div>
+</body>
+</html>
