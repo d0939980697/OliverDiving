@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高氧是什麼</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">高氧電腦錶課程 · 第 1 章</span>
+  <h1>高氧是什麼</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🫧</span>高氧（Nitrox）是什麼？</h2>
+    <p><strong>一般空氣 = 21% 氧 + 79% 氮</strong>。高氧 = 把氧氣比例提高，氮氣比例降低。</p>
+    <div class="analogy">🥤 想像你的身體是一罐汽水：<br>氮氣 = 會在你身體裡「冒泡」的那個（減壓病元兇）<br>高氧 = 氮氣變少了 → 身體能溶的氮變少 → 減壓病風險降低、潛水時間更長！</div>
+    <div class="pro">
+      <span class="pro-tag">📖 專業定義</span><br>
+      <strong>EAN（Enriched Air Nitrox）：</strong>氧含量高於 21% 的呼吸氣體。<br>
+      <strong>EANx32：</strong>32% 氧（最常見，又稱 Nitrox I）<br>
+      <strong>EANx36：</strong>36% 氧（又稱 Nitrox II）<br>
+      <strong>SDI Computer Nitrox 課程：</strong>最多用到 <strong>40%</strong> 氧。
+    </div>
+    <div class="tip">💡 別叫「純氧」！高氧不是 100% 氧氣——那是完全不同的東西（純氧只有特殊訓練才能用）。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⏱️</span>高氧能幹嘛？（白話版）</h2>
+    <table>
+      <tr><th>好處</th><th>白話解釋</th></tr>
+      <tr><td>延長免減壓時間</td><td>同深度能待更久（氮少→溶得慢）</td></tr>
+      <tr><td>縮短水面休息</td><td>殘留氮少→休息更短就能再潛</td></tr>
+      <tr><td>降低減壓病風險</td><td>氮少→身體冒泡機會低</td></tr>
+    </table>
+    <div class="warn">⚠️ 代價：<strong>氧氣在高壓下會中毒</strong> → 高氧有「最大操作深度（MOD）」限制！下章詳細講。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 一般空氣的氧氣比例是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n1"> 32%</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n1"> 21%</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n1"> 40%</label>
+      <div class="fb" id="fbn1"></div>
+      <button class="btn" onclick="showAns('n1a')">看答案</button>
+      <div class="answer" id="n1a">✅ 21% 氧 + 79% 氮</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 高氧最主要的好處是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n2"> 氣瓶變輕</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n2"> 氮氣減少→延長免減壓時間</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n2"> 水更清澈</label>
+      <div class="fb" id="fbn2"></div>
+      <button class="btn" onclick="showAns('n2a')">看答案</button>
+      <div class="answer" id="n2a">✅ 氮氣少→免減壓時間變長、休息變短</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ EANx32 代表什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n3"> 32% 氮氣</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n3"> 32% 氧氣</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n3"> 32 bar 壓力</label>
+      <div class="fb" id="fbn3"></div>
+      <button class="btn" onclick="showAns('n3a')">看答案</button>
+      <div class="answer" id="n3a">✅ EANx32 = 32% 氧（最常見的高氧）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ SDI Computer Nitrox 課程最高用多少氧？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n4"> 100%</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n4"> 50%</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n4"> 40%</label>
+      <div class="fb" id="fbn4"></div>
+      <button class="btn" onclick="showAns('n4a')">看答案</button>
+      <div class="answer" id="n4a">✅ 最高 40%（不是純氧！）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 高氧的「代價」是什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n5"> 比較貴</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n5"> 氧氣高壓下會中毒→有深度限制</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n5"> 氣瓶比較容易破</label>
+      <div class="fb" id="fbn5"></div>
+      <button class="btn" onclick="showAns('n5a')">看答案</button>
+      <div class="answer" id="n5a">✅ 氧中毒風險→有最大操作深度（MOD）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>高氧不是「更猛的氣」，是「氮更少的氣」</strong></li>
+      <li><strong>氧氣會中毒</strong>——高氧有深度限制（MOD）</li>
+      <li>用高氧前<strong>一定要分析氣瓶 + 設定電腦錶</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="nitrox-physiology.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Computer Nitrox Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+
+
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
