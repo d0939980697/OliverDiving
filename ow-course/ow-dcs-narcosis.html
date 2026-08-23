@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減壓病·氮醉·氧中毒·黑視</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 4 章（下）</span>
+  <h1>減壓病·氮醉·氧中毒·黑視</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🫧</span>減壓病（DCS）——白話版</h2>
+    <p>你在水裡吸的氣，含氮氣。壓力大時，氮氣會<strong>溶進你的身體組織</strong>（像氣泡溶進汽水）。</p>
+    <div class="analogy">
+      🥤 <strong>汽水原理：</strong><br>
+      汽水蓋著時（高壓）→ 氣泡都在液體裡<br>
+      打開蓋子（壓力變小）→ 氣泡冒出來！<br><br>
+      你的身體就是那罐汽水：<br>
+      潛水 = 關著蓋子（氮氣溶進去）<br>
+      上升太快 = 打開蓋子（氮氣瞬間冒泡）→ <strong>減壓病！</strong>
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⚠️</span>減壓病症狀（記住幾個）</h2>
+    <ul style="margin-left:20px;">
+      <li>關節痛（「彎曲症」，手肘膝蓋最常見）</li>
+      <li>皮膚癢、紅疹</li>
+      <li>麻痺、無力、走路不穩</li>
+      <li>胸痛、呼吸困難</li>
+      <li>暈眩、頭昏、視力模糊</li>
+      <li>極度疲勞（莫名想睡）</li>
+    </ul>
+    <div class="warn">⚠️ <strong>潛水後 24 小時內出現這些症狀 → 立即送醫！</strong> 跟醫生說「我潛過水」，需要高壓艙治療。</div>
+    <div class="tip">💡 潛水後 12-24 小時內<strong>不要搭飛機</strong>（機艙壓力低，會誘發減壓病）。<br>重複潛水/多日潛水 → 間隔拉更長。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🛡️</span>怎麼避免（超重要）</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>慢慢上升</strong>（每分鐘不超過 9-18 公尺）</li>
+      <li><strong>安全停留</strong>：最後 5 公尺停 3 分鐘（讓氮氣慢慢排）</li>
+      <li><strong>不要超過免減壓極限（NDL）</strong>——電腦錶會告訴你</li>
+      <li><strong>重複潛水要算時間</strong>，別連續猛潛</li>
+      <li><strong>潛水後多喝水</strong>、休息，別馬上去高海拔</li>
+    </ol>
+    <div class="emoji-box">🛟 上升 = 慢慢來 + 安全停留 + 看電腦錶</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">😵</span>氮醉（Marine Narcosis）</h2>
+    <div class="analogy">🍺 深潛超過 30 公尺，氮氣會讓你有「微醺感」——像喝了一點酒：<br>覺得很嗨、很放鬆、甚至覺得自己很聰明。<br><strong>但其實判斷力在下降！</strong></div>
+    <ul style="margin-left:20px;">
+      <li>症狀：暈眩、興奮、反應變慢、專注力下降</li>
+      <li>深度越深越明顯（30m、40m...）</li>
+      <li><strong>解決：上升一點就清醒</strong>（氮醉是可逆的）</li>
+      <li>OW 課程最深 18 公尺 → 基本碰不到，但要知道</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2><span class="icon">💨</span>氧中毒 & 過度換氣黑視</h2>
+    <p style="font-weight:600;">氧中毒（高氧/深潛風險）：</p>
+    <p>氧氣在高壓下會變成「毒氣」→ 抽搐、昏迷。所以<strong>高氧課程有深度限制</strong>，一般空氣潛水不用怕，但別亂吸別人的高氧氣瓶。</p>
+    <p style="font-weight:600; margin-top:10px;">過度換氣黑視（淺水黑視）：</p>
+    <div class="warn">⚠️ 這是最常害死「自由潛水新手」的陷阱：<br>下水前猛呼吸（以為能憋更久）→ 血中二氧化碳被沖掉 → 腦子收不到「該呼吸了」的訊號 → <strong>還沒浮出水面就暈過去</strong>。<br><br><strong>水肺潛水：正常呼吸就好，不要刻意過度換氣！</strong></div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 減壓病是怎麼發生的？</p>
+      <label><input type="radio" name="d1"> 潛太深沒戴錶</label>
+      <label><input type="radio" name="d1"> 上升太快，氮氣瞬間冒泡</label>
+      <label><input type="radio" name="d1"> 水太冷</label>
+      <button class="btn" onclick="showAns('d1a')">看答案</button>
+      <div class="answer" id="d1a">✅ 上升太快 → 氮氣來不及排出 → 身體冒泡（汽水原理）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 安全停留是？</p>
+      <label><input type="radio" name="d2"> 最後 5 公尺停 3 分鐘</label>
+      <label><input type="radio" name="d2"> 下水前休息 3 分鐘</label>
+      <label><input type="radio" name="d2"> 潛完喝 3 杯水</label>
+      <button class="btn" onclick="showAns('d2a')">看答案</button>
+      <div class="answer" id="d2a">✅ 最後 5 公尺停 3 分鐘，讓氮氣慢慢排</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 潛水後多久內不要搭飛機？</p>
+      <label><input type="radio" name="d3"> 1 小時</label>
+      <label><input type="radio" name="d3"> 6 小時</label>
+      <label><input type="radio" name="d3"> 12-24 小時</label>
+      <button class="btn" onclick="showAns('d3a')">看答案</button>
+      <div class="answer" id="d3a">✅ 12-24 小時（單次潛水至少 12 小時，重複潛水更久）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>上升要慢 + 安全停留 3 分鐘</strong>（防減壓病）</li>
+      <li>潛後 24 小時出現關節痛/麻痺 → <strong>馬上送醫</strong>，別拖</li>
+      <li>潛後 <strong>12-24 小時不搭飛機</strong>；正常呼吸、不憋氣、不過度換氣</li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
