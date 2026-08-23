@@ -100,7 +100,7 @@
     <div class="analogy">🫁 想像肺部是「氣囊」：吸飽 → 體積大 → 浮力大；吐光 → 體積小 → 浮力小。<br>但氣囊的門（氣管）<strong>永遠開著</strong>——只是呼吸深淺不同。</div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
     <div class="quiz">
       <p>1️⃣ 「中性浮力」是什麼？</p>
       <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="bu1"> 一直往上飄</label>
@@ -137,7 +137,17 @@
       <button class="btn" onclick="showAns('bu4a')">看答案</button>
       <div class="answer" id="bu4a">✅ 保持呼吸流通（憋氣 = 肺破裂風險）</div>
     </div>
-  </div>
+  
+
+    <div class="quiz">
+      <p>5️⃣ 控制浮力的三要素是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="bu5"> 蛙鞋、面鏡、呼吸管</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="bu5"> 配重、BCD、肺部呼吸深淺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="bu5"> 氣瓶、電腦錶、指北針</label>
+      <div class="fb" id="fbbu5"></div>
+      <button class="btn" onclick="showAns('bu5a')">看答案</button>
+      <div class="answer" id="bu5a">✅ 配重（大方向）+ BCD（中調整）+ 肺部（微調）</div>
+    </div></div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
@@ -147,7 +157,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next locked" id="nextBtn" href="ow-equipment.html">🔒 下一章（先通過測驗）</a>
+    <a class="btn-next" href="ow-equipment.html">下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
@@ -172,25 +182,6 @@
       el.classList.add('wrong');
       fb.textContent = '❌ 答錯了，再看看上面內容再試';
       fb.className = 'fb no';
-    }
-    checkAll();
-  }
-  function checkAll() {
-    var quizzes = document.querySelectorAll('.quiz');
-    var allOk = true;
-    quizzes.forEach(function(q) {
-      var ok = q.querySelector('label.correct');
-      if (!ok) allOk = false;
-    });
-    var btn = document.getElementById('nextBtn');
-    if (btn) {
-      if (allOk) {
-        btn.classList.remove('locked');
-        btn.textContent = '下一章 →';
-      } else {
-        btn.classList.add('locked');
-        btn.textContent = '🔒 下一章（先通過測驗）';
-      }
     }
   }
 
