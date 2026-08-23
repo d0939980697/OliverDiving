@@ -27,6 +27,12 @@
   .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
   .quiz input { margin-right:8px; }
   .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .locked { opacity:0.4; pointer-events:none; }
   .answer.show { display:block; }
   .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
   .btn-coral { background:var(--coral); }
@@ -137,33 +143,37 @@
     <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 下潛到 20 公尺，總壓力是水面的幾倍？</p>
-      <label><input type="radio" name="q1"> 2 倍（2 ATA）</label>
-      <label><input type="radio" name="q1"> 3 倍（3 ATA）</label>
-      <label><input type="radio" name="q1"> 4 倍（4 ATA）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q1"> 2 倍（2 ATA）</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="q1"> 3 倍（3 ATA）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q1"> 4 倍（4 ATA）</label>
+      <div class="fb" id="fb1"></div>
       <button class="btn" onclick="showAns('a1')">看答案</button>
       <div class="answer" id="a1">✅ 3 倍（3 ATA）＝ 水面 1 ATA + 每 10m 加 1 ATA</div>
     </div>
     <div class="quiz">
       <p>2️⃣ 波義耳定律的公式是？</p>
-      <label><input type="radio" name="q2"> P₁ × V₁ = P₂ × V₂</label>
-      <label><input type="radio" name="q2"> P₁ + V₁ = P₂ + V₂</label>
-      <label><input type="radio" name="q2"> P₁ ÷ V₁ = P₂ ÷ V₂</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="q2"> P₁ × V₁ = P₂ × V₂</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q2"> P₁ + V₁ = P₂ + V₂</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q2"> P₁ ÷ V₁ = P₂ ÷ V₂</label>
+      <div class="fb" id="fb2"></div>
       <button class="btn" onclick="showAns('a2')">看答案</button>
       <div class="answer" id="a2">✅ P₁ × V₁ = P₂ × V₂（壓力×體積＝定值）</div>
     </div>
     <div class="quiz">
       <p>3️⃣ 水面 2 公升的氣球，下到 10 公尺變多少？</p>
-      <label><input type="radio" name="q3"> 1 公升</label>
-      <label><input type="radio" name="q3"> 1.5 公升</label>
-      <label><input type="radio" name="q3"> 0.67 公升</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="q3"> 1 公升</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q3"> 1.5 公升</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q3"> 0.67 公升</label>
+      <div class="fb" id="fb3"></div>
       <button class="btn" onclick="showAns('a3')">看答案</button>
       <div class="answer" id="a3">✅ 1 公升（10m = 2 ATA → 2L ÷ 2 = 1L）</div>
     </div>
     <div class="quiz">
       <p>4️⃣ SDI 規定的安全停留是？</p>
-      <label><input type="radio" name="q4"> 最後 3 公尺停 5 分鐘</label>
-      <label><input type="radio" name="q4"> 最後 5 公尺停 3 分鐘</label>
-      <label><input type="radio" name="q4"> 水面休息 10 分鐘</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q4"> 最後 3 公尺停 5 分鐘</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="q4"> 最後 5 公尺停 3 分鐘</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="q4"> 水面休息 10 分鐘</label>
+      <div class="fb" id="fb4"></div>
       <button class="btn" onclick="showAns('a4')">看答案</button>
       <div class="answer" id="a4">✅ 最後 5 公尺停 3 分鐘</div>
     </div>
@@ -176,7 +186,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next" href="ow-pressure-balance.html">下一章 →</a>
+    <a class="btn-next locked" id="nextBtn" href="ow-pressure-balance.html">🔒 下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 
@@ -188,6 +198,42 @@
     document.getElementById('progressBar').style.width = pct + '%';
   });
   function showAns(id) { document.getElementById(id).classList.add('show'); }
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+    checkAll();
+  }
+  function checkAll() {
+    var quizzes = document.querySelectorAll('.quiz');
+    var allOk = true;
+    quizzes.forEach(function(q) {
+      var ok = q.querySelector('label.correct');
+      if (!ok) allOk = false;
+    });
+    var btn = document.getElementById('nextBtn');
+    if (btn) {
+      if (allOk) {
+        btn.classList.remove('locked');
+        btn.textContent = '下一章 →';
+      } else {
+        btn.classList.add('locked');
+        btn.textContent = '🔒 下一章（先通過測驗）';
+      }
+    }
+  }
+
 </script>
 </body>
 </html>
