@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海洋生物傷害</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 3 章</span>
+  <h1>海洋生物傷害</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🐠</span>先講結論：海洋生物其實怕你</h2>
+    <p>99.9% 的海洋生物<strong>不會主動攻擊你</strong>。被傷害幾乎都是「不小心」：</p>
+    <ul style="margin-left:20px;">
+      <li>你踩到牠（海膽、石頭魚）</li>
+      <li>你摸牠（獅子魚、水母、火珊瑚）</li>
+      <li>牠以為你要搶食物（魚咬一口就跑）</li>
+    </ul>
+    <div class="tip">💡 黃金守則：<strong>「只看不摸」</strong>。潛水是去「參觀」，不是去「動手」。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🦂</span>常見的「不要碰」清單</h2>
+    <table>
+      <tr><th>生物</th><th>風險</th><th>怎麼避免</th></tr>
+      <tr><td>獅子魚</td><td>棘刺有毒，劇痛</td><td>別摸、保持距離</td></tr>
+      <tr><td>石頭魚</td><td>背棘劇毒，可能致命</td><td>海底走路用「螃蟹步」</td></tr>
+      <tr><td>海膽</td><td>刺會斷在肉裡，痛+感染</td><td>不踩底、不扶礁石</td></tr>
+      <tr><td>水母</td><td>觸鬚螫人，灼痛</td><td>看到就繞開、別碰</td></tr>
+      <tr><td>火珊瑚</td><td>像火燒的刺痛</td><td>不碰珊瑚（也能保護珊瑚）</td></tr>
+      <tr><td>章魚/海鰻</td><td>被咬會見血</td><td>別把手伸進洞裡！</td></tr>
+    </table>
+    <div class="warn">⚠️ <strong>最危險的動作：把手伸進礁石縫</strong>——裡面住著海鰻、章魚、石頭魚，你看不到牠，牠看得到你。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🩹</span>被螫/被刺怎麼辦（現場）</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>保持冷靜</strong>，慢慢游到安全處</li>
+      <li>告訴潛伴 / 教練（他們要幫忙）</li>
+      <li>水母螫：用海水沖（<strong>不要用淡水！</strong>會更痛），再依情況處理</li>
+      <li>棘刺斷在肉裡：不要硬拔，上岸找醫護</li>
+      <li>嚴重（呼吸困難、暈眩）→ 立即上岸叫救護車</li>
+    </ol>
+    <div class="analogy">🚑 記住：<strong>「上岸處理」優先於「水裡處理」</strong>。水裡亂搞只會更危險。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 潛水時遇到海龜/魚，正確做法是？</p>
+      <label><input type="radio" name="m1"> 追上去摸</label>
+      <label><input type="radio" name="m1"> 保持距離、只看不摸</label>
+      <label><input type="radio" name="m1"> 抓回來拍照</label>
+      <button class="btn" onclick="showAns('m1a')">看答案</button>
+      <div class="answer" id="m1a">✅ 保持距離、只看不摸（尊重牠們也保護自己）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 為什麼不能把手伸進礁石縫？</p>
+      <label><input type="radio" name="m2"> 會刮傷手</label>
+      <label><input type="radio" name="m2"> 裡面可能有海鰻/章魚/石頭魚</label>
+      <label><input type="radio" name="m2"> 沒為什麼，就是規定</label>
+      <button class="btn" onclick="showAns('m2a')">看答案</button>
+      <div class="answer" id="m2a">✅ 裡面躲著你看不到的生物，牠會自衛攻擊</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 被水母螫到，現場第一步？</p>
+      <label><input type="radio" name="m3"> 用淡水沖</label>
+      <label><input type="radio" name="m3"> 用海水沖，慢慢離開</label>
+      <label><input type="radio" name="m3"> 用力搓揉</label>
+      <button class="btn" onclick="showAns('m3a')">看答案</button>
+      <div class="answer" id="m3a">✅ 用海水沖（淡水會讓毒囊釋放更多毒）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>只看不摸</strong>，海洋生物不會主動攻擊你</li>
+      <li><strong>手不伸進洞裡</strong>，腳不踩海底（螃蟹步）</li>
+      <li>被螫/被刺：冷靜、告訴潛伴、<strong>上岸處理</strong></li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
