@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OW 潛水學科 · 線上教材</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:50px 20px 40px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.9rem; margin-bottom:8px; }
+  header p { opacity:0.9; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .intro { background:white; border-radius:16px; padding:20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .intro h2 { color:var(--ocean); margin-bottom:8px; }
+  .chapter { display:flex; align-items:center; background:white; border-radius:14px; padding:16px; margin-bottom:10px; box-shadow:0 2px 8px rgba(0,0,0,0.06); text-decoration:none; color:var(--ink); transition:transform 0.1s; }
+  .chapter:active { transform:scale(0.98); }
+  .chapter .num { background:var(--ocean); color:white; min-width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:1.1rem; margin-right:14px; }
+  .chapter .num.coral { background:var(--coral); }
+  .chapter .info h3 { font-size:1.05rem; color:var(--ocean-dark); }
+  .chapter .info p { font-size:0.85rem; color:#5a6a75; }
+  .chapter .arrow { margin-left:auto; color:var(--ocean); font-size:1.3rem; }
+  .note { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:16px 0; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Team Oliver 潛水教學</span>
+  <h1>OW 開放水域潛水員<br>線上學科教材</h1>
+  <p>小琉球 · 白話易懂版</p>
+</header>
+<div class="container">
+  <div class="intro">
+    <h2>👋 歡迎！開始前先讀這個</h2>
+    <p>這些課程是你在<strong>下水前</strong>要自習的學科內容。請按照順序閱讀，每一章最後有小測驗，<strong>答對答案才算讀完</strong>。</p>
+    <div class="note">📖 <strong>建議方式：</strong>一天讀 2-3 章，不要一次硬吞。讀完所有章節後，帶著問題去找你的教練——現場會再確認重點、帶你實作。</div>
+  </div>
+
+  <a class="chapter" href="ow-history.html">
+    <div class="num">1</div>
+    <div class="info"><h3>潛水歷史</h3><p>潛水怎麼來的 · 現代潛水的開始</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-environment.html">
+    <div class="num">2</div>
+    <div class="info"><h3>水中環境</h3><p>視覺 · 聲音 · 溫度 · 潮汐海流</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-marine-life.html">
+    <div class="num">3</div>
+    <div class="info"><h3>海洋生物傷害</h3><p>只看不摸 · 常見危險生物 · 處理方式</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-physics-boyle.html">
+    <div class="num coral">4a</div>
+    <div class="info"><h3>波義耳定律</h3><p>水越深氣越小 · 上升絕不憋氣</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-pressure-balance.html">
+    <div class="num coral">4b</div>
+    <div class="info"><h3>壓力與平衡</h3><p>耳朵痛怎麼辦 · 面鏡平衡 · 感冒不潛</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-dcs-narcosis.html">
+    <div class="num coral">4c</div>
+    <div class="info"><h3>減壓病 · 氮醉 · 氧中毒 · 黑視</h3><p>保命大重點 · 安全停留 · 潛後不搭機</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-equipment.html">
+    <div class="num">5</div>
+    <div class="info"><h3>潛水裝備</h3><p>認識裝備 · 下水前檢查 · 電腦錶</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-planning.html">
+    <div class="num">6</div>
+    <div class="info"><h3>潛水計畫與潛伴</h3><p>潛伴系統 · 船潛岸潛 · 體能管理</p></div>
+    <div class="arrow">›</div>
+  </a>
+  <a class="chapter" href="ow-navigation.html">
+    <div class="num">7</div>
+    <div class="info"><h3>水中導航</h3><p>指北針 · 自然導航 · 潛水旗</p></div>
+    <div class="arrow">›</div>
+  </a>
+
+  <div class="note">✅ <strong>全部讀完了？</strong>恭喜！下一站：跟教練約時間，現場確認重點 + 下水實作！</div>
+
+  <footer>
+    Team Oliver 潛水教學 · 小琉球<br>
+    依據 SDI Open Water Diver 標準（2026）編寫<br>
+    有問題問你的教練：趙立維 Oliver
+  </footer>
+</div>
+</body>
+</html>
