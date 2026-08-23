@@ -19,6 +19,8 @@
   .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
   .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
   .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
   .quiz p { font-weight:600; margin-bottom:8px; }
@@ -35,6 +37,7 @@
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
 </style>
 </head>
 <body>
@@ -48,7 +51,7 @@
   <div class="card">
     <h2><span class="icon">🧭</span>水中導航：為什麼要學</h2>
     <p>水下看不到遠方，沒有「路標」——不學導航，<strong>你回不到岸/船</strong>。</p>
-    <div class="analogy">🚗 開車需要看路，潛水也要「看路」——<br>只是路是<strong>指北針 + 自然景觀</strong>，不是柏油路。</div>
+    <div class="analogy">🚗 開車需要看路，潛水也要「看路」——只是路是<strong>指北針 + 自然景觀</strong>，不是柏油路。</div>
   </div>
   <div class="card">
     <h2><span class="icon">🧭</span>指北針導航（最可靠）</h2>
@@ -58,6 +61,13 @@
       <li>回程：<strong>反向 180°</strong>（去的方向 + 180 = 回來方向）</li>
       <li>用<strong>距離估算</strong>：踢幾下蛙鞋 = 多遠（練習過就有感覺）</li>
     </ol>
+    <div class="pro">
+      <span class="pro-tag">📖 指北針使用技巧</span><br>
+      <strong>戴法：</strong>指北針戴在手腕/儀錶夾上，<strong>與視線平行</strong>讀取。<br>
+      <strong>方向記憶：</strong>去程朝 90°，回程朝 270°（90+180=270）。<br>
+      <strong>誤差來源：</strong>金屬氣瓶、手錶磁場、電線——<strong>讀數時離金屬遠一點</strong>。<br>
+      <strong>踢動節奏：</strong>約 15-20 個蛙鞋踢動 ≈ 10 公尺（依個人體型不同，要練習）。
+    </div>
     <div class="tip">💡 指北針會騙人：身上有金屬、鋼瓶、手錶磁場都會影響——<strong>離遠一點看</strong>。</div>
   </div>
   <div class="card">
@@ -68,15 +78,25 @@
       <li><strong>水流</strong>：流的方向固定 → 順流去、逆流回</li>
       <li><strong>深度</strong>：保持固定深度 = 沿著岸線走</li>
     </ul>
-    <div class="analogy">🏔️ 就像爬山認「地標」——<br>那顆大礁石、那片海草、那個斷層——<strong>回程認得它們就回得來</strong>。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 小琉球實用導航</span><br>
+      <strong>人工魚礁區：</strong>10 艘沉船（威尼斯沉船等）是熱門潛點——認「船型」認路。<br>
+      <strong>放流潛水（Drift Dive）：</strong>順流走，出水時由船接——<strong>不用逆流游</strong>，但要跟緊潛導。
+    </div>
+    <div class="analogy">🏔️ 就像爬山認「地標」——那顆大礁石、那片海草、那個斷層——<strong>回程認得它們就回得來</strong>。</div>
   </div>
   <div class="card">
     <h2><span class="icon">🚩</span>潛水旗的意義</h2>
     <div class="emoji-box">🚩 紅底白斜條 = 「下面有潛水員，船別過來！」</div>
-    <p>水面有人持旗/綁旗——<strong>船看到要避開</strong>。你潛水時也要留意旗在哪，別離太遠。</p>
+    <div class="pro">
+      <span class="pro-tag">📖 兩種潛水旗</span><br>
+      <strong>紅底白斜條（Diver Down Flag）：</strong>國際通用，表示「水下有潛水員」——船隻應保持距離。<br>
+      <strong>藍白「A」旗（Alpha Flag）：</strong>國際信號旗，表示「本船有人在水下作業」。<br>
+      <strong>法律：</strong>台灣《水域遊憩活動管理辦法》規定，潛水活動應攜帶潛水旗標示位置。
+    </div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 去程朝 90°，回程要朝？</p>
       <label><input type="radio" name="n1"> 90°</label>
@@ -94,26 +114,34 @@
       <div class="answer" id="n2a">✅ 地形、光線、水流、深度（跟著魚走是迷路最快的方法 😂）</div>
     </div>
     <div class="quiz">
-      <p>3️⃣ 潛水旗代表什麼？</p>
-      <label><input type="radio" name="n3"> 有人在釣魚</label>
-      <label><input type="radio" name="n3"> 下面有潛水員，船要避開</label>
-      <label><input type="radio" name="n3"> 海底有寶藏</label>
+      <p>3️⃣ 讀指北針要小心什麼？</p>
+      <label><input type="radio" name="n3"> 太暗看不見</label>
+      <label><input type="radio" name="n3"> 金屬/磁場會干擾</label>
+      <label><input type="radio" name="n3"> 指北針會進水</label>
       <button class="btn" onclick="showAns('n3a')">看答案</button>
-      <div class="answer" id="n3a">✅ 下面有潛水員，船隻必須避開</div>
+      <div class="answer" id="n3a">✅ 金屬氣瓶、手錶磁場會干擾讀數</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 潛水旗代表什麼？</p>
+      <label><input type="radio" name="n4"> 有人在釣魚</label>
+      <label><input type="radio" name="n4"> 下面有潛水員，船要避開</label>
+      <label><input type="radio" name="n4"> 海底有寶藏</label>
+      <button class="btn" onclick="showAns('n4a')">看答案</button>
+      <div class="answer" id="n4a">✅ 下面有潛水員，船隻必須避開</div>
     </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li>導航 = <strong>指北針（可靠）+ 自然景觀（輔助）</strong></li>
-      <li>回程方向 = 去程 + 180°</li>
-      <li>記住地標、留意潛水旗——<strong>回得來才是好潛水員</strong></li>
-</ol>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="index.html">回到課程總覽 →</a>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
