@@ -19,6 +19,8 @@
   .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
   .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
   .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
   .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
   .quiz p { font-weight:600; margin-bottom:8px; }
@@ -35,6 +37,7 @@
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
 </style>
 </head>
 <body>
@@ -48,27 +51,31 @@
   <div class="card">
     <h2><span class="icon">🫧</span>減壓病（DCS）——白話版</h2>
     <p>你在水裡吸的氣，含氮氣。壓力大時，氮氣會<strong>溶進你的身體組織</strong>（像氣泡溶進汽水）。</p>
-    <div class="analogy">
-      🥤 <strong>汽水原理：</strong><br>
-      汽水蓋著時（高壓）→ 氣泡都在液體裡<br>
-      打開蓋子（壓力變小）→ 氣泡冒出來！<br><br>
-      你的身體就是那罐汽水：<br>
-      潛水 = 關著蓋子（氮氣溶進去）<br>
-      上升太快 = 打開蓋子（氮氣瞬間冒泡）→ <strong>減壓病！</strong>
+    <div class="analogy">🥤 <strong>汽水原理：</strong>汽水蓋著時（高壓）→ 氣泡都在液體裡；打開蓋子（壓力變小）→ 氣泡冒出來！你的身體就是那罐汽水：潛水 = 關著蓋子（氮氣溶進去）；上升太快 = 打開蓋子（氮氣瞬間冒泡）→ <strong>減壓病！</strong></div>
+    <div class="pro">
+      <span class="pro-tag">📖 專業定義</span><br>
+      <strong>減壓病（Decompression Sickness, DCS）：</strong>又稱「潛水夫病」。上升時壓力快速下降，溶解在組織中的<strong>氮氣形成氣泡</strong>，阻塞血管或壓迫組織。<br>
+      <strong>亨利定律（Henry's Law）：</strong>氣體在液體中的溶解量與壓力成正比——壓力越大，溶進身體的氮氣越多。
     </div>
   </div>
   <div class="card">
     <h2><span class="icon">⚠️</span>減壓病症狀（記住幾個）</h2>
     <ul style="margin-left:20px;">
       <li>關節痛（「彎曲症」，手肘膝蓋最常見）</li>
-      <li>皮膚癢、紅疹</li>
-      <li>麻痺、無力、走路不穩</li>
+      <li>皮膚癢、紅疹（大理石紋）</li>
+      <li>麻痺、無力、走路不穩（神經型）</li>
       <li>胸痛、呼吸困難</li>
       <li>暈眩、頭昏、視力模糊</li>
       <li>極度疲勞（莫名想睡）</li>
     </ul>
-    <div class="warn">⚠️ <strong>潛水後 24 小時內出現這些症狀 → 立即送醫！</strong> 跟醫生說「我潛過水」，需要高壓艙治療。</div>
-    <div class="tip">💡 潛水後 12-24 小時內<strong>不要搭飛機</strong>（機艙壓力低，會誘發減壓病）。<br>重複潛水/多日潛水 → 間隔拉更長。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 症狀分型</span><br>
+      <strong>第一型（輕）：</strong>關節痛、皮膚症狀。<br>
+      <strong>第二型（重）：</strong>神經系統（麻痺）、呼吸循環（胸痛）——<strong>需要緊急高壓艙治療</strong>。<br>
+      <strong>關鍵：</strong>症狀可能潛水後<strong>數小時才出現</strong>，甚至隔天才出現。
+    </div>
+    <div class="warn">⚠️ <strong>潛水後 24 小時內出現任何可疑症狀 → 立即送醫！</strong> 跟醫生說「我潛過水」，可能需要高壓艙治療。</div>
+    <div class="tip">💡 潛水後 12-24 小時內<strong>不要搭飛機</strong>（機艙壓力低，會誘發減壓病）。重複潛水/多日潛水 → 間隔拉更長。</div>
   </div>
   <div class="card">
     <h2><span class="icon">🛡️</span>怎麼避免（超重要）</h2>
@@ -79,27 +86,37 @@
       <li><strong>重複潛水要算時間</strong>，別連續猛潛</li>
       <li><strong>潛水後多喝水</strong>、休息，別馬上去高海拔</li>
     </ol>
+    <div class="pro">
+      <span class="pro-tag">📖 名詞：NDL</span><br>
+      <strong>免減壓極限（No-Decompression Limit, NDL）：</strong>在某深度能停留而不需要減壓停留的最長時間。<br>
+      例：18 公尺深度 NDL 約 56 分鐘（依電腦錶/潛水錶計算）——超過就要做減壓停留，OW 課程避免。<br>
+      <strong>安全停留（Safety Stop）：</strong>5 公尺 × 3 分鐘，是「額外保險」，讓氮氣多排一些。
+    </div>
     <div class="emoji-box">🛟 上升 = 慢慢來 + 安全停留 + 看電腦錶</div>
   </div>
   <div class="card">
-    <h2><span class="icon">😵</span>氮醉（Marine Narcosis）</h2>
-    <div class="analogy">🍺 深潛超過 30 公尺，氮氣會讓你有「微醺感」——像喝了一點酒：<br>覺得很嗨、很放鬆、甚至覺得自己很聰明。<br><strong>但其實判斷力在下降！</strong></div>
-    <ul style="margin-left:20px;">
-      <li>症狀：暈眩、興奮、反應變慢、專注力下降</li>
-      <li>深度越深越明顯（30m、40m...）</li>
-      <li><strong>解決：上升一點就清醒</strong>（氮醉是可逆的）</li>
-      <li>OW 課程最深 18 公尺 → 基本碰不到，但要知道</li>
-    </ul>
+    <h2><span class="icon">😵</span>氮醉（Nitrogen Narcosis）</h2>
+    <div class="analogy">🍺 深潛超過 30 公尺，氮氣會讓你有「微醺感」——像喝了一點酒：覺得很嗨、很放鬆、甚至覺得自己很聰明。<strong>但其實判斷力在下降！</strong></div>
+    <div class="pro">
+      <span class="pro-tag">📖 專業補充</span><br>
+      <strong>氮醉（Inert Gas Narcosis）：</strong>高壓下氮氣對中樞神經的麻醉效應。<br>
+      <strong>別名「馬丁尼定律」：</strong>每下潛 30 公尺 ≈ 喝一杯馬丁尼的影響。<br>
+      <strong>可逆：</strong>上升數公尺症狀即消退。<br>
+      <strong>OW 課程最深 18 公尺</strong> → 基本碰不到，但要知道這個現象存在。
+    </div>
   </div>
   <div class="card">
     <h2><span class="icon">💨</span>氧中毒 & 過度換氣黑視</h2>
-    <p style="font-weight:600;">氧中毒（高氧/深潛風險）：</p>
-    <p>氧氣在高壓下會變成「毒氣」→ 抽搐、昏迷。所以<strong>高氧課程有深度限制</strong>，一般空氣潛水不用怕，但別亂吸別人的高氧氣瓶。</p>
-    <p style="font-weight:600; margin-top:10px;">過度換氣黑視（淺水黑視）：</p>
-    <div class="warn">⚠️ 這是最常害死「自由潛水新手」的陷阱：<br>下水前猛呼吸（以為能憋更久）→ 血中二氧化碳被沖掉 → 腦子收不到「該呼吸了」的訊號 → <strong>還沒浮出水面就暈過去</strong>。<br><br><strong>水肺潛水：正常呼吸就好，不要刻意過度換氣！</strong></div>
+    <div class="pro">
+      <span class="pro-tag">📖 氧中毒（Oxygen Toxicity）</span><br>
+      <strong>高壓下氧氣變「毒」：</strong>高氧（Nitrox）潛水有深度限制（例：32% 高氧限約 33-40 公尺）。<br>
+      <strong>CNS 氧中毒：</strong>抽搐、昏迷——水中抽搐 = 溺水風險。<br>
+      <strong>OW 用一般空氣（21% 氧）</strong> → 氧中毒風險低，但<strong>不要亂吸別人的高氧氣瓶</strong>（內容物/深度限制不同）。
+    </div>
+    <div class="warn">⚠️ <strong>過度換氣黑視（Shallow Water Blackout）——最常害死自由潛水新手的陷阱：</strong><br>下水前猛呼吸（以為能憋更久）→ 血中二氧化碳被沖掉 → 腦子收不到「該呼吸了」的訊號 → <strong>還沒浮出水面就暈過去</strong>。<br><br><strong>水肺潛水：正常呼吸就好，不要刻意過度換氣！</strong></div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 減壓病是怎麼發生的？</p>
       <label><input type="radio" name="d1"> 潛太深沒戴錶</label>
@@ -117,26 +134,34 @@
       <div class="answer" id="d2a">✅ 最後 5 公尺停 3 分鐘，讓氮氣慢慢排</div>
     </div>
     <div class="quiz">
-      <p>3️⃣ 潛水後多久內不要搭飛機？</p>
-      <label><input type="radio" name="d3"> 1 小時</label>
-      <label><input type="radio" name="d3"> 6 小時</label>
-      <label><input type="radio" name="d3"> 12-24 小時</label>
+      <p>3️⃣ 氮醉的最佳比喻是？</p>
+      <label><input type="radio" name="d3"> 喝醉酒</label>
+      <label><input type="radio" name="d3"> 吃太飽</label>
+      <label><input type="radio" name="d3"> 睡著了</label>
       <button class="btn" onclick="showAns('d3a')">看答案</button>
-      <div class="answer" id="d3a">✅ 12-24 小時（單次潛水至少 12 小時，重複潛水更久）</div>
+      <div class="answer" id="d3a">✅ 喝醉酒（深潛 30m+ 的微醺感）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 潛水後多久內不要搭飛機？</p>
+      <label><input type="radio" name="d4"> 1 小時</label>
+      <label><input type="radio" name="d4"> 6 小時</label>
+      <label><input type="radio" name="d4"> 12-24 小時</label>
+      <button class="btn" onclick="showAns('d4a')">看答案</button>
+      <div class="answer" id="d4a">✅ 12-24 小時（單次潛水至少 12 小時，重複潛水更久）</div>
     </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li><strong>上升要慢 + 安全停留 3 分鐘</strong>（防減壓病）</li>
-      <li>潛後 24 小時出現關節痛/麻痺 → <strong>馬上送醫</strong>，別拖</li>
-      <li>潛後 <strong>12-24 小時不搭飛機</strong>；正常呼吸、不憋氣、不過度換氣</li>
-</ol>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
+    </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-equipment.html">下一章 →</a>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
