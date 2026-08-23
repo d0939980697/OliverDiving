@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深潛實務與畢業</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">深潛專長課程 · 第 5 章</span>
+  <h1>深潛實務與畢業</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🤿</span>深潛課程的 2 次潛水（你會經歷的）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 第 1 次潛水（≤30m）</span><br>
+      1. 測試檢查所有裝備（深度計、電腦錶）<br>
+      2. 熟悉潛點<br>
+      3. 下到計畫深度，不超過預定限制<br>
+      4. 監測深度/時間/耗氣，<strong>寫在寫字板上</strong><br>
+      5. <strong>氮醉測試</strong>（教練驗證你沒「醉」）<br>
+      6. 上升做安全停留
+    </div>
+    <div class="pro">
+      <span class="pro-tag">📖 第 2 次潛水（≤40m）</span><br>
+      1. 一樣監測深度/時間/耗氣、寫寫字板<br>
+      2. 氮醉測試<br>
+      3. <strong>教練在水下指派「模擬緊急狀況」</strong>（你要處理）<br>
+      4. 照計畫潛到 ≤40m<br>
+      5. 上升做安全停留
+    </div>
+    <div class="tip">💡 寫字板不是「多餘」——<strong>氮醉時寫字能測你的判斷力</strong>，也是記錄數據的好習慣！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✍️</span>氮醉測試怎麼做？</h2>
+    <div class="analogy">🧠 教練會在深處叫你做簡單任務——<br>例如：寫字板上寫字、數手指、讀儀錶數字。<br><strong>如果你寫得歪七扭八、算錯、反應慢 → 就是「醉」了</strong> → 上升。</div>
+    <div class="warn">⚠️ 誠實面對測試結果！<strong>覺得「自己沒醉」但寫錯字 = 已經醉了</strong>。這是氮醉最會騙人的地方。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">⛑️</span>急救複習（深潛必備）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 深潛相關急救</span><br>
+      <strong>氧氣治療（O₂ Treatment）：</strong>疑似減壓病/栓塞 → <strong>100% 純氧</strong>是現場最重要處置。<br>
+      <strong>休克處理：</strong>保暖、平躺、安撫、叫救護。<br>
+      <strong>判斷：</strong>潛水後 24h 內關節痛/麻痺/呼吸困難 → 當減壓病處理。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🎓</span>畢業 = 你會什麼？</h2>
+    <ul style="margin-left:20px;">
+      <li>✅ 會計畫深潛（深度/時間/氣量/緊急程序）</li>
+      <li>✅ 會用電腦錶/寫字板監測深潛</li>
+      <li>✅ 會測氮醉、會處理模擬緊急狀況</li>
+      <li>✅ 懂得深潛裝備（浮力袋/捲軸/備援氣源）</li>
+      <li>✅ 知道減壓病處置與高壓艙資源</li>
+    </ul>
+    <div class="emoji-box">🎯 畢業後：你能安全下到 40 公尺！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 深潛第 1 次潛水深度上限？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f1"> 40 公尺</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f1"> 30 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f1"> 20 公尺</label>
+      <div class="fb" id="fbf1"></div>
+      <button class="btn" onclick="showAns('f1a')">看答案</button>
+      <div class="answer" id="f1a">✅ 第 1 次 ≤30m、第 2 次 ≤40m</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 氮醉測試的目的是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f2"> 考試用</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f2"> 驗證你沒「醉」、判斷力正常</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f2"> 打發時間</label>
+      <div class="fb" id="fbf2"></div>
+      <button class="btn" onclick="showAns('f2a')">看答案</button>
+      <div class="answer" id="f2a">✅ 確認判斷力正常（寫字/數數是測試方法）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 氮醉測試寫字寫歪了代表？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f3"> 手痠而已</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f3"> 已經醉了，該上升</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f3"> 筆壞了</label>
+      <div class="fb" id="fbf3"></div>
+      <button class="btn" onclick="showAns('f3a')">看答案</button>
+      <div class="answer" id="f3a">✅ 寫歪 = 判斷力下降 = 氮醉 → 上升</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 深潛疑似減壓病，現場最重要處置？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f4"> 喝熱水</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f4"> 100% 純氧 + 送醫</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f4"> 按摩關節</label>
+      <div class="fb" id="fbf4"></div>
+      <button class="btn" onclick="showAns('f4a')">看答案</button>
+      <div class="answer" id="f4a">✅ 純氧 + 送醫（減壓病黃金處置）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 深潛課程模擬緊急狀況由誰指派？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f5"> 教練在水下指派</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f5"> 自己決定</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f5"> 潛伴指派</label>
+      <div class="fb" id="fbf5"></div>
+      <button class="btn" onclick="showAns('f5a')">看答案</button>
+      <div class="answer" id="f5a">✅ 第 2 次潛水教練會在水下指派模擬緊急狀況</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>深潛 = 18-40 公尺</strong>，不是「敢下」就好</li>
+      <li><strong>深處三大風險：氮醉、耗氣快、減壓病</strong></li>
+      <li>深潛鐵律：<strong>照計畫、看電腦錶、慢慢上</strong></li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="index.html">回到課程總覽 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Deep Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
