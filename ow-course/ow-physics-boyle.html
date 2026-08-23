@@ -1,224 +1,64 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OW 潛水學科 · 波義耳定律（白話版）</title>
-<style>
-  :root {
-    --ocean: #0b6e99;
-    --ocean-dark: #084e6e;
-    --coral: #ff6b5e;
-    --sand: #f8f4ec;
-    --ink: #1a2b36;
-    --bubble: #e8f4fa;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
-    background: var(--sand);
-    color: var(--ink);
-    line-height: 1.7;
-    padding-bottom: 60px;
-  }
-  header {
-    background: linear-gradient(135deg, var(--ocean), var(--ocean-dark));
-    color: white;
-    padding: 40px 20px 30px;
-    text-align: center;
-  }
-  header .badge {
-    display: inline-block;
-    background: var(--coral);
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin-bottom: 12px;
-  }
-  header h1 { font-size: 1.8rem; margin-bottom: 6px; }
-  header p { opacity: 0.9; font-size: 1rem; }
-  .container { max-width: 640px; margin: 0 auto; padding: 20px 16px; }
-  .card {
-    background: white;
-    border-radius: 16px;
-    padding: 24px 20px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .card h2 {
-    color: var(--ocean);
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .card h2 .icon { font-size: 1.5rem; }
-  .tip {
-    background: var(--bubble);
-    border-left: 4px solid var(--ocean);
-    padding: 14px 16px;
-    border-radius: 0 12px 12px 0;
-    margin: 14px 0;
-  }
-  .warn {
-    background: #fff3f0;
-    border-left: 4px solid var(--coral);
-    padding: 14px 16px;
-    border-radius: 0 12px 12px 0;
-    margin: 14px 0;
-  }
-  .analogy {
-    background: #fff8e8;
-    border-left: 4px solid #f5a623;
-    padding: 14px 16px;
-    border-radius: 0 12px 12px 0;
-    margin: 14px 0;
-  }
-  .emoji-box {
-    text-align: center;
-    font-size: 2.2rem;
-    padding: 12px;
-    background: var(--bubble);
-    border-radius: 12px;
-    margin: 12px 0;
-  }
-  .quiz {
-    background: #f0f7ff;
-    border: 1px solid #cfe3f5;
-    border-radius: 12px;
-    padding: 16px;
-    margin-top: 12px;
-  }
-  .quiz p { font-weight: 600; margin-bottom: 8px; }
-  .quiz label {
-    display: block;
-    padding: 8px 12px;
-    margin: 4px 0;
-    border-radius: 8px;
-    background: white;
-    border: 1px solid #d8e5f0;
-    cursor: pointer;
-  }
-  .quiz input { margin-right: 8px; }
-  .answer { display: none; margin-top: 10px; padding: 10px 14px; background: #e6f7e6; border-radius: 8px; color: #1d6b2f; font-weight: 600; }
-  .answer.show { display: block; }
-  .btn {
-    display: inline-block;
-    background: var(--ocean);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 24px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    margin-top: 8px;
-  }
-  .btn-coral { background: var(--coral); }
-  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
-  .btn-next:active { transform:scale(0.96); }
-  footer {
-    text-align: center;
-    color: #8a9aa5;
-    font-size: 0.85rem;
-    padding: 20px;
-  }
-  .progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: var(--coral);
-    width: 0%;
-    z-index: 99;
-    transition: width 0.2s;
-  }
-</style>
-</head>
-<body>
-<div class="progress" id="progressBar"></div>
-
-<header>
-  <span class="badge">OW 學科 · 第 4 章</span>
-  <h1>物理與生理</h1>
-  <p>波義耳定律 · 白話版本</p>
-</header>
-
-<div class="container">
 
   <div class="card">
     <h2><span class="icon">🎈</span>一句話先記住</h2>
     <p style="font-size:1.15rem; font-weight:600; color:var(--coral);">
-      「水越深，氣球越小；水越淺，氣球越大。」
+      「水越深，氣體體積越小；水越淺，氣體體積越大。」
     </p>
     <p>這整章其實就在講這件事。懂了這句話，你就懂了一半。</p>
-  </div>
-
-  <div class="card">
-    <h2><span class="icon">🤔</span>為什麼跟潛水有關？</h2>
-    <p>你的身體裡有很多「氣」：肺、耳朵裡的空腔、面鏡裡、甚至腸子裡。</p>
-    <p>下潛時，這些氣會被壓縮；上升時，這些氣會膨脹。</p>
-    <div class="emoji-box">
-      🫁 → 深處越小 → 淺處越大 → 🎈
+    <div class="pro">
+      <span class="pro-tag">📖 專業定義</span><br>
+      <strong>波義耳定律（Boyle's Law）：</strong>在溫度恆定的條件下，一定量氣體的<strong>壓力（P）與體積（V）成反比</strong>。
     </div>
-    <p><strong>如果不管它，會出事。</strong>輕則耳朵痛、面鏡吸住臉，重則肺爆炸。所以這不是「理論」，是保命知識。</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">⚖️</span>波義耳定律（白話版）</h2>
-    <p style="font-weight:600;">官方說法：</p>
-    <p class="tip">
-      溫度不變時，氣體的壓力 × 體積 = 固定值。
-    </p>
-    <p style="font-weight:600; margin-top:10px;">白話說法：</p>
+    <h2><span class="icon">⚖️</span>公式（其實超簡單）</h2>
+    <div class="formula">
+      P₁ × V₁ = P₂ × V₂
+    </div>
+    <p>翻譯成人話：<strong>「壓力變大，體積就變小；壓力變小，體積就變大」</strong>——乘起來永遠一樣。</p>
     <div class="analogy">
-      🥤 <strong>想像一瓶寶特瓶：</strong><br>
-      你捏它 → 體積變小 → 裡面的空氣壓力變大（瓶身變硬）。<br>
-      你放開 → 體積變大 → 壓力變小（瓶身變軟）。<br><br>
+      🥤 <strong>寶特瓶比喻：</strong><br>
+      你捏它 → 體積變小 → 壓力變大（瓶身變硬）<br>
+      你放開 → 體積變大 → 壓力變小（瓶身變軟）<br>
       <strong>水壓就是那隻手，一直在捏你。</strong>
     </div>
-    <p>水深每增加 <strong>10 公尺</strong>，壓力就增加 <strong>1 倍大氣壓</strong>（1 bar）。</p>
   </div>
 
   <div class="card">
-    <h2><span class="icon">📏</span>用數字看（超簡單版）</h2>
-    <table style="width:100%; border-collapse:collapse; font-size:0.95rem;">
-      <tr style="background:var(--ocean); color:white;">
-        <th style="padding:8px; border-radius:8px 0 0 0;">深度</th>
-        <th style="padding:8px;">壓力</th>
-        <th style="padding:8px;">氣球體積</th>
-        <th style="padding:8px; border-radius:0 8px 0 0;">感覺像</th>
-      </tr>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:8px; text-align:center;">水面</td>
-        <td style="padding:8px; text-align:center;">1 bar</td>
-        <td style="padding:8px; text-align:center;">100%</td>
-        <td style="padding:8px; text-align:center;">🎈 正常</td>
-      </tr>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:8px; text-align:center;">10 公尺</td>
-        <td style="padding:8px; text-align:center;">2 bar</td>
-        <td style="padding:8px; text-align:center;">50%</td>
-        <td style="padding:8px; text-align:center;">🎈 變一半</td>
-      </tr>
-      <tr style="border-bottom:1px solid #eee;">
-        <td style="padding:8px; text-align:center;">20 公尺</td>
-        <td style="padding:8px; text-align:center;">3 bar</td>
-        <td style="padding:8px; text-align:center;">33%</td>
-        <td style="padding:8px; text-align:center;">🎈 剩 1/3</td>
-      </tr>
-      <tr>
-        <td style="padding:8px; text-align:center;">30 公尺</td>
-        <td style="padding:8px; text-align:center;">4 bar</td>
-        <td style="padding:8px; text-align:center;">25%</td>
-        <td style="padding:8px; text-align:center;">🎈 剩 1/4</td>
-      </tr>
+    <h2><span class="icon">📏</span>壓力單位（認識一下）</h2>
+    <table>
+      <tr><th>單位</th><th>白話</th><th>常見場景</th></tr>
+      <tr><td>bar（巴）</td><td>1 bar ≈ 一大氣壓</td><td>氣瓶壓力（200 bar）</td></tr>
+      <tr><td>ATA（絕對大氣壓）</td><td>含水面本身的總壓力</td><td>計算深度壓力用</td></tr>
+      <tr><td>psi（磅/平方吋）</td><td>美制單位</td><td>氣瓶標示（3000 psi）</td></tr>
+      <tr><td>msw（公尺海水柱）</td><td>深度對應壓力</td><td>深度限制標示（40 msw）</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 重點換算</span><br>
+      <strong>每下潛 10 公尺，壓力增加 1 bar（約 1 ATA）。</strong><br>
+      水面 = 1 ATA／10m = 2 ATA／20m = 3 ATA／30m = 4 ATA
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📊</span>實際算給你看（例題）</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 例題：氣球下潛</span><br>
+      水面時氣球體積 = 2 公升（壓力 1 ATA）<br>
+      下潛到 20 公尺（壓力 3 ATA）→ 體積 = 2 ÷ 3 = <strong>0.67 公升</strong><br><br>
+      公式：V₂ = P₁×V₁ ÷ P₂ = (1×2) ÷ 3 = 0.67 L
+    </div>
+    <table>
+      <tr><th>深度</th><th>壓力</th><th>體積變化</th><th>感覺像</th></tr>
+      <tr><td>水面</td><td>1 ATA</td><td>100%</td><td>🎈 正常</td></tr>
+      <tr><td>10 公尺</td><td>2 ATA</td><td>50%</td><td>🎈 一半</td></tr>
+      <tr><td>20 公尺</td><td>3 ATA</td><td>33%</td><td>🎈 1/3</td></tr>
+      <tr><td>30 公尺</td><td>4 ATA</td><td>25%</td><td>🎈 1/4</td></tr>
     </table>
     <p style="margin-top:10px; font-size:0.9rem; color:#5a6a75;">
-      💡 注意：<strong>越靠近水面，體積變化越劇烈！</strong><br>
-      從 10m 到水面，氣球從 50% → 100%（變 2 倍）<br>
-      從 30m 到 20m，氣球從 25% → 33%（沒什麼變）<br>
-      → 所以「最後 3-5 公尺」是最容易受傷的區段！
+      💡 注意：<strong>越靠近水面，體積變化越劇烈！</strong>（10m→水面：50%→100%，變 2 倍）<br>
+      這就是為什麼「最後 3-5 公尺」是最容易受傷的區段。
     </p>
   </div>
 
@@ -228,75 +68,77 @@
       <strong>上升時：絕對、絕對、絕對不能憋氣！</strong>
     </div>
     <ul style="margin:10px 0 0 20px;">
-      <li>憋氣上升 → 肺裡的空氣膨脹 → <strong>肺部過度膨脹（肺爆炸）</strong>，可能致死</li>
-      <li>正確做法：<strong>全程正常呼吸，慢慢上升</strong>（每分鐘不超過 9-18 公尺）</li>
+      <li>憋氣上升 → 肺內氣體膨脹 → <strong>肺部過度膨脹（肺破裂）</strong>，可致死</li>
+      <li>正確做法：<strong>全程正常呼吸，慢慢上升</strong></li>
       <li>耳朵不舒服 → 停止上升或下潛一點，重新平衡（不要硬撐）</li>
     </ul>
-    <div class="tip" style="margin-top:12px;">
-      🫁 想像肺是氣球：<br>
-      氣球在深處被壓得扁扁的（肺變小）→ 上升時氣球要膨脹 →<br>
-      如果氣球口被綁住（憋氣）→ 膨脹到極限 → <strong>砰！</strong>
+    <div class="pro">
+      <span class="pro-tag">📖 SDI 標準數字</span><br>
+      <strong>上升速度：</strong>每分鐘不超過 <strong>9–18 公尺</strong>（30–60 英尺）<br>
+      <strong>安全停留：</strong>最後 <strong>5 公尺</strong>處停留 <strong>3 分鐘</strong><br>
+      <strong>OW 最大深度：</strong><strong>18 公尺</strong>（60 英尺）<br>
+      <strong>OW 最低潛次：</strong>4 次開放水域潛水，每次至少 15 分鐘
+    </div>
+    <div class="tip">
+      🫁 想像肺是氣球：深處被壓扁（肺變小）→ 上升要膨脹 → 憋氣就像綁住氣球口 → <strong>砰！</strong>
     </div>
   </div>
 
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
-
+    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
-      <p>1️⃣ 下潛到 20 公尺，壓力是水面的幾倍？</p>
-      <label><input type="radio" name="q1"> 2 倍</label>
-      <label><input type="radio" name="q1"> 3 倍</label>
-      <label><input type="radio" name="q1"> 4 倍</label>
+      <p>1️⃣ 下潛到 20 公尺，總壓力是水面的幾倍？</p>
+      <label><input type="radio" name="q1"> 2 倍（2 ATA）</label>
+      <label><input type="radio" name="q1"> 3 倍（3 ATA）</label>
+      <label><input type="radio" name="q1"> 4 倍（4 ATA）</label>
       <button class="btn" onclick="showAns('a1')">看答案</button>
-      <div class="answer" id="a1">✅ 3 倍（水面 1 bar + 每 10 公尺 1 bar → 20m = 3 bar）</div>
+      <div class="answer" id="a1">✅ 3 倍（3 ATA）＝ 水面 1 ATA + 每 10m 加 1 ATA</div>
     </div>
-
     <div class="quiz">
-      <p>2️⃣ 潛水上升時最重要的規則是？</p>
-      <label><input type="radio" name="q2"> 用力踢水游快一點</label>
-      <label><input type="radio" name="q2"> 全程正常呼吸，不要憋氣</label>
-      <label><input type="radio" name="q2"> 閉眼讓自己冷靜</label>
+      <p>2️⃣ 波義耳定律的公式是？</p>
+      <label><input type="radio" name="q2"> P₁ × V₁ = P₂ × V₂</label>
+      <label><input type="radio" name="q2"> P₁ + V₁ = P₂ + V₂</label>
+      <label><input type="radio" name="q2"> P₁ ÷ V₁ = P₂ ÷ V₂</label>
       <button class="btn" onclick="showAns('a2')">看答案</button>
-      <div class="answer" id="a2">✅ 全程正常呼吸，絕對不能憋氣（防止肺過度膨脹）</div>
+      <div class="answer" id="a2">✅ P₁ × V₁ = P₂ × V₂（壓力×體積＝定值）</div>
     </div>
-
     <div class="quiz">
-      <p>3️⃣ 哪裡最容易發生氣體膨脹傷害？</p>
-      <label><input type="radio" name="q3"> 深處（30m）</label>
-      <label><input type="radio" name="q3"> 中間（15m）</label>
-      <label><input type="radio" name="q3"> 靠近水面（最後 5 公尺）</label>
+      <p>3️⃣ 水面 2 公升的氣球，下到 10 公尺變多少？</p>
+      <label><input type="radio" name="q3"> 1 公升</label>
+      <label><input type="radio" name="q3"> 1.5 公升</label>
+      <label><input type="radio" name="q3"> 0.67 公升</label>
       <button class="btn" onclick="showAns('a3')">看答案</button>
-      <div class="answer" id="a3">✅ 靠近水面！因為越淺體積變化越劇烈（50%→100%）</div>
+      <div class="answer" id="a3">✅ 1 公升（10m = 2 ATA → 2L ÷ 2 = 1L）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ SDI 規定的安全停留是？</p>
+      <label><input type="radio" name="q4"> 最後 3 公尺停 5 分鐘</label>
+      <label><input type="radio" name="q4"> 最後 5 公尺停 3 分鐘</label>
+      <label><input type="radio" name="q4"> 水面休息 10 分鐘</label>
+      <button class="btn" onclick="showAns('a4')">看答案</button>
+      <div class="answer" id="a4">✅ 最後 5 公尺停 3 分鐘</div>
     </div>
   </div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
     <ol style="margin-left:20px;">
-      <li><strong>水越深，氣越小；水越淺，氣越大</strong>（波義耳定律）</li>
-      <li><strong>上升時絕不憋氣</strong>，正常呼吸、慢慢上</li>
-      <li><strong>最後 3-5 公尺最危險</strong>，最容易受傷</li>
+      <li><strong>水越深氣越小、越淺氣越大</strong>（P₁V₁=P₂V₂）</li>
+      <li><strong>上升絕不憋氣</strong>，速度 ≤ 9-18 公尺/分鐘</li>
+      <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
-    <button class="btn btn-coral" onclick="window.location.hash='#top'; alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-pressure-balance.html">下一章 →</a>
   </div>
-
-  <footer>
-    Team Oliver 潛水教學 · 小琉球<br>
-    依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！
-  </footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
-
 <script>
-  // 滾動進度條
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function() {{
     var h = document.documentElement;
     var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
     document.getElementById('progressBar').style.width = pct + '%';
-  });
-  function showAns(id) {
-    document.getElementById(id).classList.add('show');
-  }
+  }});
+  function showAns(id) {{ document.getElementById(id).classList.add('show'); }}
 </script>
 </body>
 </html>
