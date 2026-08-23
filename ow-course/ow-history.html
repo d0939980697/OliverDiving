@@ -27,6 +27,12 @@
   .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
   .quiz input { margin-right:8px; }
   .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .locked { opacity:0.4; pointer-events:none; }
   .answer.show { display:block; }
   .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
   .btn-coral { background:var(--coral); }
@@ -92,25 +98,28 @@
     <h2><span class="icon">✅</span>小測驗（3 題）</h2>
     <div class="quiz">
       <p>1️⃣ 現代休閒潛水的開始是哪一年？</p>
-      <label><input type="radio" name="h1"> 1535</label>
-      <label><input type="radio" name="h1"> 1943</label>
-      <label><input type="radio" name="h1"> 1990</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h1"> 1535</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="h1"> 1943</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h1"> 1990</label>
+      <div class="fb" id="fbh1"></div>
       <button class="btn" onclick="showAns('h1a')">看答案</button>
       <div class="answer" id="h1a">✅ 1943 年 Aqua-Lung（水肺）發明</div>
     </div>
     <div class="quiz">
       <p>2️⃣ SDI 的姊妹機構不包含哪個？</p>
-      <label><input type="radio" name="h2"> TDI（技術潛水）</label>
-      <label><input type="radio" name="h2"> PFI（自由潛水）</label>
-      <label><input type="radio" name="h2"> PADI（休閒潛水）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h2"> TDI（技術潛水）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h2"> PFI（自由潛水）</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="h2"> PADI（休閒潛水）</label>
+      <div class="fb" id="fbh2"></div>
       <button class="btn" onclick="showAns('h2a')">看答案</button>
       <div class="answer" id="h2a">✅ PADI 是另一個機構，不是 SDI 姊妹</div>
     </div>
     <div class="quiz">
       <p>3️⃣ 為什麼課程標準每一條都很重要？</p>
-      <label><input type="radio" name="h3"> 讓機構賺錢</label>
-      <label><input type="radio" name="h3"> 都是風險管理的教訓</label>
-      <label><input type="radio" name="h3"> 考試要用的</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h3"> 讓機構賺錢</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="h3"> 都是風險管理的教訓</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="h3"> 考試要用的</label>
+      <div class="fb" id="fbh3"></div>
       <button class="btn" onclick="showAns('h3a')">看答案</button>
       <div class="answer" id="h3a">✅ 每一條標準背後都有真實教訓，是保護你的</div>
     </div>
@@ -124,7 +133,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next" href="ow-environment.html">下一章 →</a>
+    <a class="btn-next locked" id="nextBtn" href="ow-environment.html">🔒 下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
