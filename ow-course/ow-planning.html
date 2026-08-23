@@ -128,7 +128,7 @@
     </div>
   </div>
   <div class="card">
-    <h2><span class="icon">✅</span>小測驗（4 題）</h2>
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
     <div class="quiz">
       <p>1️⃣ 潛伴失散了，第一步是？</p>
       <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p1"> 自己繼續潛</label>
@@ -165,7 +165,17 @@
       <button class="btn" onclick="showAns('p4a')">看答案</button>
       <div class="answer" id="p4a">✅ 給 100% 純氧（標準處置）+ 盡速送醫</div>
     </div>
-  </div>
+  
+
+    <div class="quiz">
+      <p>5️⃣ 下水前潛水計畫不需要確認什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p5"> 最大深度與時間</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="p5"> 晚餐吃什麼</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="p5"> 進出點與緊急計畫</label>
+      <div class="fb" id="fbp5"></div>
+      <button class="btn" onclick="showAns('p5a')">看答案</button>
+      <div class="answer" id="p5a">✅ 計畫要確認深度/時間/氣源/進出點/緊急程序——晚餐晚點再想 😄</div>
+    </div></div>
 
   <div class="card">
     <h2><span class="icon">📌</span>這章記住 3 件事</h2>
@@ -175,7 +185,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next locked" id="nextBtn" href="ow-navigation.html">🔒 下一章（先通過測驗）</a>
+    <a class="btn-next" href="ow-navigation.html">下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
@@ -200,25 +210,6 @@
       el.classList.add('wrong');
       fb.textContent = '❌ 答錯了，再看看上面內容再試';
       fb.className = 'fb no';
-    }
-    checkAll();
-  }
-  function checkAll() {
-    var quizzes = document.querySelectorAll('.quiz');
-    var allOk = true;
-    quizzes.forEach(function(q) {
-      var ok = q.querySelector('label.correct');
-      if (!ok) allOk = false;
-    });
-    var btn = document.getElementById('nextBtn');
-    if (btn) {
-      if (allOk) {
-        btn.classList.remove('locked');
-        btn.textContent = '下一章 →';
-      } else {
-        btn.classList.add('locked');
-        btn.textContent = '🔒 下一章（先通過測驗）';
-      }
     }
   }
 
