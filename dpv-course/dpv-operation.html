@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操作技巧</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">水底推進器課程 · 第 4 章</span>
+  <h1>操作技巧</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🎬</span>潛前準備</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>電池檢查</strong>：滿電？充飽？（確定回程夠用）</li>
+      <li><strong>螺旋槳/護罩</strong>：完整無損、無纏繞物</li>
+      <li><strong>綁好</strong>：長髮、管線、繫繩收好</li>
+      <li><strong>測試開關</strong>：水面測試正常</li>
+      <li><strong>潛水計畫</strong>：深度、時間、折返點、潛伴分工</li>
+    </ol>
+    <div class="analogy">🛵 騎機車前檢查油量、輪胎、煞車——<strong>騎 DPV 前檢查電池、螺旋槳、開關</strong>。一樣的道理！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🌊</span>入水與水面使用</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 SDI §12.9 操作程序</span><br>
+      <strong>入水：</strong>帶著 DPV 一起入水（教練會教各種入水法）<br>
+      <strong>水面使用：</strong>在水面就可以開——但注意浪、注意方向、注意其他潛水員<br>
+      <strong>下潛：</strong>帶著 DPV 一起下潛（控制浮力、慢慢下）<br>
+      <strong>上升/出水：</strong>先停 DPV、再上升（安全停留）、出水後關機
+    </div>
+    <div class="warn">⚠️ 水面開 DPV：<strong>確認沒有其他潛水員/游泳者在你前方</strong>——螺旋槳在水面也一樣危險！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🏍️</span>騎乘技巧</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>姿勢</strong>：身體放鬆、抓穩把手、頭微抬看前方</li>
+      <li><strong>速度</strong>：巡航速度就好（省電+安全）</li>
+      <li><strong>轉彎</strong>：身體帶動、提前看方向</li>
+      <li><strong>停止</strong>：鬆開把手就停（或煞車）——<strong>不要急停</strong></li>
+      <li><strong>雙載（Tandem）</strong>：一人抓前、一人抓後，速度要慢</li>
+    </ul>
+    <div class="analogy">🏍️ 騎 DPV 像騎機車載人——<strong>後座要抓穩、速度要慢、轉彎要提前</strong>。雙載更要小心！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🧭</span>水下定向與導航</h2>
+    <div class="pro">
+      <span class="pro-tag">📖 DPV 導航重點</span><br>
+      • 速度快 → <strong>導航失誤也快</strong>（10 秒就偏離很遠）<br>
+      • 用指北針 + 地標 + 深度<br>
+      • <strong>折返點</strong>要設好（電池/距離）<br>
+      • 水下巡遊時注意潛伴位置
+    </div>
+    <div class="tip">💡 跟著帶頭者走最簡單——但要<strong>自己也會看方向</strong>（萬一落單）！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ DPV 潛前檢查不包含？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o1"> 檢查別人裝備</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o1"> 電池滿電</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o1"> 螺旋槳/護罩完整</label>
+      <div class="fb" id="fbo1"></div>
+      <button class="btn" onclick="showAns('o1a')">看答案</button>
+      <div class="answer" id="o1a">✅ 檢查自己的：電池/螺旋槳/開關/綁好（不用檢查別人）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 水面開 DPV 要注意？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o2"> 沒關係隨便開</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o2"> 確認前方沒有其他潛水員/游泳者</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o2"> 全速衝刺</label>
+      <div class="fb" id="fbo2"></div>
+      <button class="btn" onclick="showAns('o2a')">看答案</button>
+      <div class="answer" id="o2a">✅ 水面螺旋槳一樣危險，確認前方淨空</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 雙載（Tandem）騎乘原則？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o3"> 速度慢、後座抓穩、轉彎提前</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o3"> 全速最爽</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o3"> 後座不用抓</label>
+      <div class="fb" id="fbo3"></div>
+      <button class="btn" onclick="showAns('o3a')">看答案</button>
+      <div class="answer" id="o3a">✅ 慢速、抓穩、提前轉彎（像騎機車載人）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ DPV 導航為什麼要特別小心？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o4"> 指北針在水裡壞</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o4"> 速度快→偏離也快（10 秒差很遠）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o4"> 沒差</label>
+      <div class="fb" id="fbo4"></div>
+      <button class="btn" onclick="showAns('o4a')">看答案</button>
+      <div class="answer" id="o4a">✅ 速度快，導航失誤瞬間擴大</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 上升出水前要先？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o5"> 加速衝</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="o5"> 停 DPV → 正常上升 + 安全停留 → 出水關機</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="o5"> 直接丟掉 DPV</label>
+      <div class="fb" id="fbo5"></div>
+      <button class="btn" onclick="showAns('o5a')">看答案</button>
+      <div class="answer" id="o5a">✅ 先停機、正常上升、安全停留不能省</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>水推是「交通工具」，不是「玩具」</strong>——安全第一</li>
+      <li><strong>電池續航 = 你的回程票</strong>——記得折返點</li>
+      <li>水推風險：<strong>螺旋槳、故障、失散</strong>——靠訓練與潛伴</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="dpv-planning.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI DPV Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
