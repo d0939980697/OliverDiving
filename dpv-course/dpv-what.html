@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DPV 是什麼</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">水底推進器課程 · 第 1 章</span>
+  <h1>DPV 是什麼</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🛵</span>DPV 是什麼？</h2>
+    <p><strong>DPV = Diver Propulsion Vehicle（潛水推進器）</strong>——簡單說就是<strong>水下的「機車」</strong>：你抓著它，它帶你前進，省力又好玩。</p>
+    <div class="analogy">🛵 就像騎機車 vs 走路：<br>沒水推 = 踢蛙鞋慢慢游（走路）<br>有水推 = 抓著機器咻一下前進（騎車）<br>→ 同樣時間，看得更多、游得更遠、更省力！</div>
+    <div class="pro">
+      <span class="pro-tag">📖 專業定義</span><br>
+      <strong>DPV：</strong>由電池驅動的螺旋槳裝置，潛水員抓握並由它拖曳前進。<br>
+      <strong>本課程：</strong>訓練在<strong>非頂部環境</strong>（開放水域）安全使用 DPV。<br>
+      <strong>注意：</strong>DPV 課程≠頂部環境（洞穴/沉船內部）——那是技術潛水範圍。
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🔋</span>DPV 的類型</h2>
+    <table>
+      <tr><th>類型</th><th>白話</th></tr>
+      <tr><td>手持式（Scooter）</td><td>抓在手上，最常見</td></tr>
+      <tr><td>雙人型（Tandem）</td><td>可以兩人一起抓（課程會教）</td></tr>
+      <tr><td>大型/技術型</td><td>更強續航，技術潛水用</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 選購考量（SDI §12.9）</span><br>
+      • 電池續航力（能跑多久/多遠）<br>
+      • 速度與推力<br>
+      • 深度等級（防水深度）<br>
+      • 重量與攜帶性<br>
+      • 配件（把手、繫繩、燈架）
+    </div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">💪</span>DPV 的優點</h2>
+    <ul style="margin-left:20px;">
+      <li><strong>省力</strong>：不用猛踢蛙鞋，體力消耗大減</li>
+      <li><strong>看更多</strong>：同樣氣量，覆蓋範圍更大</li>
+      <li><strong>放流更輕鬆</strong>：配合水流效率更高</li>
+      <li><strong>帶團效率</strong>：教練帶水推團可以走更遠</li>
+    </ul>
+    <div class="warn">⚠️ 但 DPV 不是「自動駕駛」——<strong>它讓你移動更快，風險也更大</strong>（故障、纏繞、失散），所以才有這門課！</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ DPV 是什麼的縮寫？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v1"> Deep Pressure Valve</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="v1"> Diver Propulsion Vehicle（潛水推進器）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v1"> Dive Personal Vehicle</label>
+      <div class="fb" id="fbv1"></div>
+      <button class="btn" onclick="showAns('v1a')">看答案</button>
+      <div class="answer" id="v1a">✅ Diver Propulsion Vehicle（水底推進器）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ DPV 課程使用環境是？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="v2"> 非頂部環境（開放水域）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v2"> 洞穴內部</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v2"> 沉船內部</label>
+      <div class="fb" id="fbv2"></div>
+      <button class="btn" onclick="showAns('v2a')">看答案</button>
+      <div class="answer" id="v2a">✅ 開放水域（頂部環境是技術潛水範圍）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 選購 DPV 要看什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v3"> 顏色好看</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="v3"> 電池續航、深度等級、推力</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v3"> 品牌知名度</label>
+      <div class="fb" id="fbv3"></div>
+      <button class="btn" onclick="showAns('v3a')">看答案</button>
+      <div class="answer" id="v3a">✅ 續航/深度/推力/重量/配件（SDI §12.9）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ DPV 最大的好處是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v4"> 可以不用呼吸</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="v4"> 省力、看得更多、走更遠</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v4"> 可以潛更深</label>
+      <div class="fb" id="fbv4"></div>
+      <button class="btn" onclick="showAns('v4a')">看答案</button>
+      <div class="answer" id="v4a">✅ 省力+範圍大（不是讓你潛更深！）</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 為什麼 DPV 需要專門訓練？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v5"> 因為很貴</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="v5"> 速度快→風險大（故障/纏繞/失散）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="v5"> 因為規定</label>
+      <div class="fb" id="fbv5"></div>
+      <button class="btn" onclick="showAns('v5a')">看答案</button>
+      <div class="answer" id="v5a">✅ 移動快=風險大，要有系統訓練（SDI 2:1 配比）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li><strong>水推是「交通工具」，不是「玩具」</strong>——安全第一</li>
+      <li><strong>電池續航 = 你的回程票</strong>——記得折返點</li>
+      <li>水推風險：<strong>螺旋槳、故障、失散</strong>——靠訓練與潛伴</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="dpv-battery.html">下一章 →</a>
+    <div style="text-align:center; margin:8px 0 0;">
+      <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI DPV Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+  function showAns(id) {
+    document.getElementById(id).classList.add('show');
+  }
+
+</script>
+</body>
+</html>
