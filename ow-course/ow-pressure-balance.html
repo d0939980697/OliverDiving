@@ -27,6 +27,12 @@
   .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
   .quiz input { margin-right:8px; }
   .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .locked { opacity:0.4; pointer-events:none; }
   .answer.show { display:block; }
   .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
   .btn-coral { background:var(--coral); }
@@ -94,33 +100,37 @@
     <h2><span class="icon">✅</span>小測驗（4 題）</h2>
     <div class="quiz">
       <p>1️⃣ 下潛時耳朵痛，正確做法是？</p>
-      <label><input type="radio" name="b1"> 硬撐繼續下</label>
-      <label><input type="radio" name="b1"> 停止下潛、上升一點、重新平衡</label>
-      <label><input type="radio" name="b1"> 用力捏鼻子憋氣</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b1"> 硬撐繼續下</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b1"> 停止下潛、上升一點、重新平衡</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b1"> 用力捏鼻子憋氣</label>
+      <div class="fb" id="fbb1"></div>
       <button class="btn" onclick="showAns('b1a')">看答案</button>
       <div class="answer" id="b1a">✅ 停止下潛、上升一點、重新平衡（硬撐會傷耳膜）</div>
     </div>
     <div class="quiz">
       <p>2️⃣ 最常用的平衡方法是？</p>
-      <label><input type="radio" name="b2"> 捏鼻鼓氣（瓦薩爾瓦）</label>
-      <label><input type="radio" name="b2"> 用力咳嗽</label>
-      <label><input type="radio" name="b2"> 閉眼睛</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b2"> 捏鼻鼓氣（瓦薩爾瓦）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b2"> 用力咳嗽</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b2"> 閉眼睛</label>
+      <div class="fb" id="fbb2"></div>
       <button class="btn" onclick="showAns('b2a')">看答案</button>
       <div class="answer" id="b2a">✅ 捏鼻鼓氣（或吞口水、搖下巴）</div>
     </div>
     <div class="quiz">
       <p>3️⃣ 面鏡被吸住怎麼解？</p>
-      <label><input type="radio" name="b3"> 用手拉開</label>
-      <label><input type="radio" name="b3"> 從鼻子呼一點氣進去</label>
-      <label><input type="radio" name="b3"> 不管它繼續潛</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b3"> 用手拉開</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b3"> 從鼻子呼一點氣進去</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b3"> 不管它繼續潛</label>
+      <div class="fb" id="fbb3"></div>
       <button class="btn" onclick="showAns('b3a')">看答案</button>
       <div class="answer" id="b3a">✅ 鼻子呼一點氣進去就平衡了</div>
     </div>
     <div class="quiz">
       <p>4️⃣ 感冒鼻塞可以潛水嗎？</p>
-      <label><input type="radio" name="b4"> 可以，忍一下就好</label>
-      <label><input type="radio" name="b4"> 不可以，空腔不通會受傷</label>
-      <label><input type="radio" name="b4"> 吃藥就好</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b4"> 可以，忍一下就好</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b4"> 不可以，空腔不通會受傷</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b4"> 吃藥就好</label>
+      <div class="fb" id="fbb4"></div>
       <button class="btn" onclick="showAns('b4a')">看答案</button>
       <div class="answer" id="b4a">✅ 不可以！感冒/鼻塞 = 取消潛水</div>
     </div>
@@ -134,7 +144,7 @@
       <li><strong>最後 3-5 公尺最危險</strong>，安全停留 5m × 3 分鐘</li>
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
-    <a class="btn-next" href="ow-dcs-narcosis.html">下一章 →</a>
+    <a class="btn-next locked" id="nextBtn" href="ow-dcs-narcosis.html">🔒 下一章（先通過測驗）</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
