@@ -38,12 +38,15 @@
   .btn-coral { background:var(--coral); }
   .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
   .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
   footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
   .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
   table { width:100%; border-collapse:collapse; font-size:0.95rem; }
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
   .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+  .equip-img { width:100%; border-radius:12px; margin:10px 0; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
+  .equip-caption { text-align:center; font-size:0.85rem; color:#5a6a75; margin-bottom:12px; }
 </style>
 </head>
 <body>
@@ -76,7 +79,14 @@
       <strong>一級頭（First Stage）：</strong>接氣瓶，把 200 bar 高壓降成中壓（約 9-10 bar）。<br>
       <strong>二級頭（Second Stage）：</strong>你咬的，把中壓降成環境壓力（你才能吸）。<br>
       <strong>備用氣源（Octopus）：</strong>緊急給潛伴的備用二級頭。<br>
-      <strong>殘壓錶：</strong>顯示氣瓶剩餘壓力（200 bar 滿 → 50 bar 該上來了）。
+      <strong>殘壓錶：</strong>顯示氣瓶剩餘壓力（200 bar 滿 → 50 bar 該上來了）。    <div style="margin-top:10px;">
+      <img class="equip-img" src="images/Reg_firststage.jpg" alt="調節器一級頭">
+      <div class="equip-caption">📷 調節器「一級頭」——接氣瓶的那個</div>
+    </div>
+    <div style="margin-top:6px;">
+      <img class="equip-img" src="images/Scuba_regulator_2nd_stage_01.png" alt="調節器二級頭">
+      <div class="equip-caption">📷 調節器「二級頭」——你咬著呼吸的那個</div>
+    </div>
     </div>
     <div class="pro">
       <span class="pro-tag">📖 氣瓶（Cylinder）</span><br>
@@ -88,7 +98,14 @@
       <span class="pro-tag">📖 BCD（Buoyancy Compensator Device）</span><br>
       <strong>浮力背心：</strong>充氣=上浮、洩氣=下沉、微調=懸浮——像魚的魚鰾。<br>
       <strong>緊急充氣閥（Power Inflator）：</strong>按鈕充氣。<br>
-      <strong>緊急洩氣：</strong>肩上拉繩（Dump Valve）快速洩氣。
+      <strong>緊急洩氣：</strong>肩上拉繩（Dump Valve）快速洩氣。    <div style="margin-top:10px;">
+      <img class="equip-img" src="images/DiverBC.jpg" alt="BCD 浮力背心">
+      <div class="equip-caption">📷 BCD 浮力背心——穿在身上控制浮力</div>
+    </div>
+    <div style="margin-top:6px;">
+      <img class="equip-img" src="images/Bcd_-_stab.JPG" alt="BCD 背心款式">
+      <div class="equip-caption">📷 另一款 BCD（背心式）——款式很多，功能相同</div>
+    </div>
     </div>
   </div>
   <div class="card">
@@ -175,6 +192,9 @@
     </ol>
     <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
     <a class="btn-next" href="ow-planning.html">下一章（先通過測驗）</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
   </div>
   <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
 </div>
