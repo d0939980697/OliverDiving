@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潛水裝備</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 5 章</span>
+  <h1>潛水裝備</h1>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🎒</span>潛水裝備總覽（先有概念）</h2>
+    <p>OW 課程你會認識全部裝備。先記住大分類：</p>
+    <table>
+      <tr><th>類別</th><th>裝備</th><th>用途</th></tr>
+      <tr><td>基本</td><td>面鏡、蛙鞋、呼吸管</td><td>看、游、水面呼吸</td></tr>
+      <tr><td>保暖</td><td>防寒衣（或乾式衣）</td><td>擋冷（水吸熱 25 倍）</td></tr>
+      <tr><td>呼吸</td><td>調節器（一級+二級+備用）</td><td>把氣瓶空氣給你吸</td></tr>
+      <tr><td>浮力</td><td>BCD 浮力背心</td><td>控制上浮下沉</td></tr>
+      <tr><td>氣源</td><td>氣瓶（鋁/鋼）</td><td>儲存壓縮空氣</td></tr>
+      <tr><td>配重</td><td>配重帶/整合配重</td><td>讓你下得去</td></tr>
+      <tr><td>儀錶</td><td>殘壓錶、電腦錶、深度計、指北針</td><td>看氣、看深度、找方向</td></tr>
+      <tr><td>配件</td><td>潛水旗、求救笛、刀、燈、日誌、寫字板</td><td>安全與記錄</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🎯</span>最重要的三件事</h2>
+    <div class="analogy">🚗 裝備就像車子：<br><strong>「會開」不等於「會檢查」。</strong><br>每次下水前都要檢查，因為你的命靠它。</div>
+    <ol style="margin-left:20px;">
+      <li><strong>檢查氣瓶</strong>：殘壓錶看看還有多少氣、氣壓夠不夠（200 bar 左右）</li>
+      <li><strong>檢查調節器</strong>：一級、二級、備用氣源都呼吸一下，有沒有漏</li>
+      <li><strong>BCD 充放氣</strong>：現場充氣、洩氣都正常才下水</li>
+    </ol>
+    <div class="warn">⚠️ <strong>氣瓶沒氣 = 致命。</strong>下水前養成習慣：看殘壓錶 → 開氣瓶 → 再確認一次。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">🧭</span>電腦錶 vs 殘壓錶</h2>
+    <table>
+      <tr><th></th><th>殘壓錶</th><th>電腦錶</th></tr>
+      <tr><td>看什麼</td><td>氣瓶剩多少氣</td><td>深度、時間、免減壓限制</td></tr>
+      <tr><td>重要性</td><td>沒氣就完了</td><td>防減壓病</td></tr>
+      <tr><td>現在</td><td>必備</td><td>強烈建議（SDI 標準要求）</td></tr>
+    </table>
+    <div class="tip">💡 電腦錶就像「儀表板」：深度、剩餘時間、免減壓倒數、安全停留提醒——現代潛水幾乎人人戴。</div>
+  </div>
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（3 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 下水前最不能省掉的檢查？</p>
+      <label><input type="radio" name="g1"> 看氣瓶殘壓（有氣沒氣）</label>
+      <label><input type="radio" name="g1"> 檢查蛙鞋有沒有破</label>
+      <label><input type="radio" name="g1"> 拍照留念</label>
+      <button class="btn" onclick="showAns('g1a')">看答案</button>
+      <div class="answer" id="g1a">✅ 氣瓶殘壓！沒氣就完了</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ BCD 是做什麼的？</p>
+      <label><input type="radio" name="g2"> 儲存空氣</label>
+      <label><input type="radio" name="g2"> 控制浮力（上浮/下沉/懸浮）</label>
+      <label><input type="radio" name="g2"> 保暖</label>
+      <button class="btn" onclick="showAns('g2a')">看答案</button>
+      <div class="answer" id="g2a">✅ 控制浮力（像魚的魚鰾）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 電腦錶最重要的功能？</p>
+      <label><input type="radio" name="g3"> 看時間</label>
+      <label><input type="radio" name="g3"> 算免減壓時間、防減壓病</label>
+      <label><input type="radio" name="g3"> 當手錶帥</label>
+      <button class="btn" onclick="showAns('g3a')">看答案</button>
+      <div class="answer" id="g3a">✅ 算免減壓時間、提醒安全停留（防減壓病）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol style="margin-left:20px;">
+      <li>裝備 = 你的命：<strong>每次下水前檢查氣瓶、調節器、BCD</strong></li>
+      <li>殘壓錶看氣、電腦錶看免減壓——<strong>兩個都重要</strong></li>
+      <li>防寒衣是保暖不是選配，<strong>冷 = 判斷力下降</strong></li>
+</ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成本章！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Open Water Diver 標準編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+</script>
+</body>
+</html>
