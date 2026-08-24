@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>緊急程序</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:2rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  ol,ul { padding-left:22px; }
+  li { margin:6px 0; }
+  .step { background:var(--bubble); border-radius:12px; padding:12px 16px; margin:10px 0; }
+  .step b { color:var(--ocean); }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">OW 學科 · 第 11 章</span>
+  <h1>🚨 緊急程序</h1>
+  <p>潛水出狀況怎麼辦？先讀過，才不會現場慌</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">💡</span>為什麼要「先讀」緊急程序？</h2>
+    <p>潛水的緊急狀況很少見，但<strong>發生時沒有時間慢慢想</strong>。</p>
+    <p>這章把最重要的狀況和步驟整理出來——<strong>先有概念，現場才不會慌</strong>。教練會帶你實際練習，這章是「預習」。</p>
+    <div class="analogy">📖 <strong>白話比喻：</strong>像滅火器——平常不會用，但火災時你必須「反射動作」就拿起來噴。潛水緊急程序也是一樣，<strong>練到變反射動作</strong>就對了。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⏱️</span>緊急減壓（Emergency Decompression）</h2>
+    <p>OW 課程不教你「減壓潛水」——<strong>減壓停留只出現在「意外」時</strong>：你不小心超過了免減壓時間（NDL）。</p>
+    <div class="pro">
+      <span class="pro-tag">專業標準（SDI）</span>
+      <p>如果意外超過免減壓時間，你有<strong>生理上的義務</strong>在上升前做「分段減壓停留」：</p>
+      <ol>
+        <li>電腦錶會顯示減壓停留深度與時間</li>
+        <li>以正常速度上升，在<strong>第一個減壓深度</strong>停下</li>
+        <li>待滿所需時間 → 電腦錶顯示下一個較淺的停留深度</li>
+        <li>完成所有停留，直到電腦錶允許你上升到水面</li>
+      </ol>
+      <p>⚠️ 前提：你的<strong>氣量要夠</strong>才做得到。</p>
+    </div>
+    <div class="warn">🚫 沒氣又不夠做停留？→ 見下一段「遺漏減壓」。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🫁</span>遺漏減壓（Omitted Decompression）</h2>
+    <p>如果真的發生：進入減壓模式，但<strong>氣不夠做完整停留</strong>（也沒辦法跟潛伴借氣）——只能先回水面，但「程序」要馬上啟動：</p>
+    <div class="step">✅ <b>水面後：</b>建立正浮力、打浮力袋/求援信號</div>
+    <div class="step">✅ <b>上船後：</b>立刻告知潛水主管「我遺漏減壓了」</div>
+    <div class="step">✅ <b>吸氧：</b>純氧至少 30 分鐘</div>
+    <div class="step">✅ <b>觀察：</b>至少 24 小時注意減壓病症狀</div>
+    <div class="step">✅ <b>禁止：</b>24 小時內不可再潛水、不可搭飛機、不可去高地</div>
+    <div class="analogy">🛑 <strong>白話：</strong>遺漏減壓不是「回水面就沒事」——是「<strong>上岸才開始處理</strong>」！氧氣 + 觀察 + 求醫，一個都不能少。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⌚</span>電腦錶故障（Computer Failure）</h2>
+    <p>電腦錶是你潛水紀錄的<strong>唯一真相</strong>——它掛了：</p>
+    <ul>
+      <li>✅ <strong>沒有備用電腦錶</strong> → 直接中止潛水（因為不知道你的潛水剖面）</li>
+      <li>✅ 氣夠 + 離免減壓上限還遠 → 做安全停留後上升</li>
+      <li>✅ 送修 + <strong>等 24 小時</strong>再潛（避免重複潛水殘氮問題）</li>
+    </ul>
+    <div class="pro">
+      <span class="pro-tag">專業標準（SDI）</span>
+      <p>有些電腦錶在違反減壓規範後會<strong>「鎖機」</strong>：24 小時內不再提供/追蹤潛水資訊，甚至潛水途中就鎖住（只顯示深度和時間）。</p>
+    </div>
+    <div class="tip">💡 選電腦錶時，挑<strong>會顯示「緊急減壓需求」</strong>的款式——這能救你一命。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">😱</span>恐慌（Panic）</h2>
+    <p><strong>恐慌是水裡最危險的狀況之一。</strong>恐慌的人無法理性思考，通常<strong>無法自救</strong>，要靠別人救。</p>
+    <p>恐慌來自<strong>焦慮</strong>——環境陌生、裝備不舒服、看不到底、呼吸急促⋯⋯</p>
+    <div class="analogy">🧘 <strong>白話：</strong>恐慌 = 大腦當機。跟電腦一樣，當機時你亂按什麼都沒用。<strong>預防 > 處理</strong>：呼吸慢一點、手抓穩、跟緊潛伴、別勉強。</div>
+    <div class="warn">🚨 看到潛伴恐慌：<strong>停下來、抓穩他、眼神接觸</strong>，用「OK」手勢引導他慢慢呼吸——不要急著拉他上升！</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🏃</span>過度用力 / 水面問題</h2>
+    <p><strong>過度用力（Overexertion）</strong>：游太快、逆流硬撐 → 喘不過氣 → 恐慌風險大增。</p>
+    <ul>
+      <li>✅ 慢下來、休息、抓可抓的東西</li>
+      <li>✅ 告訴潛伴「我累了」（用國際手勢：手掌平放左右擺）</li>
+      <li>✅ 不要硬撐——<strong>潛水永遠可以「下次再來」</strong></li>
+    </ul>
+    <p><strong>水面問題</strong>：</p>
+    <ul>
+      <li>✅ 建立正浮力（BCD 充氣、丟配重）</li>
+      <li>✅ 吹口哨/舉浮力袋/揮手</li>
+      <li>✅ 不會游泳的人：抓住可漂浮物、保持鎮定、等救援</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🧑‍🤝‍🧑</span>潛伴失蹤（Missing Diver）</h2>
+    <p>潛伴沒按時間浮出水面：</p>
+    <div class="step">✅ <b>1.</b> 通知水面主管：你和潛伴失散了</div>
+    <div class="step">✅ <b>2.</b> 提供資訊：最後位置、潛水時間、最大深度</div>
+    <div class="step">✅ <b>3.</b> 超過合理時間未浮出 → 由合格潛水員搜索 + 通報當地救難單位</div>
+    <div class="tip">💡 <strong>最好的處理 = 預防：</strong>不要跟丟潛伴！三不五時回頭確認，潛伴是你在水裡最大的保險。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🌊</span>暈船（Seasickness）</h2>
+    <p>暈船 = 船的搖晃干擾了耳朵的平衡機制 + 視覺錯亂。</p>
+    <div class="pro">
+      <span class="pro-tag">專業標準（SDI）</span>
+      <ul>
+        <li>船出發<strong>前</strong>組好裝備</li>
+        <li>航行中遠離廢氣、待在船身最穩的地方</li>
+        <li>看<strong>地平線</strong>，不要看船上物體</li>
+        <li>出發前吃正常份量，避免油膩大餐</li>
+        <li>多喝水，避免碳酸/咖啡因飲料</li>
+        <li>防寒衣到潛點前再穿</li>
+      </ul>
+    </div>
+    <div class="warn">⚠️ 暈船藥要在<strong>出發前 30 分鐘以上</strong>吃——上船後吃沒用！有些暈船藥在高壓下會有副作用，請先問醫生。</div>
+    <div class="analogy">😌 <strong>好消息：</strong>一下水，暈船感通常「立刻消失」——水中是平的！</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🆘</span>減壓病急救（DCS First Aid）</h2>
+    <p>懷疑減壓病 → <strong>全部當作減壓病處理</strong>（不要自己判斷是輕是重）：</p>
+    <div class="step">✅ <b>1.</b> 把傷者帶離危險</div>
+    <div class="step">✅ <b>2.</b> 啟動緊急醫療系統（EMS / 119）</div>
+    <div class="step">✅ <b>3.</b> 監測生命徵象（脈搏/呼吸），需要時 CPR</div>
+    <div class="step">✅ <b>4.</b> 有呼吸 → 用需求調節器給 <b>100% 純氧</b></div>
+    <div class="step">✅ <b>5.</b> 聯絡 <b>DAN（Divers Alert Network）</b>：+1-919-684-9111（24 小時免費熱線）</div>
+    <div class="analogy">🏥 <strong>白話：</strong>減壓病多半需要<strong>高壓艙治療</strong>——但「先給氧」是第一線救命動作。氧氣 + 熱線 + 送醫 = 標準三步。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⛑️</span>急救（First Aid）</h2>
+    <p>常潛水的人，強烈建議學<strong>救援課程 + 基本救命術（CPR）</strong>——關鍵時刻真的能救人命。</p>
+    <ul>
+      <li>✅ 潛水急救包除了基本用品（繃帶/消毒/剪刀/膠帶/手套），還要準備：<strong>嫩肉精或醋</strong>（處理海洋生物刺傷）+ 純氧</li>
+      <li>✅ 偏遠潛點（離醫療遠）風險更高 → 更要會急救</li>
+      <li>✅ 急救只是「第一反應」——最終還是要找專業醫療</li>
+    </ul>
+    <div class="tip">💡 SDI 有 <strong>First Response Training International</strong> 救援/急救課程，學完你對潛水安全會更有信心。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📝</span>本章測驗（5 題）</h2>
+
+    <div class="quiz" data-correct="1">
+      <p>1. 不小心超過免減壓時間，電腦錶顯示減壓停留，你應該？</p>
+      <label><input type="radio" name="q1" value="0">直接快速上升回水面（反正沒症狀）</label>
+      <label><input type="radio" name="q1" value="1">在顯示的減壓深度停下，完成所有停留再上升</label>
+      <label><input type="radio" name="q1" value="0">先上船再說</label>
+      <div class="fb"></div>
+    </div>
+
+    <div class="quiz" data-correct="0">
+      <p>2. 電腦錶在水下故障，而你沒有備用錶，正確做法是？</p>
+      <label><input type="radio" name="q2" value="0">中止潛水（電腦錶是潛水剖面的唯一紀錄）</label>
+      <label><input type="radio" name="q2" value="1">繼續潛，靠感覺就好</label>
+      <label><input type="radio" name="q2" value="1">換潛伴的錶繼續</label>
+      <div class="fb"></div>
+    </div>
+
+    <div class="quiz" data-correct="2">
+      <p>3. 發現潛伴恐慌，你該怎麼做？</p>
+      <label><input type="radio" name="q3" value="0">用力把他拉上水面</label>
+      <label><input type="radio" name="q3" value="1">丟下他去找教練</label>
+      <label><input type="radio" name="q3" value="2">停下來、抓穩他、眼神接觸、引導他慢慢呼吸</label>
+      <div class="fb"></div>
+    </div>
+
+    <div class="quiz" data-correct="1">
+      <p>4. 遺漏減壓回水面後，正確處理是？</p>
+      <label><input type="radio" name="q4" value="0">休息一下繼續潛</label>
+      <label><input type="radio" name="q4" value="1">告知主管 + 吸純氧至少 30 分鐘 + 觀察 24 小時</label>
+      <label><input type="radio" name="q4" value="0">趕快搭飛機回台北</label>
+      <div class="fb"></div>
+    </div>
+
+    <div class="quiz" data-correct="2">
+      <p>5. 暈船藥要在什麼時候吃？</p>
+      <label><input type="radio" name="q5" value="0">上船後覺得暈才吃</label>
+      <label><input type="radio" name="q5" value="1">下水前 5 分鐘</label>
+      <label><input type="radio" name="q5" value="2">出發前至少 30 分鐘</label>
+      <div class="fb"></div>
+    </div>
+
+    <div style="margin-top:16px;text-align:center;">
+      <a class="btn-home" href="ow-index.html">🏠 回到目錄首頁</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>📚 OW 線上學科 · Team Oliver 潛水教學</p>
+    <p>內容依據 SDI Open Water Scuba Diver Manual（v0326）</p>
+  </footer>
+</div>
+
+<script>
+  // 進度條
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('progressBar').style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  });
+  // 測驗
+  document.querySelectorAll('.quiz').forEach((quiz, qi) => {
+    const correct = parseInt(quiz.dataset.correct, 10);
+    const fb = quiz.querySelector('.fb');
+    quiz.querySelectorAll('label').forEach((label, li) => {
+      label.addEventListener('click', () => {
+        const val = parseInt(label.querySelector('input').value, 10);
+        quiz.querySelectorAll('label').forEach(l => l.classList.remove('correct', 'wrong'));
+        if (val === correct) {
+          label.classList.add('correct');
+          fb.textContent = '✅ 正確！';
+          fb.className = 'fb ok';
+        } else {
+          label.classList.add('wrong');
+          fb.textContent = '❌ 答錯了，再看看內容再試';
+          fb.className = 'fb no';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
