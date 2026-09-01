@@ -105,44 +105,44 @@
 
     <div class="quiz">
       <p>1️⃣ 高氧的主要功能是什麼？</p>
-      <label><input type="radio" name="q1" onclick="check(this,1,'a')"> 養顏美容</label>
-      <label><input type="radio" name="q1" onclick="check(this,1,'b')"> 增加免減壓時間（NDL）</label>
-      <label><input type="radio" name="q1" onclick="check(this,1,'c')"> 可以潛更深</label>
-      <label><input type="radio" name="q1" onclick="check(this,1,'d')"> 治療宿醉</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'a')" value="a"> 養顏美容</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'b')" value="b"> 增加免減壓時間（NDL）</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'c')" value="c"> 可以潛更深</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'d')" value="d"> 治療宿醉</label>
       <div class="fb" id="fb1"></div>
     </div>
 
     <div class="quiz">
       <p>2️⃣ 使用 EAN32 的最大操作深度（MOD，氧分壓 1.4ata）大約是多少？</p>
-      <label><input type="radio" name="q2" onclick="check(this,2,'a')"> 40m</label>
-      <label><input type="radio" name="q2" onclick="check(this,2,'b')"> 33m</label>
-      <label><input type="radio" name="q2" onclick="check(this,2,'c')"> 18m</label>
-      <label><input type="radio" name="q2" onclick="check(this,2,'d')"> 沒有限制</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'a')" value="a"> 40m</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'b')" value="b"> 33m</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'c')" value="c"> 18m</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'d')" value="d"> 沒有限制</label>
       <div class="fb" id="fb2"></div>
     </div>
 
     <div class="quiz">
       <p>3️⃣ 高氧可以治療癌症或養顏美容嗎？</p>
-      <label><input type="radio" name="q3" onclick="check(this,3,'a')"> 可以，高氧很神奇</label>
-      <label><input type="radio" name="q3" onclick="check(this,3,'b')"> 不行，沒有任何科學依據</label>
-      <label><input type="radio" name="q3" onclick="check(this,3,'c')"> 只有養顏可以</label>
-      <label><input type="radio" name="q3" onclick="check(this,3,'d')"> 只有治癌症可以</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'a')" value="a"> 可以，高氧很神奇</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'b')" value="b"> 不行，沒有任何科學依據</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'c')" value="c"> 只有養顏可以</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'d')" value="d"> 只有治癌症可以</label>
       <div class="fb" id="fb3"></div>
     </div>
 
     <div class="quiz">
       <p>4️⃣ 吸高氧就不會氮醉嗎？</p>
-      <label><input type="radio" name="q4" onclick="check(this,4,'a')"> 完全不會</label>
-      <label><input type="radio" name="q4" onclick="check(this,4,'b')"> 會比較輕，但深度夠深還是可能氮醉</label>
-      <label><input type="radio" name="q4" onclick="check(this,4,'c')"> 只會醉氧不會醉氮</label>
+      <label><input type="radio" name="q4" onclick="check(this,4,'a')" value="a"> 完全不會</label>
+      <label><input type="radio" name="q4" onclick="check(this,4,'b')" value="b"> 會比較輕，但深度夠深還是可能氮醉</label>
+      <label><input type="radio" name="q4" onclick="check(this,4,'c')" value="c"> 只會醉氧不會醉氮</label>
       <div class="fb" id="fb4"></div>
     </div>
 
     <div class="quiz">
       <p>5️⃣ 高氧解除潛水疲勞感的說法？</p>
-      <label><input type="radio" name="q5" onclick="check(this,5,'a')"> 是真的，吸了就不累</label>
-      <label><input type="radio" name="q5" onclick="check(this,5,'b')"> 心理作用居多，疲勞要靠休息</label>
-      <label><input type="radio" name="q5" onclick="check(this,5,'c')"> 要吸兩瓶才有效</label>
+      <label><input type="radio" name="q5" onclick="check(this,5,'a')" value="a"> 是真的，吸了就不累</label>
+      <label><input type="radio" name="q5" onclick="check(this,5,'b')" value="b"> 心理作用居多，疲勞要靠休息</label>
+      <label><input type="radio" name="q5" onclick="check(this,5,'c')" value="c"> 要吸兩瓶才有效</label>
       <div class="fb" id="fb5"></div>
     </div>
 
@@ -155,9 +155,9 @@
 
 <script>
   const answers = {1:'b', 2:'b', 3:'b', 4:'b', 5:'b'};
-  function check(el, q, ans) {
+  function check(el, q) {
     const fb = document.getElementById('fb' + q);
-    if (el.value === ans) {
+    if (el.value === answers[q]) {
       fb.textContent = '✅ 答對了！';
       fb.className = 'fb ok';
     } else {
