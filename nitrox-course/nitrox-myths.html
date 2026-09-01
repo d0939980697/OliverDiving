@@ -155,9 +155,9 @@
 
 <script>
   const answers = {1:'b', 2:'b', 3:'b', 4:'b', 5:'b'};
-  function check(el, q) {
+  function check(el, q, ans) {
     const fb = document.getElementById('fb' + q);
-    if (el.value === answers[q]) {
+    if (ans === answers[q]) {
       fb.textContent = '✅ 答對了！';
       fb.className = 'fb ok';
     } else {
