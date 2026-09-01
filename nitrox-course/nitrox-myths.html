@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高氧迷思破解</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .myth { background:#fff3f0; border:1px solid #ffd6d0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .myth .myth-tag { display:inline-block; background:var(--coral); color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .fact { background:#f0f7ff; border:1px solid #cfe3f5; border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .fact .fact-tag { display:inline-block; background:var(--ocean); color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz input { margin-right:8px; }
+  .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .fb.ok { color:#1d6b2f; }
+  .fb.no { color:#c62828; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">高氧課程 · 迷思破解篇</span>
+  <h1>高氧迷思破解 🔍</h1>
+  <p>這些話你一定聽過——但都是真的嗎？</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🤔</span>為什麼會有這些迷思？</h2>
+    <p>高氧（Nitrox）的名字裡有「氧」，很多人就以為它是「神奇氣體」——提神、美容、治病、什麼都行。但高氧其實只是「氧氣比例比較高的空氣」（22-40%），它的作用<b>只有一個</b>：</p>
+    <div class="formula">降低氮氣吸收 → 增加免減壓時間（NDL）</div>
+    <div class="analogy">🍊 比喻：高氧就像「低糖飲料」——它只是少了一樣東西（糖=氮），不是什麼靈丹妙藥。喝低糖飲料不會變瘦，吸高氧也不會變超人。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🥱</span>迷思 1：高氧可以解除潛水後的疲勞感？</h2>
+    <div class="myth"><span class="myth-tag">⚠️ 半對半錯</span>「潛完水好累，吸高氧就會恢復？」</div>
+    <div class="fact"><span class="fact-tag">✅ 事實</span><b>「相對不累」是真的，有科學依據：</b>高氧減少氮氣吸收 → 氮氣殘留少、恢復快、減壓病風險降低——很多潛水員確實覺得高氧潛完比較不累。<b>但它不是仙丹：</b>體力消耗、水溫流失、背裝備的勞動還是要自己休息、保暖、吃東西來恢復。</div>
+    <div class="analogy">🍊 比喻：高氧像「讓身體少背一塊石頭」（少點氮氣負擔）——走起來輕鬆一點，但走久了一樣會累，該休息還是要休息。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✨</span>迷思 2：高氧可以養顏美容？</h2>
+    <div class="myth"><span class="myth-tag">❌ 迷思</span>「吸高氧皮膚會變好、變年輕？」</div>
+    <div class="fact"><span class="fact-tag">✅ 事實</span>完全沒有科學依據。氧氣是人體需要的氣體，但「多吸的氧」不會跑去皮膚細胞做美容。醫療用的「高壓氧治療艙」是用於傷口癒合等醫療用途，跟潛水高氧是兩回事，而且也不是美容療程。</div>
+    <div class="analogy">🍊 比喻：吃很多維他命 C 不會讓你白 3 個色階。身體只需要剛好的量，多出來的就排掉——氧氣也是。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🏥</span>迷思 3：高氧可以治療癌症？</h2>
+    <div class="myth"><span class="myth-tag">❌ 迷思</span>「氧氣多一點可以殺死癌細胞？」</div>
+    <div class="fact"><span class="fact-tag">✅ 事實</span>這是危險的迷思！沒有任何證據顯示潛水高氧能治療癌症。高壓氧治療艙在醫療上有特定用途（如放射治療後的組織傷害），但那是醫療專業領域，跟潛水員背的高氧瓶完全不同。癌症請找醫生治療，不要相信偏方。</div>
+    <div class="warn">⚠️ 如果有人跟你說「吸高氧可以治癌症」——那是騙人的，而且可能延誤治療！</div>
+    <div class="analogy">🍊 比喻：感冒喝柳橙汁不會好比較快，更別說癌症了。氧氣不是藥，高氧不是仙丹。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📏</span>迷思 4：高氧就可以潛更深？</h2>
+    <div class="myth"><span class="myth-tag">❌ 迷思</span>「氧氣多，呼吸更順，可以下更深？」</div>
+    <div class="fact"><span class="fact-tag">✅ 事實</span><b>完全相反！</b>高氧的氧氣比例高 → 氧分壓上升快 → 達到氧分壓上限（1.4/1.6ata）的深度<b>更淺</b>。所以高氧的「最大操作深度 MOD」反而比空氣淺！</div>
+    <div class="formula">MOD = (1.4 ÷ 氧氣比例) − 1（單位：ata 換算深度）<br>EAN32 → MOD 約 33m ｜ EAN36 → MOD 約 29m</div>
+    <div class="analogy">🍊 比喻：高氧是「讓你待更久」，不是「讓你下更深」——像低糖飲料讓你喝更多杯，但不會讓你酒杯變大。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🌀</span>迷思 5：高氧就不會氮醉？</h2>
+    <div class="myth"><span class="myth-tag">⚠️ 半對半錯</span>「吸高氧就不會醉氮了？」</div>
+    <div class="fact"><span class="fact-tag">✅ 事實</span>高氧的氮氣比例比空氣低（例如 EAN32 只有 68% 氮 vs 空氣 79%）→ 氮醉<b>會比較輕、比較慢</b>——但<b>不是不會氮醉</b>！深度夠深，氮分壓還是可能達到氮醉程度。</div>
+    <div class="warn">⚠️ 深度超過 30m 後，高氧的氮醉風險依然存在，別因為用高氧就放鬆警覺！</div>
+    <div class="analogy">🍊 比喻：低糖飲料的酒精（誤）少了，但喝多了還是會醉。氮氣少了，但潛深了還是會醉。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">💡</span>一句話總結</h2>
+    <div class="tip">高氧 = 「增加免減壓時間」的工具。<b>它不會讓你更強、更美、更健康、下更深、不氮醉</b>——它只做一件事：讓你在同樣深度待更久，同時要遵守更嚴格的深度限制。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📝</span>小測驗（5 題）</h2>
+
+    <div class="quiz">
+      <p>1️⃣ 高氧的主要功能是什麼？</p>
+      <label><input type="radio" name="q1" onclick="check(this,1,'a')"> 養顏美容</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'b')"> 增加免減壓時間（NDL）</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'c')"> 可以潛更深</label>
+      <label><input type="radio" name="q1" onclick="check(this,1,'d')"> 治療宿醉</label>
+      <div class="fb" id="fb1"></div>
+    </div>
+
+    <div class="quiz">
+      <p>2️⃣ 使用 EAN32 的最大操作深度（MOD，氧分壓 1.4ata）大約是多少？</p>
+      <label><input type="radio" name="q2" onclick="check(this,2,'a')"> 40m</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'b')"> 33m</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'c')"> 18m</label>
+      <label><input type="radio" name="q2" onclick="check(this,2,'d')"> 沒有限制</label>
+      <div class="fb" id="fb2"></div>
+    </div>
+
+    <div class="quiz">
+      <p>3️⃣ 高氧可以治療癌症或養顏美容嗎？</p>
+      <label><input type="radio" name="q3" onclick="check(this,3,'a')"> 可以，高氧很神奇</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'b')"> 不行，沒有任何科學依據</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'c')"> 只有養顏可以</label>
+      <label><input type="radio" name="q3" onclick="check(this,3,'d')"> 只有治癌症可以</label>
+      <div class="fb" id="fb3"></div>
+    </div>
+
+    <div class="quiz">
+      <p>4️⃣ 吸高氧就不會氮醉嗎？</p>
+      <label><input type="radio" name="q4" onclick="check(this,4,'a')"> 完全不會</label>
+      <label><input type="radio" name="q4" onclick="check(this,4,'b')"> 會比較輕，但深度夠深還是可能氮醉</label>
+      <label><input type="radio" name="q4" onclick="check(this,4,'c')"> 只會醉氧不會醉氮</label>
+      <div class="fb" id="fb4"></div>
+    </div>
+
+    <div class="quiz">
+      <p>5️⃣ 高氧解除潛水疲勞感的說法？</p>
+      <label><input type="radio" name="q5" onclick="check(this,5,'a')"> 是真的，吸了就不累</label>
+      <label><input type="radio" name="q5" onclick="check(this,5,'b')"> 心理作用居多，疲勞要靠休息</label>
+      <label><input type="radio" name="q5" onclick="check(this,5,'c')"> 要吸兩瓶才有效</label>
+      <div class="fb" id="fb5"></div>
+    </div>
+
+    <a href="index.html" class="btn-home">🏠 回目錄</a>
+    <a href="nitrox-computer.html" class="btn-next">下一章 →</a>
+  </div>
+
+  <footer>小琉球 Team Oliver 高氧課程 · 迷思破解篇</footer>
+</div>
+
+<script>
+  const answers = {1:'b', 2:'b', 3:'b', 4:'b', 5:'b'};
+  function check(el, q, ans) {
+    const fb = document.getElementById('fb' + q);
+    if (el.value === ans) {
+      fb.textContent = '✅ 答對了！';
+      fb.className = 'fb ok';
+    } else {
+      fb.textContent = '❌ 再想想～';
+      fb.className = 'fb no';
+    }
+    // 標示正確答案
+    document.querySelectorAll(`input[name="q${q}"]`).forEach(i => {
+      i.disabled = true;
+      if (i.value === answers[q]) i.parentElement.classList.add('correct');
+      if (i.checked && i.value !== answers[q]) i.parentElement.classList.add('wrong');
+    });
+  }
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    document.getElementById('progressBar').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  });
+</script>
+</body>
+</html>
