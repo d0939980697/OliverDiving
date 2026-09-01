@@ -157,19 +157,22 @@
   const answers = {1:'b', 2:'b', 3:'b', 4:'b', 5:'b'};
   function check(el, q, ans) {
     const fb = document.getElementById('fb' + q);
+    // 先清除該題所有狀態（允許重試）
+    document.querySelectorAll(`input[name="q${q}"]`).forEach(i => {
+      i.disabled = false;
+      i.parentElement.classList.remove('correct', 'wrong');
+    });
     if (ans === answers[q]) {
       fb.textContent = '✅ 答對了！';
       fb.className = 'fb ok';
+      el.parentElement.classList.add('correct');
+      // 答對才鎖定
+      document.querySelectorAll(`input[name="q${q}"]`).forEach(i => { i.disabled = true; });
     } else {
       fb.textContent = '❌ 再想想～';
       fb.className = 'fb no';
+      el.parentElement.classList.add('wrong');
     }
-    // 標示正確答案
-    document.querySelectorAll(`input[name="q${q}"]`).forEach(i => {
-      i.disabled = true;
-      if (i.value === answers[q]) i.parentElement.classList.add('correct');
-      if (i.checked && i.value !== answers[q]) i.parentElement.classList.add('wrong');
-    });
   }
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
