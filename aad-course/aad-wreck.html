@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>殘骸潛水專長｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 殘骸潛水專長</span>
+  <h1>殘骸潛水專長 Wreck Diving</h1>
+  <p>沉船是海底的博物館，也是訓練場</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🚢</span>什麼是殘骸潛水？</h2>
+    <p>殘骸（沉船、沉沒飛機、人工魚礁）是海裡<strong>最熱鬧的社區</strong>——魚群聚集、珊瑚附著，像一座座海底博物館。</p>
+    <div class="emoji-box">🐠 魚群圍繞 → 🏛️ 歷史故事 → 🧭 探險感</div>
+    <div class="pro">
+      <span class="pro-tag">📖 小琉球就有</span><br>
+      小琉球周邊有<strong>人工魚礁與沉船</strong>（例如著名的<strong>威尼斯沉船</strong>，約 20-30 公尺深）——想看殘骸不用出國，但要<strong>先學會殘骸的規矩</strong>再下去。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⚠️</span>殘骸的危險：不是「破船」而已</h2>
+    <ul>
+      <li><strong>纏繞：</strong>漁網、纜繩、電線——殘骸上到處是「陷阱」</li>
+      <li><strong>尖銳：</strong>鏽蝕的金屬、破損的船殼，輕輕一碰就是割傷</li>
+      <li><strong>揚沙：</strong>踢到沉積物，能見度瞬間歸零</li>
+      <li><strong>天花板（Overhead）：</strong>進入船體內部＝頭上有頂，<strong>不能直接上升</strong></li>
+    </ul>
+    <div class="analogy">🏠 <strong>比喻：</strong>鑽進沉船內部，就像走進一間<strong>沒有門的密室</strong>——想出去只能沿原路，不能「往上頂開天花板」。這叫<strong>穿透環境（overhead environment）</strong>，是殘骸潛水最大的分水嶺。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🚪</span>穿透？不穿透？界線要清楚</h2>
+    <table>
+      <tr><th></th><th>不穿透（外圍）</th><th>穿透（Penetration）</th></tr>
+      <tr><td>範圍</td><td>船體外、開口附近看得見光</td><td>進入船體內部</td></tr>
+      <tr><td>上升</td><td>隨時可以直升</td><td>不能直升，要沿路出來</td></tr>
+      <tr><td>訓練</td><td>殘骸專長即可</td><td>需完整穿透訓練＋專用裝備＋導繩</td></tr>
+    </table>
+    <div class="warn">⚠️ <strong>AAD 體驗的原則：只在外圍，不穿透。</strong>想玩穿透，那是另一門專業課（還有限制：SDI 規定穿透潛水需滿 15 歲以上受訓）。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🎒</span>殘骸潛水基本裝備</h2>
+    <ul>
+      <li><strong>潛水燈：</strong>殘骸陰影多，燈是眼睛</li>
+      <li><strong>切割工具：</strong>被線纏住時能自救（剪刀或切割器）</li>
+      <li><strong>線輪／導繩：</strong>穿透時沿繩進出（AAD 外圍不一定用，但要認識）</li>
+      <li><strong>備用氣源＋電腦錶：</strong>標準配備，殘骸更不能少</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🫡</span>殘骸守則（背起來）</h2>
+    <ol>
+      <li><strong>不碰：</strong>鏽蝕金屬會割人，沉船文物也不該帶走（尊重＋法律）</li>
+      <li><strong>不揚沙：</strong>蛙鞋慢踢、離底一點，別讓自己跟大家「一起瞎」</li>
+      <li><strong>不逞強：</strong>洞口太小、流太強、能見度差——<strong>這次不看，下次再看</strong></li>
+      <li><strong>跟好教練：</strong>殘骸地形複雜，別自己亂鑽</li>
+    </ol>
+    <div class="analogy">📸 <strong>比喻：</strong>看殘骸像逛博物館——<strong>用眼睛逛、用手電筒照，不要動手摸</strong>。博物館的規矩，海底一樣適用。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 殘骸潛水最大的分水嶺是什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w1"> 殘骸的大小</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="w1"> 要不要「穿透」進入船體內部</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w1"> 沉船的年紀</label>
+      <div class="fb" id="fbw1"></div>
+      <button class="btn" onclick="showAns('w1a')">看答案</button>
+      <div class="answer" id="w1a">✅ 穿透＝頭上有頂不能直升，是殘骸潛水的分水嶺</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 進入沉船內部（穿透環境）時，為什麼不能直接上升？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w2"> 上面有魚群會擋路</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="w2"> 頭上有船體天花板，會被卡住</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w2"> 上升會被水母刺到</label>
+      <div class="fb" id="fbw2"></div>
+      <button class="btn" onclick="showAns('w2a')">看答案</button>
+      <div class="answer" id="w2a">✅ 穿透環境＝頭上有頂，只能沿原路出來</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 被殘骸上的漁網纏住，最好用什麼自救？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w3"> 用力踢開</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="w3"> 隨身切割工具（剪刀／切割器）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w3"> 把 BCD 全部充氣硬拉</label>
+      <div class="fb" id="fbw3"></div>
+      <button class="btn" onclick="showAns('w3a')">看答案</button>
+      <div class="answer" id="w3a">✅ 切割工具是殘骸潛水的標配——被纏住能自己脫身</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ AAD 的殘骸體驗支，正確做法是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w4"> 看到洞口就鑽進去探險</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="w4"> 只在殘骸外圍欣賞，不穿透</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w4"> 帶紀念品回家當戰利品</label>
+      <div class="fb" id="fbw4"></div>
+      <button class="btn" onclick="showAns('w4a')">看答案</button>
+      <div class="answer" id="w4a">✅ AAD 只做外圍體驗，穿透是另一門專業課</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 殘骸旁能見度突然變差（揚沙），通常是自己造成的，怎麼避免？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="w5"> 蛙鞋慢踢、離底保持距離</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w5"> 用力踢水快速通過</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="w5"> 站到沉船上用走的</label>
+      <div class="fb" id="fbw5"></div>
+      <button class="btn" onclick="showAns('w5a')">看答案</button>
+      <div class="answer" id="w5a">✅ 慢踢＋離底＝不揚沙，大家都能看清楚</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>穿透是分水嶺</strong>——AAD 只在外圍，鑽船體是專業課的事</li>
+      <li><strong>帶燈、帶切割器、不碰不拿</strong>——殘骸三寶</li>
+      <li><strong>不逞強</strong>——洞口小、流強、水濁，就下次再看</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成殘骸潛水學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-drift.html">下一章：放流潛水專長 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
