@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>頂尖中性浮力｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 頂尖中性浮力專長</span>
+  <h1>頂尖中性浮力 Advanced Buoyancy</h1>
+  <p>用肺呼吸，就能在水中「定住」</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🎈</span>從「會浮」到「懸住」</h2>
+    <p>OW 你學會了基本浮力控制；這一章要練到——<strong>不碰底、不踢沙、不飄走</strong>，像在水中「定住」一樣。</p>
+    <div class="emoji-box">🐡 笨重上下飄 → 🧘 懸停不動 → 🐠 跟魚一起漂</div>
+    <div class="pro">
+      <span class="pro-tag">📖 為什麼值得練</span><br>
+      頂尖中性浮力的好處：<strong>① 省氣（不用一直踢水修正）② 保護珊瑚（不碰底）③ 看得更多（能靠近生物不嚇跑牠們）④ 更安全（精準控制升降）</strong>。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⚖️</span>浮力三兄弟：配重、BCD、肺</h2>
+    <table>
+      <tr><th>控制</th><th>角色</th><th>口訣</th></tr>
+      <tr><td>配重（鉛塊）</td><td>抵消防寒衣／氣瓶的浮力，是「地基」</td><td>不能太多也不能太少</td></tr>
+      <tr><td>BCD 充氣</td><td>大範圍調整（水面、下潛、上升）</td><td>用「點放」不是「全開」</td></tr>
+      <tr><td>肺部呼吸</td><td>小範圍微調（幾十公分的起伏）</td><td>吸氣上、吐氣下</td></tr>
+    </table>
+    <div class="analogy">🎚️ <strong>比喻：</strong>配重像音響的<strong>音量總開關</strong>，BCD 像<strong>EQ 大調整</strong>，肺就像<strong>微調旋鈕</strong>——高手都在用微調旋鈕，很少大搬總開關。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🦶</span>先確認配重對不對：Fin Pivot 測試</h2>
+    <ol>
+      <li>在淺水區（約 3-5 公尺）<strong>排空 BCD 的氣</strong></li>
+      <li>身體直立、<strong>正常呼吸（不要憋氣）</strong></li>
+      <li>觀察：</li>
+    </ol>
+    <table>
+      <tr><th>結果</th><th>意思</th></tr>
+      <tr><td>吸氣上升、吐氣下沉</td><td>✅ 配重剛好（在肺的「甜蜜點」）</td></tr>
+      <tr><td>一直往下沉</td><td>⚠️ 太重，減鉛塊</td></tr>
+      <tr><td>一直往上飄</td><td>⚠️ 太輕，加鉛塊</td></tr>
+    </table>
+    <div class="warn">⚠️ 配重「剛好」不是「越多越穩」——<strong>鉛塊太多＝要用更多 BCD 氣補＝更難控制＋上升風險</strong>。正確配重是中性浮力的地基。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🫁</span>用肺「滑翔」：高手級微調</h2>
+    <p>中性浮力狀態下，<strong>深深吸一口氣 → 微微上升；慢慢吐氣 → 微微下沉</strong>。這幾十公分的控制，靠肺就夠了。</p>
+    <div class="formula">吸氣 ↑ 微微上升 ｜ 吐氣 ↓ 微微下沉 ｜ 正常呼吸 = 定住</div>
+    <div class="analogy">🪂 <strong>比喻：</strong>用肺控浮力像<strong>滑翔翼選手用身體重心轉向</strong>——小小的變化，就能精準修正方向，不需要大動作。</div>
+    <div class="tip">💡 <strong>練習心法：</strong>在水裡「定住」時，呼吸要<strong>平穩、深、慢</strong>——又淺又急的呼吸會讓你像升降梯一樣上下抖。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🧘</span>懸停練習（Hover）：定點不動</h2>
+    <ul>
+      <li>在沙地上方約 1-2 公尺，<strong>不踢水、不用手</strong>，只靠呼吸與 BCD 微調停在原地</li>
+      <li>身體<strong>水平、流線型</strong>（減少阻力）</li>
+      <li>目標：<strong>停留 1-3 分鐘不掉不飄</strong>，底下沙地一個痕跡都不留</li>
+    </ul>
+    <div class="pro">
+      <span class="pro-tag">📖 為什麼要在沙地上練</span><br>
+      沙地是最佳練習場：<strong>你一下沉就會「留痕跡」</strong>，立刻知道姿勢錯了。練到「不留痕」＝在水裡對珊瑚也一樣溫柔。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🐢</span>中性浮力＝保護小琉球的珊瑚</h2>
+    <p>小琉球以<strong>海龜與珊瑚</strong>聞名——一隻腳踩下去，可能是珊瑚好幾年才長回來的傷害。<strong>浮力控制好，就是最好的環境保護。</strong></p>
+    <div class="warn">⚠️ <strong>離底至少一臂距離</strong>，看到漂亮珊瑚也<strong>只用眼睛看</strong>——「摸一下不會怎樣」的心態，累積起來就是整片珊瑚礁的白化與斷裂。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 浮力控制三兄弟是？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="y1"> 配重、BCD、肺部呼吸</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y1"> 蛙鞋、面鏡、配重</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y1"> 氣瓶、調節器、BCD</label>
+      <div class="fb" id="fby1"></div>
+      <button class="btn" onclick="showAns('y1a')">看答案</button>
+      <div class="answer" id="y1a">✅ 配重（地基）、BCD（大調整）、肺（微調）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ Fin Pivot 測試時，身體「一直往上飄」代表？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y2"> 鉛塊太多</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="y2"> 鉛塊太少（太輕）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y2"> 肺活量太大</label>
+      <div class="fb" id="fby2"></div>
+      <button class="btn" onclick="showAns('y2a')">看答案</button>
+      <div class="answer" id="y2a">✅ 一直飄＝太輕，加鉛塊；一直沉＝太重，減鉛塊</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 為什麼鉛塊不是「越多越穩」？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y3"> 鉛塊太多會比較貴</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="y3"> 太重＝要用更多 BCD 氣補，更難控制＋上升風險</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y3"> 鉛塊會壓壞氣瓶</label>
+      <div class="fb" id="fby3"></div>
+      <button class="btn" onclick="showAns('y3a')">看答案</button>
+      <div class="answer" id="y3a">✅ 配重剛好才是王道——太多反而更難控制</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 中性浮力狀態下，想「微微上升」幾十公分，最好用？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="y4"> 深深吸一口氣</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y4"> BCD 充氣全開</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y4"> 用力踢水往上</label>
+      <div class="fb" id="fby4"></div>
+      <button class="btn" onclick="showAns('y4a')">看答案</button>
+      <div class="answer" id="y4a">✅ 微調用肺（吸氣上、吐氣下），BCD 是大範圍才用</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 在沙地上練懸停，為什麼要看「有沒有留痕跡」？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y5"> 沙地留痕跡會被罰錢</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="y5"> 一下沉就留痕＝立刻知道姿勢錯了，練到不留痕＝對珊瑚也溫柔</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="y5"> 痕跡會嚇跑海龜</label>
+      <div class="fb" id="fby5"></div>
+      <button class="btn" onclick="showAns('y5a')">看答案</button>
+      <div class="answer" id="y5a">✅ 沙地是「誠實的教練」——不留痕才算真功夫</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>配重是地基</strong>——先做 Fin Pivot 確認配重「剛好」</li>
+      <li><strong>微調靠肺</strong>——吸氣上、吐氣下，呼吸平穩深慢</li>
+      <li><strong>離底一臂、不留痕</strong>——浮力好＝珊瑚活得好</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成頂尖中性浮力學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-smb.html">下一章：浮力袋施放 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
