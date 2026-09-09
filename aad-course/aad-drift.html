@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>放流潛水專長｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 放流潛水專長</span>
+  <h1>放流潛水專長 Drift Diving</h1>
+  <p>讓海流載你一程</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🌊</span>什麼是放流潛水？</h2>
+    <p>放流潛水 = <strong>不跟海流對抗，跟著海流漂</strong>。讓流帶你走，你只需要控制深度和浮力，輕輕鬆鬆看風景。</p>
+    <div class="emoji-box">🌊 流來了 → 🏄 順著漂 → 🐠 大魚群在流邊等你</div>
+    <div class="analogy">🛹 <strong>比喻：</strong>放流像站在自動人行道上看風景——你不用走（踢），<strong>地板（海流）自己會動</strong>，你只要站穩（控好深度）就好。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 小琉球最對味</span><br>
+      小琉球是台灣著名的<strong>放流潛水天堂</strong>——海流穩定時，一趟放流可以沿著礁牆看整片魚群。但島周圍也有<strong>變化快的流況（例如剪刀流）</strong>，所以「看懂流、跟對流」比「踢得快」重要一百倍。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🎢</span>放流的好處與風險</h2>
+    <table>
+      <tr><th>好處</th><th>風險</th></tr>
+      <tr><td>省力——不用頂流踢</td><td>會漂離預定出水點</td></tr>
+      <tr><td>覆蓋範圍大、看得多</td><td>跟潛伴／團隊失散</td></tr>
+      <tr><td>魚群常聚集在流線邊</td><td>流太強無法控制方向</td></tr>
+      <tr><td>很有「飛行感」</td><td>出水點不對＝漂到外海</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🎒</span>放流必備：讓船找得到你</h2>
+    <ul>
+      <li><strong>水面浮標／拖曳浮標：</strong>下水就拖著，船隨時知道你們漂到哪</li>
+      <li><strong>浮力袋（DSMB/SMB）＋捲線器：</strong>出水前從水底打上去，船看到就來接</li>
+      <li><strong>哨子／聲音裝置：</strong>出水後萬一船沒看到，能出聲</li>
+      <li><strong>電腦錶＋足夠的氣：</strong>放流常不知不覺漂很遠，氣要留更寬</li>
+    </ul>
+    <div class="tip">💡 <strong>放流鐵則：</strong>「水面上的標示」比「水裡的技術」更重要——<strong>船找不到你，潛得再漂亮都沒用</strong>。浮力袋施放的細節，我們在第 8 章專門學。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🗺️</span>放流 SOP</h2>
+    <ol>
+      <li><strong>下水前</strong>：聽教練簡報——流往哪、預計漂多遠、船怎麼跟、失散去哪等</li>
+      <li><strong>下水</strong>：整組一起下，<strong>別落單</strong>；拖好浮標</li>
+      <li><strong>水中</strong>：離底一點（避免拖底撞礁、揚沙），控制深度與浮力，<strong>不頂流硬踢</strong></li>
+      <li><strong>氣量管理</strong>：放流容易「忘我」，殘壓到約定值就準備出水</li>
+      <li><strong>出水</strong>：全組一起打浮力袋 → 慢速上升 → 水面等船</li>
+    </ol>
+    <div class="warn">⚠️ <strong>放流最怕「漂到忘我」。</strong>上岸點不是你想停就停——流的終點可能是外海。所以<strong>氣量、時間、跟團</strong>三個都要聽教練的。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✂️</span>遇到「剪刀流」這種怪流怎麼辦？</h2>
+    <p>小琉球某些點會出現<strong>方向突變或兩股流交會</strong>的流況，連老手都要小心。</p>
+    <ul>
+      <li><strong>下水前問清楚</strong>：今天流況適不適合放流（聽教練的）</li>
+      <li><strong>貼底或找掩蔽</strong>：地形會擋流，必要時抓礁石穩定</li>
+      <li><strong>不對就撤</strong>：流比預期強、控制不住——<strong>果斷結束這支潛水</strong>，沒有潛水值得拿命賭</li>
+    </ul>
+    <div class="analogy">🚦 <strong>比喻：</strong>怪流像突然變紅燈的十字路口——<strong>你只能停下來等，不能硬闖</strong>。硬頂流的結果通常是氣耗光＋迷失方向。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 放流潛水的核心概念是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f1"> 拼命踢水對抗海流</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f1"> 順著海流漂，只控制深度與浮力</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f1"> 抓著礁石不動等流停</label>
+      <div class="fb" id="fbf1"></div>
+      <button class="btn" onclick="showAns('f1a')">看答案</button>
+      <div class="answer" id="f1a">✅ 放流＝順流漂，省力又看得多</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 放流潛水「讓船找得到你」最重要的一環是？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f2"> 水面浮標＋出水前打浮力袋</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f2"> 穿顏色最鮮豔的防寒衣</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f2"> 祈禱船長記性好</label>
+      <div class="fb" id="fbf2"></div>
+      <button class="btn" onclick="showAns('f2a')">看答案</button>
+      <div class="answer" id="f2a">✅ 水面標示（浮標／浮力袋）是放流的生命線</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 放流時發現流比預期強、控制不住，正確做法？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f3"> 更用力踢，證明自己很猛</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f3"> 果斷結束這支潛水，跟教練一起出水</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f3"> 潛深一點躲流</label>
+      <div class="fb" id="fbf3"></div>
+      <button class="btn" onclick="showAns('f3a')">看答案</button>
+      <div class="answer" id="f3a">✅ 流太強就撤——沒有潛水值得拿命賭</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 放流時身體位置最好？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f4"> 離底一點，避免拖底撞礁或揚沙</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f4"> 貼著沙地滑行最省力</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f4"> 一直往上游，越高越好</label>
+      <div class="fb" id="fbf4"></div>
+      <button class="btn" onclick="showAns('f4a')">看答案</button>
+      <div class="answer" id="f4a">✅ 離底一點：不撞礁、不揚沙、好控制</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 為什麼放流潛水常「不知不覺漂很遠」？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f5"> 因為大家都游太快</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="f5"> 因為不費力、很容易忘我，時間氣量過得比想像快</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="f5"> 因為海流會自動加速</label>
+      <div class="fb" id="fbf5"></div>
+      <button class="btn" onclick="showAns('f5a')">看答案</button>
+      <div class="answer" id="f5a">✅ 放流太舒服容易忘我——氣量時間要盯緊，殘壓到約定值就出水</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>順流漂，不硬頂</strong>——放流是享受，不是搏鬥</li>
+      <li><strong>船找得到你才是關鍵</strong>——浮標拖著、出水打浮力袋</li>
+      <li><strong>流不對就撤</strong>——果斷結束，永遠有下一支潛水</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成放流潛水學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-night.html">下一章：夜潛專長 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
