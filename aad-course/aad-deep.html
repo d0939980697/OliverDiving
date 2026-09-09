@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深潛專長｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 深潛專長（核心）</span>
+  <h1>深潛專長 Deep Diving</h1>
+  <p>從 18 米走向 30 米的世界</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🤔</span>什麼是「深潛」？</h2>
+    <p>拿到 OW 之後，你的「保固範圍」是 <strong>18 公尺</strong>以內。超過 18 公尺不是不能去——是<strong>你還沒學過那裡會發生什麼事</strong>。</p>
+    <p>深潛專長就是帶你跨過這條線：學會在<strong> 18～30 公尺</strong>的世界裡，怎麼計畫、怎麼控制、怎麼安全回來。</p>
+    <div class="emoji-box">🌊 0-18m 你學過的世界 → 🚪 18m 的門 → 🌌 30m 的新世界</div>
+    <div class="pro">
+      <span class="pro-tag">📖 專業補充</span><br>
+      <strong>AAD 的深潛單元：</strong>課程中的深潛支，第一支深度以 <strong>30 公尺／100 英尺</strong>為上限（SDI 標準），由教練帶著你逐步下潛、照計畫進行。<br>
+      <strong>想再往 40 公尺走？</strong>那是完整的「深潛專長 Deep Diver」認證課程（0-40m），AAD 這支是它的入門體驗。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⬇️</span>下潛時，身體經歷什麼？</h2>
+    <p>水深每增加 10 公尺，壓力就多 1 大氣壓（ata）。<strong>30 公尺 = 4 倍壓力</strong>——不是「深一點點」，是整個環境都變了：</p>
+    <table>
+      <tr><th>變化</th><th>18m 內</th><th>30m</th><th>感覺</th></tr>
+      <tr><td>壓力</td><td>≤2.8 ata</td><td>4 ata</td><td>氣消耗變快</td></tr>
+      <tr><td>光線顏色</td><td>紅橙漸消失</td><td>只剩藍黑</td><td>世界變暗</td></tr>
+      <tr><td>氮醉</td><td>幾乎無感</td><td>開始有感</td><td>微醺、變笨</td></tr>
+      <tr><td>免減壓時間</td><td>很長</td><td>大幅縮短</td><td>時間壓力↑</td></tr>
+    </table>
+    <div class="analogy">🍺 <strong>氮醉白話版：</strong>像喝了兩杯啤酒——不是醉倒，是<strong>莫名的開心、莫名的自信、反應變慢</strong>。危險的是「覺得自己很行」的那種感覺，讓你做出蠢決定。</div>
+    <div class="warn">⚠️ <strong>氮醉的解除方法只有一個：上升、變淺。</strong>不用「忍耐」，覺得怪怪的就跟教練比手勢，往上游一點就好。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🫧</span>為什麼深潛氣特別不夠用？</h2>
+    <p>同樣吸一口「體積」的氣，在 30 公尺其實是水面<strong> 4 倍的氣體分子</strong>。所以你的氣瓶消耗速度，在深處會明顯比淺的地方快。</p>
+    <div class="formula">30m 壓力 4 ata → 氣耗約為水面的 4 倍（同樣呼吸節奏）</div>
+    <div class="analogy">🥤 <strong>比喻：</strong>同樣一杯珍奶，在淺水你用一般吸管慢慢喝；到 30 公尺，每吸一口都是「加濃 4 倍」的料——飽得快（氣沒得快）。所以深潛的潛水時間，常常<strong>不是被電腦錶限制，而是被你的氣量限制</strong>。</div>
+    <p><strong>計畫鐵則：</strong>下水前就要算好——這支潛水預計用多少氣、<strong>留多少氣給上升＋安全停留</strong>。不要等到殘壓錶亮紅燈才想「該上去了」。</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🗺️</span>深潛 SOP：一支安全的深潛長這樣</h2>
+    <ol>
+      <li><strong>出發前</strong>：跟教練對好最大深度、預估時間、回頭點（氣量/時間哪個先到算哪個）</li>
+      <li><strong>下潛</strong>：照計畫慢慢下，<strong>隨時注意電腦錶深度與免減壓時間</strong></li>
+      <li><strong>在底部</strong>：控制好浮力、別碰底（深度＋揚沙＝危險組合），注意自己有沒有「微醺感」</li>
+      <li><strong>上升</strong>：速度不超過 <strong>18 公尺/分鐘</strong>（想像在追一群很小很小的氣泡，慢慢追）</li>
+      <li><strong>安全停留</strong>：5 公尺停 <strong>3 分鐘</strong>，讓身體把多餘的氮排掉</li>
+      <li><strong>出水後</strong>：注意身體 24 小時內的反應，不舒服馬上講</li>
+    </ol>
+    <div class="pro">
+      <span class="pro-tag">📖 為什麼要安全停留</span><br>
+      深潛讓身體吸收更多氮氣。5 公尺停 3 分鐘，是讓氮氣<strong>慢慢「放氣」</strong>再上岸——就像可樂開瓶先讓氣慢慢跑，不要猛搖猛開。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🎒</span>深潛裝備小提醒</h2>
+    <ul>
+      <li><strong>電腦錶：必備</strong>——深潛沒有「憑感覺」，深度、時間、免減壓全靠它</li>
+      <li><strong>燈：</strong>30 公尺光線很暗，帶一支潛水燈看顏色也看環境</li>
+      <li><strong>備用氣源：</strong>確認教練/潛伴看得到、拉得到</li>
+      <li><strong>配重：</strong>深潛穿得厚、氣瓶重，配重要重新抓（下水前跟教練確認）</li>
+    </ul>
+    <div class="tip">💡 <strong>小琉球實例：</strong>島周圍的深點（例如人工魚礁、沉船區約 20-30 公尺），就是練深潛的好場地——但記得：<strong>深潛永遠是「計畫好才下去」，不是「下去再說」</strong>。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ AAD 的深潛單元，第一支潛水深度上限是多少？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d1"> 18 公尺</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d1"> 30 公尺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d1"> 40 公尺</label>
+      <div class="fb" id="fbd1"></div>
+      <button class="btn" onclick="showAns('d1a')">看答案</button>
+      <div class="answer" id="d1a">✅ 30 公尺（40m 是完整深潛專長 Deep Diver 的範圍）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 氮醉的感覺比較像什麼？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d2"> 頭痛想吐</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d2"> 微醺、莫名的自信、反應變慢</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d2"> 很想睡覺</label>
+      <div class="fb" id="fbd2"></div>
+      <button class="btn" onclick="showAns('d2a')">看答案</button>
+      <div class="answer" id="d2a">✅ 像喝了兩杯啤酒的微醺感，危險在「覺得自己很行」</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 30 公尺的壓力是水面的幾倍？氣耗大約會變？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d3"> 2 倍，氣耗 2 倍</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d3"> 3 倍，氣耗 3 倍</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d3"> 4 倍，但氣耗不變</label>
+      <div class="fb" id="fbd3"></div>
+      <button class="btn" onclick="showAns('d3a')">看答案</button>
+      <div class="answer" id="d3a">✅ 壓力 4 ata，氣耗約為水面的 4 倍（所以深潛常被氣量限制）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 深潛時覺得「怪怪的、好像有點嗨」，正確做法是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d4"> 忍耐，繼續待著習慣就好</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d4"> 跟教練比手勢，往上游一點變淺</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d4"> 趕快用力踢回岸上</label>
+      <div class="fb" id="fbd4"></div>
+      <button class="btn" onclick="showAns('d4a')">看答案</button>
+      <div class="answer" id="d4a">✅ 氮醉的解除方法就是上升變淺，不用忍、不用慌</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 上升速度與安全停留的標準是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d5"> 越快越好，5m 停 1 分鐘</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="d5"> 不超過 18m/分，5m 停 3 分鐘</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="d5"> 30m/分，不用停</label>
+      <div class="fb" id="fbd5"></div>
+      <button class="btn" onclick="showAns('d5a')">看答案</button>
+      <div class="answer" id="d5a">✅ 慢慢上（≤18m/分），5 公尺安全停留 3 分鐘排氮</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>深潛不是「勇氣」是「計畫」</strong>——深度、時間、氣量、回頭點，全部下水前講好</li>
+      <li><strong>氮醉來了就上升</strong>——微醺＝變淺的訊號，不是忍耐的理由</li>
+      <li><strong>氣留夠、慢慢上、停 3 分鐘</strong>——這三件事做到，深潛其實很安全</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成深潛專長學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-navigation.html">下一章：水底導航 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
