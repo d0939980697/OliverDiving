@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夜潛專長｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 夜潛專長</span>
+  <h1>夜潛專長 Night Diving</h1>
+  <p>太陽下山後，海底才真正開趴</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🌙</span>為什麼要夜潛？</h2>
+    <p>白天躲起來的生物，<strong>晚上全出來了</strong>：章魚、海鰻、螃蟹、蝦、睡覺的魚、甚至珊瑚產卵——夜潛是<strong>另一個完全不同的海底世界</strong>。</p>
+    <div class="emoji-box">🌙 燈一照 → 🐙 章魚散步 → 🦐 蝦子開趴 → 😴 魚兒睡覺</div>
+    <div class="analogy">🏙️ <strong>比喻：</strong>白天的海像白天的大城市——大家都在上班（躲藏）；夜裡像夜市——<strong>攤位全開了，越夜越熱鬧</strong>。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🔦</span>夜潛裝備：燈是生命</h2>
+    <ul>
+      <li><strong>主燈：</strong>主力照明（亮度要夠，綁帶或手繩固定）</li>
+      <li><strong>備用燈：</strong>主燈掛了馬上換手——<strong>夜潛沒有第二支燈＝沒有眼睛</strong></li>
+      <li><strong>發光棒／螢光棒：</strong>掛在氣瓶或身上，黑暗中辨識同伴位置</li>
+      <li><strong>燈光訊號：</strong>跟教練約好這團的燈號（見下面）</li>
+    </ul>
+    <div class="warn">⚠️ <strong>鐵則：下水前後都檢查燈。</strong>電池沒電、燈泡不亮——夜潛出發前發現，好過在水底 20 公尺發現。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">💡</span>燈光訊號（先跟教練對好）</h2>
+    <table>
+      <tr><th>燈號</th><th>意思</th></tr>
+      <tr><td>慢慢畫圈</td><td>OK／我在這裡</td></tr>
+      <tr><td>上下或左右搖晃</td><td>注意！看這邊</td></tr>
+      <tr><td>快速揮動</td><td>有狀況，過來／需要幫忙</td></tr>
+    </table>
+    <div class="tip">💡 每團、每個教練的燈號細節可能不同——<strong>下水前一定要對好</strong>，不要以為全世界的燈號都一樣。</div>
+    <div class="warn">⚠️ <strong>別拿燈直射別人的眼睛</strong>——黑暗中突然被強光照到會暫時眼花，跟被車頭燈照到一樣。照目標時<strong>燈放低一點、偏一點</strong>。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🕶️</span>夜潛的小撇步</h2>
+    <ul>
+      <li><strong>黃昏下水最棒：</strong>先看日景轉夜景，眼睛慢慢適應，不怕「突然全黑」</li>
+      <li><strong>別照太遠：</strong>燈照遠＝光被水吃掉＋照到一堆浮游生物（像下雪），照近一點才看得清</li>
+      <li><strong>慢慢移動：</strong>夜裡生物都在睡覺或覓食，慢一點才看得到、也不嚇到牠們</li>
+      <li><strong>上岸前對燈：</strong>出水後點名（人數＋燈數），確認大家都回來了</li>
+    </ul>
+    <div class="analogy">🔦 <strong>比喻：</strong>夜潛的燈像手電筒逛暗房——<strong>照哪裡、看哪裡</strong>，不要拿來掃射全場，那反而什麼都看不清。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🪸</span>夜潛看什麼？（小琉球限定）</h2>
+    <ul>
+      <li><strong>睡覺的鸚哥魚：</strong>會吐黏液把自己包起來睡，燈照也不跑，超好拍</li>
+      <li><strong>章魚、海鰻、螃蟹、蝦：</strong>夜行性生物的主場</li>
+      <li><strong>珊瑚產卵（季節限定）：</strong>每年特定月份的大潮前後，珊瑚集體產卵——像海底的雪景，是潛水員的夢幻場景</li>
+    </ul>
+    <div class="pro">
+      <span class="pro-tag">📖 夜潛禮儀</span><br>
+      夜裡生物警覺性低，<strong>只用眼睛和燈看，絕對不摸</strong>——很多夜行生物（像海鰻、獅子魚）被嚇到會反擊。看牠們，也尊重牠們。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 夜潛最不能省的裝備是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t1"> 一支超亮主燈就夠了</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="t1"> 主燈＋備用燈</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t1"> 水中相機的補光燈</label>
+      <div class="fb" id="fbt1"></div>
+      <button class="btn" onclick="showAns('t1a')">看答案</button>
+      <div class="answer" id="t1a">✅ 備用燈是夜潛鐵則——主燈掛了馬上換手</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 燈光訊號「慢慢畫圈」代表？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="t2"> OK／我在這裡</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t2"> 有鯊魚快跑</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t2"> 拍照請等我</label>
+      <div class="fb" id="fbt2"></div>
+      <button class="btn" onclick="showAns('t2a')">看答案</button>
+      <div class="answer" id="t2a">✅ 慢速畫圈＝OK／我在這裡（細節以教練為準）</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 為什麼不要拿燈直射別人的眼睛？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="t3"> 黑暗中強光會讓對方暫時眼花</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t3"> 燈會因此壞掉</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t3"> 魚會被燈吸引過來</label>
+      <div class="fb" id="fbt3"></div>
+      <button class="btn" onclick="showAns('t3a')">看答案</button>
+      <div class="answer" id="t3a">✅ 像被車頭燈照到——燈放低一點、偏一點照</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 第一次夜潛，最好的下水時間是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t4"> 全黑之後 midnight</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="t4"> 黃昏時下水，日景轉夜景慢慢適應</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t4"> 太陽最大的中午</label>
+      <div class="fb" id="fbt4"></div>
+      <button class="btn" onclick="showAns('t4a')">看答案</button>
+      <div class="answer" id="t4a">✅ 黃昏潛（transitional dive）最適合新手夜潛</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 燈照太遠會怎樣？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t5"> 看得更清楚，很好</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="t5"> 光被水吃掉＋照到浮游生物像下雪，反而看不清</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="t5"> 魚會被嚇跑光光</label>
+      <div class="fb" id="fbt5"></div>
+      <button class="btn" onclick="showAns('t5a')">看答案</button>
+      <div class="answer" id="t5a">✅ 照近一點才看得清——燈是手電筒不是探照燈</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>主燈＋備用燈</strong>——夜潛沒有第二支燈＝沒有眼睛</li>
+      <li><strong>燈號先對好、不直射人眼</strong>——燈光是夜潛的語言，也是禮貌</li>
+      <li><strong>只看不摸</strong>——夜裡的生物是主角，你是觀眾</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成夜潛專長學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-buoyancy.html">下一章：頂尖中性浮力 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
