@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水底導航｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 水底導航（核心）</span>
+  <h1>水底導航 Underwater Navigation</h1>
+  <p>不迷路，才叫會潛水</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🧭</span>為什麼導航這麼重要？</h2>
+    <p>水底下沒有路牌、沒有 Google Maps。迷路不是「走錯路」而已——可能是<strong>氣不夠回不到出口、越漂越遠、潛伴失散</strong>。</p>
+    <div class="analogy">📱 <strong>比喻：</strong>陸地上你迷路可以停下來滑手機；水底你迷路，<strong>每一分鐘都在燒氣瓶裡的氣</strong>——導航不是「加分技能」，是<strong>保命技能</strong>。</div>
+    <div class="pro">
+      <span class="pro-tag">📖 AAD 核心之一</span><br>
+      SDI 把<strong>水底導航</strong>列為 AAD 的必修核心（跟深潛並列）。課程中你會實際完成：<strong>指北針去回導航（out-and-back）＋方形巡遊</strong>，教練在旁邊看你做。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🧲</span>認識你的指北針</h2>
+    <table>
+      <tr><th>部位</th><th>功能</th></tr>
+      <tr><td>磁針（紅色那端）</td><td>永遠指向北方</td></tr>
+      <tr><td>基準線 Lubber Line</td><td>對準你要前進的方向（身體正前方）</td></tr>
+      <tr><td>轉盤 Bezel</td><td>可旋轉的刻度環，用來「鎖住」要去的方位</td></tr>
+      <tr><td>刻度</td><td>0-360°（或 0-32 方位）</td></tr>
+    </table>
+    <div class="tip">💡 <strong>使用口訣：</strong>轉身體，不是轉指北針——讓<strong>磁針的紅色端對準轉盤上的記號</strong>，基準線指的方向就是你要前進的方向。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">↩️</span>最實用的一招：去回導航（Out &amp; Back）</h2>
+    <p>去的時候記住方位（例如 90°），要回來時<strong>轉 180°（變成 270°）</strong>照原路回去。</p>
+    <div class="formula">去程 90° → 回程 90°+180° = 270°</div>
+    <div class="analogy">🏪 <strong>比喻：</strong>像你從家走到巷口 7-11——去的時候左轉兩次，回來就<strong>右轉兩次</strong>，路一樣只是反著走。指北針幫你在看不到岸的水底「反著走」。</div>
+    <div class="warn">⚠️ 回程前<strong>先確認氣量夠不夠</strong>——導航最怕「去程太爽、回程沒氣」。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📏</span>怎麼知道游了多遠？</h2>
+    <p>水底沒有里程標，用這三招估距離：</p>
+    <ul>
+      <li><strong>踢動次數：</strong>每 10 下蛙鞋踢動約多遠，自己先量過一次就有感覺</li>
+      <li><strong>時間：</strong>穩定的節奏下，1 分鐘大約前進多少公尺</li>
+      <li><strong>地形變化：</strong>記住沿途的特徵（大石頭、珊瑚頭、沉船邊緣）</li>
+    </ul>
+    <div class="tip">💡 <strong>進階小技巧：</strong>「踢動計數」＋「方位」＋「時間」三個一起用——就算其中一個失準，另外兩個還能幫你抓回來。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🌊</span>自然導航：不靠指北針也認得路</h2>
+    <ul>
+      <li><strong>地形輪廓：</strong>沿著礁牆、沙地交界、海溝走</li>
+      <li><strong>光線方向：</strong>淺水區陽光透下的方向大致固定</li>
+      <li><strong>水流方向：</strong>去程頂流、回程就順流（或反過來），心裡要有數</li>
+      <li><strong>深度變化：</strong>愈游愈深／愈淺，本身就是線索</li>
+    </ul>
+    <div class="analogy">🗺️ <strong>比喻：</strong>自然導航像你在山上認路——認「那棵歪掉的樹、那顆大石頭」，不一定要開 GPS。水底就是認礁石、認沙地、認光線。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 去程方位 90°，回程應該用哪個方位？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n1"> 一樣 90°</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n1"> 270°（+180° 相反方向）</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n1"> 45°</label>
+      <div class="fb" id="fbn1"></div>
+      <button class="btn" onclick="showAns('n1a')">看答案</button>
+      <div class="answer" id="n1a">✅ 回程 = 去程 +180°（90°→270°）</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 使用指北針時，身體和指北針的關係是？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n2"> 轉身體，讓磁針紅端對準轉盤記號</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n2"> 轉指北針的盤面，讓它對準北方</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n2"> 指北針只要帶下水就會自己帶路</label>
+      <div class="fb" id="fbn2"></div>
+      <button class="btn" onclick="showAns('n2a')">看答案</button>
+      <div class="answer" id="n2a">✅ 轉身體（不是轉指北針），紅端對記號，基準線方向＝前進方向</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 下列哪個「不是」水底估距離的好方法？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n3"> 數蛙鞋踢動次數</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n3"> 記時間與節奏</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n3"> 憑感覺「大概到了沒」</label>
+      <div class="fb" id="fbn3"></div>
+      <button class="btn" onclick="showAns('n3a')">看答案</button>
+      <div class="answer" id="n3a">✅ 感覺最不可靠——踢動次數、時間、地形才是能複製的線索</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 回程前最重要要先確認什麼？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n4"> 氣量夠不夠回程＋安全停留</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n4"> 相機有沒有開</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n4"> 手錶的時間漂不漂亮</label>
+      <div class="fb" id="fbn4"></div>
+      <button class="btn" onclick="showAns('n4a')">看答案</button>
+      <div class="answer" id="n4a">✅ 沒氣的回程是最危險的——出發前就要留好回程氣</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 下列哪個「是」水底自然導航的線索？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n5"> 手機的 GPS 導航</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="n5"> 海底地形、水流方向、光線與深度變化</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="n5"> 岸上的路標指示牌</label>
+      <div class="fb" id="fbn5"></div>
+      <button class="btn" onclick="showAns('n5a')">看答案</button>
+      <div class="answer" id="n5a">✅ 地形、水流、深度、光線都是自然導航線索</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>回程方位 = 去程 + 180°</strong>——去回導航是水底最實用的一招</li>
+      <li><strong>距離靠「踢動＋時間＋地形」</strong>，不靠感覺</li>
+      <li><strong>回程前先看氣</strong>——留夠回程＋安全停留的氣，再回頭</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成水底導航學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-boat.html">下一章：船潛專長 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
