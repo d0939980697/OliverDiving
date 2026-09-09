@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>船潛專長｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 船潛專長</span>
+  <h1>船潛專長 Boat Diving</h1>
+  <p>上下船有節奏，潛水才優雅</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🚤</span>船潛跟岸潛哪裡不一樣？</h2>
+    <p>船潛能帶你去<strong>岸邊到不了的潛點</strong>（沉船、外礁、離島），但多了一整個「搭船環節」要學：上下船、裝備管理、船上禮儀、暈船處理。</p>
+    <div class="emoji-box">🛥️ 開到潛點 → 🤿 入水潛水 → 🛥️ 上船 → 🧭 下一站</div>
+    <div class="pro">
+      <span class="pro-tag">📖 船潛專長在做什麼</span><br>
+      SDI 船潛專長教你：<strong>船隻安全簡報、裝備準備與擺放、大步跨入水（giant stride）、浪況入水、回船出水、船上減壓與休息流程</strong>。AAD 的船潛支是這套的入門體驗。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">👂</span>上船第一件事：聽簡報</h2>
+    <ul>
+      <li><strong>潛點介紹：</strong>深度、地形、水流、看什麼</li>
+      <li><strong>上下船位置：</strong>從哪邊入水、從哪邊回來</li>
+      <li><strong>緊急計畫：</strong>失散怎麼辦、船在哪裡等</li>
+      <li><strong>船長最大：</strong>船長說不走就不走，時間到就收人</li>
+    </ul>
+    <div class="tip">💡 簡報不是「參考」——<strong>每一句都跟你的安全有關</strong>。沒聽清楚就舉手問，不要裝懂。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🦘</span>入水：大步跨入法 Giant Stride</h2>
+    <ol>
+      <li>在船邊站好，<strong>一手壓住面鏡和調節器</strong>（防止入水時面鏡被沖掉）</li>
+      <li>確認下方<strong>沒有其他人或裝備</strong></li>
+      <li>眼睛看水平線（不要看水面），<strong>跨出一大步</strong>入水</li>
+      <li>入水後比 OK 手勢，游離船邊</li>
+    </ol>
+    <div class="analogy">🦘 <strong>比喻：</strong>像從岸邊「跨」進泳池——不是跳、不是撲，是<strong>大大地跨一步</strong>，讓身體直直落下，BCD 會把你浮起來。</div>
+    <div class="warn">⚠️ 入水前<strong>一定要看下方</strong>——船邊常常有人在做安全停留或剛出水，別從別人頭上跨下去！</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">⛓️</span>錨繩：船潛的生命線</h2>
+    <ul>
+      <li>下潛時沿著<strong>錨繩</strong>往下，不容易被流帶走</li>
+      <li>上升回程也沿錨繩或浮標繩，<strong>出水點才會對</strong></li>
+      <li>繩子可能被流拉斜——抓繩時注意別放太快、別纏住</li>
+    </ul>
+    <div class="analogy">🧵 <strong>比喻：</strong>錨繩像風箏的線——放出去飛多遠，收線就能回到原點。船潛迷路時，<strong>找繩子＝找回家的路</strong>。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🪜</span>出水：回船上（最容易手忙腳亂的一段）</h2>
+    <ol>
+      <li>到船邊先<strong>比 OK、跟船上確認</strong></li>
+      <li>出水順序依船家習慣：<strong>通常先脫蛙鞋再上梯</strong>（或先上梯再脫，聽簡報）</li>
+      <li>上船後<strong>立刻讓開梯口</strong>，別堵住後面的人</li>
+      <li>裝備集中放好、氣瓶固定，別讓裝備在船上滾</li>
+    </ol>
+    <div class="warn">⚠️ 浪況大時，<strong>聽船員指示</strong>抓穩再動——船上最常見的受傷不是潛水，是「上下船滑倒、被裝備砸到」。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🤢</span>暈船怎麼辦？</h2>
+    <ul>
+      <li><strong>預防：</strong>會暈就提前吃暈船藥（出發前 30-60 分鐘）</li>
+      <li><strong>上船前：</strong>別吃太飽、別空腹</li>
+      <li><strong>在船上：</strong>看遠方水平線、待在船中央、呼吸新鮮空氣</li>
+      <li><strong>誠實最重要：</strong>暈到不舒服就講，不要硬撐下水——暈船下水很容易嘔吐＋恐慌</li>
+    </ul>
+    <div class="analogy">🎢 <strong>比喻：</strong>暈船像坐海盜船——看遠方、別低頭滑手機，會好很多。真的暈了也沒關係，<strong>人人都有過</strong>，下次吃藥就好。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ 大步跨入水（Giant Stride）時，手要？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b1"> 一手壓住面鏡和調節器，眼睛看水平線</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b1"> 雙手張開比讚，眼睛看水面</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b1"> 一手拿相機，順便錄影</label>
+      <div class="fb" id="fbb1"></div>
+      <button class="btn" onclick="showAns('b1a')">看答案</button>
+      <div class="answer" id="b1a">✅ 一手壓面鏡＋調節器，看水平線，跨大步入水</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 大步跨入水前，最重要的確認是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b2"> 相機記憶卡滿了沒</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b2"> 下方沒有其他人或裝備</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b2"> 船上的人在不在看我</label>
+      <div class="fb" id="fbb2"></div>
+      <button class="btn" onclick="showAns('b2a')">看答案</button>
+      <div class="answer" id="b2a">✅ 先看下方——別從正在安全停留或剛出水的人頭上跨下去</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 船潛時在流中下潛／上升，最好的「回家路」是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b3"> 自己憑感覺游回去</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b3"> 沿著錨繩或浮標繩</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b3"> 跟著魚群走</label>
+      <div class="fb" id="fbb3"></div>
+      <button class="btn" onclick="showAns('b3a')">看答案</button>
+      <div class="answer" id="b3a">✅ 錨繩／浮標繩是船潛的生命線，出水點才會對</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 上船後第一件事？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b4"> 坐下來慢慢脫裝備</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b4"> 立刻讓開梯口，別堵住後面的人</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b4"> 先拍照打卡</label>
+      <div class="fb" id="fbb4"></div>
+      <button class="btn" onclick="showAns('b4a')">看答案</button>
+      <div class="answer" id="b4a">✅ 讓開梯口是船潛禮儀＋安全——後面還有人要上來</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 會暈船的人，最好的做法是？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b5"> 硬撐下水，忍一下就習慣</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="b5"> 出發前吃暈船藥＋上船看遠方水平線，不舒服就講</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="b5"> 下水前吃很飽，吐完就有體力</label>
+      <div class="fb" id="fbb5"></div>
+      <button class="btn" onclick="showAns('b5a')">看答案</button>
+      <div class="answer" id="b5a">✅ 預防（吃藥＋看遠方）＋誠實（不舒服就講），別硬撐下水</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>簡報聽清楚</strong>——上下船位置、緊急計畫、船長最大</li>
+      <li><strong>入水看下方、出水讓梯口</strong>——船潛的安全在「不擋路、不砸人」</li>
+      <li><strong>錨繩＝回家的路</strong>——有流時沿繩上下，出水點才不會跑掉</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成船潛專長學科！記得把重點問教練確認～')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-wreck.html">下一章：殘骸潛水專長 ›</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
