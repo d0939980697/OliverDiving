@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浮力袋施放（SMB）｜AAD 線上學科</title>
+<style>
+  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
+  header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
+  header .badge { display:inline-block; background:var(--coral); padding:4px 14px; border-radius:20px; font-size:0.85rem; margin-bottom:12px; }
+  header h1 { font-size:1.8rem; margin-bottom:6px; }
+  header p { opacity:0.9; font-size:1rem; }
+  .container { max-width:640px; margin:0 auto; padding:20px 16px; }
+  .card { background:white; border-radius:16px; padding:24px 20px; margin-bottom:16px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .card h2 { color:var(--ocean); font-size:1.3rem; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .card h2 .icon { font-size:1.5rem; }
+  .card ul, .card ol { margin-left:22px; }
+  .tip { background:var(--bubble); border-left:4px solid var(--ocean); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .warn { background:#fff3f0; border-left:4px solid var(--coral); padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .analogy { background:#fff8e8; border-left:4px solid #f5a623; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro { background:#f0f4ff; border:1px solid #c8d6f5; border-left:4px solid #3b5bdb; padding:14px 16px; border-radius:0 12px 12px 0; margin:14px 0; }
+  .pro .pro-tag { display:inline-block; background:#3b5bdb; color:white; font-size:0.75rem; padding:2px 10px; border-radius:12px; margin-bottom:6px; }
+  .emoji-box { text-align:center; font-size:1.7rem; padding:12px; background:var(--bubble); border-radius:12px; margin:12px 0; }
+  .quiz { background:#f0f7ff; border:1px solid #cfe3f5; border-radius:12px; padding:16px; margin-top:12px; }
+  .quiz p { font-weight:600; margin-bottom:8px; }
+  .quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:8px; background:white; border:1px solid #d8e5f0; cursor:pointer; }
+  .quiz input { margin-right:8px; }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#e6f7e6; border-radius:8px; color:#1d6b2f; font-weight:600; }
+  .quiz label.correct { background:#e6f7e6; border-color:#4caf50; }
+  .quiz label.wrong { background:#ffecec; border-color:#f44336; }
+  .quiz .fb { margin-top:6px; font-weight:600; font-size:0.9rem; min-height:1.2em; }
+  .quiz .fb.ok { color:#1d6b2f; }
+  .quiz .fb.no { color:#c62828; }
+  .answer.show { display:block; }
+  .btn { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; }
+  .btn-coral { background:var(--coral); }
+  .btn-next { display:inline-block; background:var(--ocean); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; margin-left:8px; text-decoration:none; }
+  .btn-next:active { transform:scale(0.96); }
+  .btn-home { display:inline-block; background:var(--coral); color:white; border:none; padding:10px 18px; border-radius:24px; font-size:0.95rem; cursor:pointer; margin-top:8px; text-decoration:none; }
+  footer { text-align:center; color:#8a9aa5; font-size:0.85rem; padding:20px; }
+  .progress { position:fixed; top:0; left:0; height:4px; background:var(--coral); width:0%; z-index:99; transition:width 0.2s; }
+  table { width:100%; border-collapse:collapse; font-size:0.95rem; }
+  th { background:var(--ocean); color:white; padding:8px; }
+  td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
+  .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.2rem; font-family:monospace; margin:12px 0; }
+</style>
+</head>
+<body>
+<div class="progress" id="progressBar"></div>
+<header>
+  <span class="badge">AAD 學科 · 浮力袋施放（SMB）</span>
+  <h1>浮力袋施放 SMB / DSMB</h1>
+  <p>讓全世界（跟船長）知道你在這裡</p>
+</header>
+<div class="container">
+
+  <div class="card">
+    <h2><span class="icon">🎈</span>浮力袋是什麼？兩種分清楚</h2>
+    <table>
+      <tr><th></th><th>SMB 水面浮標</th><th>DSMB 延遲水面浮標</th></tr>
+      <tr><td>什麼時候充氣</td><td>下水前就充好、拖著走</td><td>在水底才充氣、打上水面</td></tr>
+      <tr><td>用途</td><td>整支潛水讓船跟著你</td><td>出水前標示出水點</td></tr>
+      <tr><td>常見場景</td><td>放流潛水</td><td>船潛出水、放流出水</td></tr>
+    </table>
+    <div class="pro">
+      <span class="pro-tag">📖 本課重點</span><br>
+      我們主要練<strong>DSMB（水底打浮力袋）</strong>——這是最常用、也最需要技巧的：<strong>出水前從水底把氣囊打上去，讓船上的人看到「有人要在這裡浮上來」</strong>，避免被船撞、也讓船知道來接你。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🧵</span>裝備認識：浮力袋＋捲線器</h2>
+    <ul>
+      <li><strong>浮力袋（氣囊）：</strong>鮮豔（橘／黃）長條氣囊，底部有充氣閥</li>
+      <li><strong>捲線器（Reel）或線軸（Spool）：</strong>纏著線，連著浮力袋，控制它不飄走</li>
+      <li><strong>充氣方式：</strong>用二級頭（備用調節器）對準充氣閥「短噴」，或口吹</li>
+    </ul>
+    <div class="analogy">🪁 <strong>比喻：</strong>打浮力袋像放風箏——<strong>氣囊是風箏、線軸是手</strong>。風箏飛上去，你的線要穩穩抓住，不能讓它整捆飛走，也不能纏到自己。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🎯</span>水底打 DSMB：步驟拆解</h2>
+    <ol>
+      <li><strong>準備：</strong>把線軸的線頭扣在浮力袋上，<strong>先拉出 1-2 公尺線</strong></li>
+      <li><strong>看上方：</strong>確認頭頂<strong>沒有其他潛水員</strong>（別讓氣囊頂到人家的頭）</li>
+      <li><strong>充氣：</strong>備用二級頭對準充氣閥<strong>短噴、點放</strong>（不要一次灌太飽）</li>
+      <li><strong>施放：</strong>氣囊往上衝，<strong>線跟著放</strong>，讓它一路到水面</li>
+      <li><strong>上升：</strong>氣囊到水面後，<strong>沿著線慢慢上升</strong>（每分鐘不超過 18 公尺）</li>
+      <li><strong>安全停留：</strong>5 公尺停 3 分鐘，<strong>輕輕拉住線</strong>不讓氣囊漂走</li>
+      <li><strong>出水：</strong>到水面收線，抓著氣囊等船來接</li>
+    </ol>
+    <div class="warn">⚠️ <strong>充氣「短噴點放」不是「全開狂灌」</strong>——灌太飽氣囊會爆衝出水、甚至在空中爆掉。慢慢來，它不趕時間。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">🚫</span>常見錯誤（別當那個同學）</h2>
+    <ul>
+      <li><strong>線纏身：</strong>線軸拿法錯誤、線纏到手／身體——打袋前先把線整理好</li>
+      <li><strong>沒看上方：</strong>氣囊直接頂到上面的潛水員（超危險）</li>
+      <li><strong>充氣過飽：</strong>爆衝、爆袋，白忙一場</li>
+      <li><strong>線放光：</strong>深度太深線不夠長，氣囊到不了水面就卡住</li>
+      <li><strong>忘了固定線軸：</strong>手一滑整捲線跟著氣囊飛走</li>
+    </ul>
+    <div class="tip">💡 <strong>事前檢查：</strong>出發前確認<strong>線夠長</strong>（比潛點深度長）、充氣閥<strong>沒被沙卡住</strong>、線軸<strong>順暢不卡</strong>——船上 30 秒檢查，水底少一次手忙腳亂。</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">✅</span>小測驗（5 題）</h2>
+    <div class="quiz">
+      <p>1️⃣ DSMB 是什麼時候充氣的？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s1"> 下水前充好拖著走</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s1"> 在水底才充氣，打出水面標示出水點</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s1"> 上岸後才充氣拍照用</label>
+      <div class="fb" id="fbs1"></div>
+      <button class="btn" onclick="showAns('s1a')">看答案</button>
+      <div class="answer" id="s1a">✅ DSMB＝Delayed SMB＝延遲到水底才打</div>
+    </div>
+    <div class="quiz">
+      <p>2️⃣ 打浮力袋充氣時，正確方式？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s2"> 二級頭全開狂灌到最飽</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s2"> 對準充氣閥「短噴、點放」慢慢充</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s2"> 用嘴巴吹到臉紅</label>
+      <div class="fb" id="fbs2"></div>
+      <button class="btn" onclick="showAns('s2a')">看答案</button>
+      <div class="answer" id="s2a">✅ 短噴點放——灌太飽會爆衝甚至爆袋</div>
+    </div>
+    <div class="quiz">
+      <p>3️⃣ 水底打浮力袋前，最重要的確認？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s3"> 頭頂上方沒有其他潛水員</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s3"> 浮力袋顏色夠不夠可愛</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s3"> 相機有沒有開錄影</label>
+      <div class="fb" id="fbs3"></div>
+      <button class="btn" onclick="showAns('s3a')">看答案</button>
+      <div class="answer" id="s3a">✅ 先看上方——別讓氣囊頂到別人（這是最常見的意外）</div>
+    </div>
+    <div class="quiz">
+      <p>4️⃣ 氣囊到水面後，上升時要？</p>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s4"> 拉著線快速衝上水面</label>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s4"> 沿著線慢慢上升，5m 停 3 分鐘</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s4"> 放開線讓它自己飄走</label>
+      <div class="fb" id="fbs4"></div>
+      <button class="btn" onclick="showAns('s4a')">看答案</button>
+      <div class="answer" id="s4a">✅ 沿線慢升＋安全停留——氣囊只是標示，不是電梯</div>
+    </div>
+    <div class="quiz">
+      <p>5️⃣ 哪個是打浮力袋的「事前檢查」？</p>
+      <label data-correct="1" onclick="checkQ(this)"><input type="radio" name="s5"> 線夠長、充氣閥沒卡沙、線軸順暢</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s5"> 氣囊顏色跟今天衣服搭不搭</label>
+      <label data-correct="0" onclick="checkQ(this)"><input type="radio" name="s5"> 線軸有沒有刻名字</label>
+      <div class="fb" id="fbs5"></div>
+      <button class="btn" onclick="showAns('s5a')">看答案</button>
+      <div class="answer" id="s5a">✅ 線長、閥順、軸順——船上 30 秒檢查，水底少一次慌亂</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="icon">📌</span>這章記住 3 件事</h2>
+    <ol>
+      <li><strong>打袋前先看上方</strong>——氣囊頂到人是最常見的意外</li>
+      <li><strong>短噴點放＋線抓好</strong>——充氣別貪飽，線軸別讓它飛走</li>
+      <li><strong>沿線慢升、5m 停 3 分鐘</strong>——浮力袋是給船看的，不是給你搭電梯的</li>
+    </ol>
+    <button class="btn btn-coral" onclick="alert('🎉 恭喜完成浮力袋施放學科！所有 AAD 學科都讀完啦～下水找教練實作！')" style="margin-top:16px;">完成本章 ✅</button>
+    <a class="btn-next" href="aad-index.html">🏠 全部讀完，回目錄</a>
+  </div>
+  <div style="text-align:center; margin:8px 0 0;">
+    <a class="btn-home" href="aad-index.html">🏠 回到目錄首頁</a>
+  </div>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Advanced Adventure Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+</div>
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  });
+  function showAns(id) { document.getElementById(id).classList.add('show'); }
+  function checkQ(el) {
+    var quiz = el.closest('.quiz');
+    var fb = quiz.querySelector('.fb');
+    var labels = quiz.querySelectorAll('label');
+    labels.forEach(function(l) { l.classList.remove('correct', 'wrong'); });
+    if (el.dataset.correct === '1') {
+      el.classList.add('correct');
+      fb.textContent = '✅ 正確！';
+      fb.className = 'fb ok';
+    } else {
+      el.classList.add('wrong');
+      fb.textContent = '❌ 答錯了，再看看上面內容再試';
+      fb.className = 'fb no';
+    }
+  }
+</script>
+</body>
+</html>
