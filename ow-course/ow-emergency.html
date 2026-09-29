@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>緊急程序</title>
 <style>
-  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+    :root { --ocean:#006CB4; --ocean-dark:#203064; --coral:#28A1F0; --sand:#F4F8FC; --ink:#101420; --bubble:#E6F2FA; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
   header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
@@ -41,12 +41,23 @@
   li { margin:6px 0; }
   .step { background:var(--bubble); border-radius:12px; padding:12px 16px; margin:10px 0; }
   .step b { color:var(--ocean); }
+
+  .sdi-plate { display:inline-block; background:#fff; padding:9px 18px; border-radius:12px; margin-bottom:14px; }
+  .sdi-plate img { height:36px; display:block; }
+  .sdi-note { max-width:640px; margin:0 auto; font-size:0.78rem; color:#5b6b7a; line-height:1.6; }
+  .sdi-family { display:inline-block; background:#0B1220; padding:10px 16px; border-radius:12px; margin-bottom:12px; }
+  .sdi-family img { height:42px; display:block; }
+  body { background-image:url(assets/watermark.png); background-repeat:repeat; background-position:center top; }
+  .container { overflow-wrap:anywhere; }
+  table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%; }
+  th, td { white-space:nowrap; }
 </style>
 </head>
 <body>
 <div class="progress" id="progressBar"></div>
 <header>
-  <span class="badge">OW 學科 · 第 11 章</span>
+  <div class="sdi-plate"><img src="assets/sdi_logo.png" alt="SDI Scuba Diving International"></div>
+<span class="badge">OW 學科 · 第 11 章</span>
   <h1>🚨 緊急程序</h1>
   <p>潛水出狀況怎麼辦？先讀過，才不會現場慌</p>
 </header>
@@ -223,10 +234,8 @@
     </div>
   </div>
 
-  <footer>
-    <p>📚 OW 線上學科 · Team Oliver 潛水教學</p>
-    <p>內容依據 SDI Open Water Scuba Diver Manual（v0326）</p>
-  </footer>
+  <footer><p>📚 OW 線上學科 · Team Oliver 潛水教學</p>
+    <p>內容依據 SDI Open Water Scuba Diver Manual（v0326）</p><br><span class="sdi-family"><img src="assets/sdi_family.png" alt="SDI TDI ERDI PFI"></span><br><br><span class="sdi-note">本教材由 SDI 教練 趙立維（Oliver）自行編寫整理，供 SDI 課程學員輔助學習使用；非 SDI 官方出版品。</span></footer>
 </div>
 
 <script>

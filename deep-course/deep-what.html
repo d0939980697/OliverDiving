@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>深潛是什麼</title>
 <style>
-  :root { --ocean:#0b6e99; --ocean-dark:#084e6e; --coral:#ff6b5e; --sand:#f8f4ec; --ink:#1a2b36; --bubble:#e8f4fa; }
+    :root { --ocean:#006CB4; --ocean-dark:#203064; --coral:#28A1F0; --sand:#F4F8FC; --ink:#101420; --bubble:#E6F2FA; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif; background:var(--sand); color:var(--ink); line-height:1.7; padding-bottom:60px; }
   header { background:linear-gradient(135deg,var(--ocean),var(--ocean-dark)); color:white; padding:40px 20px 30px; text-align:center; }
@@ -43,12 +43,23 @@
   th { background:var(--ocean); color:white; padding:8px; }
   td { padding:8px; text-align:center; border-bottom:1px solid #eee; }
   .formula { background:#1a2b36; color:#7ef0c0; padding:16px; border-radius:12px; text-align:center; font-size:1.15rem; font-family:monospace; margin:12px 0; }
+
+  .sdi-plate { display:inline-block; background:#fff; padding:9px 18px; border-radius:12px; margin-bottom:14px; }
+  .sdi-plate img { height:36px; display:block; }
+  .sdi-note { max-width:640px; margin:0 auto; font-size:0.78rem; color:#5b6b7a; line-height:1.6; }
+  .sdi-family { display:inline-block; background:#0B1220; padding:10px 16px; border-radius:12px; margin-bottom:12px; }
+  .sdi-family img { height:42px; display:block; }
+  body { background-image:url(assets/watermark.png); background-repeat:repeat; background-position:center top; }
+  .container { overflow-wrap:anywhere; }
+  table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%; }
+  th, td { white-space:nowrap; }
 </style>
 </head>
 <body>
 <div class="progress" id="progressBar"></div>
 <header>
-  <span class="badge">深潛專長課程 · 第 1 章</span>
+  <div class="sdi-plate"><img src="assets/sdi_logo.png" alt="SDI Scuba Diving International"></div>
+<span class="badge">深潛專長課程 · 第 1 章</span>
   <h1>深潛是什麼</h1>
 </header>
 <div class="container">
@@ -150,7 +161,7 @@
       <a class="btn-home" href="index.html">🏠 回到目錄首頁</a>
     </div>
   </div>
-  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Deep Diver 標準（2026）編寫 · 有問題問你的教練！</footer>
+  <footer>Team Oliver 潛水教學 · 小琉球<br>依據 SDI Deep Diver 標準（2026）編寫 · 有問題問你的教練！<br><span class="sdi-family"><img src="assets/sdi_family.png" alt="SDI TDI ERDI PFI"></span><br><br><span class="sdi-note">本教材由 SDI 教練 趙立維（Oliver）自行編寫整理，供 SDI 課程學員輔助學習使用；非 SDI 官方出版品。</span></footer>
 </div>
 <script>
   window.addEventListener('scroll', function() {
